@@ -2,443 +2,274 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>LeadReply | Never Miss Another Lead</title>
-
+<title>LeadReply | Never Miss a Lead</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* Global Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-body{
-font-family:'Inter',sans-serif;
-color:#1f2937;
-line-height:1.6;
+/* Buttons */
+button.primary {
+  background: #1e3a8a;  /* darker blue */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  margin-right: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button.primary:hover {
+  background: #16265c;
+}
+button.secondary {
+  background: transparent;
+  color: #1e3a8a;
+  border: 2px solid #1e3a8a;
+  padding: 10px 23px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button.secondary:hover {
+  background: #1e3a8a;
+  color: white;
 }
 
-html{
-scroll-behavior:smooth;
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:0 20px;
+/* Hero Left Side */
+.hero .text {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 20px;
+}
+.hero .text h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+.hero .text p {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-section{
-padding:100px 0;
+/* SMS Simulation */
+.phone-sim {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  width: 250px;
+  height: 450px;
+  background: #e5e7eb;
+  border-radius: 30px;
+  border: 2px solid #d1d5db;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.screen {
+  width: 90%;
+  height: 90%;
+  background: white;
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow-y: auto;
+}
+.message {
+  max-width: 80%;
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+.incoming {
+  background: #d1d5db;
+  align-self: flex-start;
+}
+.outgoing {
+  background: #1e3a8a;
+  color: white;
+  align-self: flex-end;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1s;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
-h1{
-font-size:48px;
-margin-bottom:20px;
+/* Pricing Section */
+.pricing {
+  padding: 60px 20px;
+  background: #f9fafb;
+  text-align: center;
+}
+.pricing h2 {
+  font-size: 36px;
+  color: #1e3a8a;
+  margin-bottom: 40px;
+}
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 280px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+.card p {
+  margin-bottom: 15px;
+  color: #374151;
+}
+.card .price {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.card button {
+  width: 100%;
 }
 
-h2{
-font-size:36px;
-margin-bottom:20px;
-text-align:center;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background: #111827;
+  color: white;
+}
+footer a {
+  color: white;
+  margin: 0 10px;
 }
 
-p{
-color:#4b5563;
+/* Responsive */
+@media(max-width:900px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero .text {
+    padding-right: 0;
+    text-align: center;
+  }
+  .phone-sim {
+    margin-top: 30px;
+  }
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
-
-/* NAVBAR */
-
-.navbar{
-position:sticky;
-top:0;
-background:white;
-border-bottom:1px solid #e5e7eb;
-z-index:1000;
-}
-
-.navbar-content{
-display:flex;
-justify-content:space-between;
-align-items:center;
-height:70px;
-}
-
-.logo{
-font-weight:700;
-font-size:20px;
-}
-
-.nav-links a{
-margin-left:20px;
-text-decoration:none;
-color:#374151;
-font-weight:500;
-}
-
-.nav-links a:hover{
-color:#2563eb;
-}
-
-/* HERO */
-
-.hero{
-background:linear-gradient(135deg,#2563eb,#6366f1);
-color:white;
-text-align:center;
-padding:140px 20px;
-}
-
-.hero p{
-color:white;
-max-width:600px;
-margin:auto;
-margin-bottom:30px;
-}
-
-button{
-padding:14px 28px;
-border-radius:8px;
-border:none;
-font-size:16px;
-margin:10px;
-cursor:pointer;
-transition:all .2s ease;
-}
-
-.primary{
-background:white;
-color:#2563eb;
-font-weight:600;
-}
-
-.primary:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 20px rgba(0,0,0,0.15);
-}
-
-.secondary{
-background:transparent;
-border:2px solid white;
-color:white;
-}
-
-.secondary:hover{
-background:white;
-color:#2563eb;
-}
-
-/* CARDS */
-
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:40px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:12px;
-width:260px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:all .2s ease;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-.card h3{
-margin-bottom:10px;
-}
-
-/* MESSAGE BOX */
-
-.message-box{
-background:white;
-padding:30px;
-max-width:500px;
-margin:40px auto;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* PRICING */
-
-.pricing{
-background:#f8fafc;
-}
-
-.price{
-font-size:28px;
-margin:10px 0;
-}
-
-/* CONTACT */
-
-.contact{
-text-align:center;
-}
-
-.contact p{
-margin-bottom:20px;
-}
-
-/* FOOTER */
-
-footer{
-background:#111827;
-color:white;
-padding:40px;
-text-align:center;
-}
-
-footer a{
-color:#9ca3af;
-margin:0 10px;
-text-decoration:none;
-}
-
-footer a:hover{
-color:white;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-h1{
-font-size:36px;
-}
-
-.cards{
-flex-direction:column;
-align-items:center;
-}
-
-.nav-links{
-display:none;
-}
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-<!-- NAVBAR -->
-
-<div class="navbar">
-
-<div class="container navbar-content">
-
-<div class="logo">LeadReply</div>
-
-<div class="nav-links">
-<a href="#features">Features</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- HERO -->
-
+<!-- Hero Section -->
 <section class="hero">
+  <div class="text">
+    <h1>Never Miss Another Lead</h1>
+    <p>LeadReply automatically texts back missed callers in seconds so your business can capture more leads and convert more customers.</p>
+    <button class="primary" onclick="location.href='signup.html'">Start Here</button>
+    <button class="secondary" onclick="location.href='demo.html'">Book Demo</button>
+    <p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
+  </div>
 
-<div class="container">
-
-<h1>Never Miss Another Lead</h1>
-
-<p>
-LeadReply automatically texts back missed callers in seconds so your
-business can capture more leads and convert more customers.
-</p>
-
-<button class="primary">Start Free Trial</button>
-<button class="secondary">Book Demo</button>
-
-<p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
-
-</div>
-
+  <!-- SMS Simulation -->
+  <div class="phone-sim">
+    <div class="screen">
+      <div class="message incoming">
+        <p>Missed call from John Doe</p>
+      </div>
+      <div class="message outgoing">
+        <p>Hi! Sorry we missed your call. How can we help you today?</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- FEATURES -->
-
-<section id="features">
-
-<div class="container">
-
-<h2>Missed Calls = Lost Revenue</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Customers Don't Wait</h3>
-<p>Callers usually contact multiple companies when they need service.</p>
-</div>
-
-<div class="card">
-<h3>No Voicemails</h3>
-<p>Most customers never leave a voicemail when a call is missed.</p>
-</div>
-
-<div class="card">
-<h3>Win More Jobs</h3>
-<p>Instant follow-up dramatically increases lead conversion.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SOLUTION -->
-
+<!-- Pricing Section -->
 <section class="pricing">
-
-<div class="container">
-
-<h2>Automatic Missed Call Text Back</h2>
-
-<p style="text-align:center;">
-LeadReply instantly sends a text message when a call is missed.
-</p>
-
-<div class="message-box">
-
-<strong>Example Message</strong>
-
-<p>
-Hi! Sorry we missed your call. How can we help you today?
-</p>
-
-</div>
-
-</div>
-
+  <h2>Choose Your Plan</h2>
+  <div class="pricing-cards">
+    <div class="card">
+      <h3>Starter</h3>
+      <p class="price">$49 / month</p>
+      <p>100 SMS/month</p>
+      <p>Basic missed-call auto reply</p>
+      <p>Email support</p>
+      <button class="primary" onclick="location.href='signup.html'">Start Here</button>
+    </div>
+    <div class="card">
+      <h3>Pro</h3>
+      <p class="price">$99 / month</p>
+      <p>500 SMS/month</p>
+      <p>Custom SMS templates</p>
+      <p>Phone & Email support</p>
+      <button class="primary" onclick="location.href='signup.html'">Start Here</button>
+    </div>
+    <div class="card">
+      <h3>Premium</h3>
+      <p class="price">$199 / month</p>
+      <p>2000 SMS/month</p>
+      <p>Priority support</p>
+      <p>Multi-user access</p>
+      <button class="primary" onclick="location.href='signup.html'">Start Here</button>
+    </div>
+  </div>
 </section>
 
-
-<!-- HOW IT WORKS -->
-
-<section>
-
-<div class="container">
-
-<h2>How It Works</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>1. Customer Calls</h3>
-<p>A potential customer calls your business.</p>
-</div>
-
-<div class="card">
-<h3>2. Call Is Missed</h3>
-<p>If no one answers, LeadReply detects it.</p>
-</div>
-
-<div class="card">
-<h3>3. Text Sent Instantly</h3>
-<p>An automatic SMS message is sent immediately.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PRICING -->
-
-<section id="pricing" class="pricing">
-
-<div class="container">
-
-<h2>Simple Pricing</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Starter</h3>
-<div class="price">$49/mo</div>
-<p>Up to 500 conversations</p>
-</div>
-
-<div class="card">
-<h3>Growth</h3>
-<div class="price">$99/mo</div>
-<p>Up to 2000 conversations</p>
-</div>
-
-<div class="card">
-<h3>Pro</h3>
-<div class="price">$199/mo</div>
-<p>Unlimited conversations</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<div class="container contact">
-
-<h2>Contact Us</h2>
-
-<p>
-Interested in using LeadReply for your business?
-</p>
-
-<p>
-Email: support@leadreplygroup.com
-</p>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
-
+<!-- Footer -->
 <footer>
-
-<p>© 2026 LeadReply Group</p>
-
-<a href="/privacy-policy.html">Privacy Policy</a>
-<a href="/terms-and-conditions.html">Terms & Conditions</a>
-
+  <p>© 2026 LeadReply Group</p>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms-and-conditions.html">Terms & Conditions</a>
 </footer>
 
-
 </body>
-
 </html>
