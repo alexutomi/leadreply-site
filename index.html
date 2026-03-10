@@ -18,7 +18,7 @@ body {
   background: #f3f4f6;
 }
 a {
-  color: #2563eb;
+  color: #1e3a8a;
   text-decoration: none;
 }
 a:hover {
@@ -32,7 +32,7 @@ a:hover {
 
 /* Buttons */
 button.primary {
-  background: #1e3a8a;  /* darker blue */
+  background: #1e3a8a;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -68,8 +68,6 @@ button.secondary:hover {
   background: #ffffff;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
-
-/* Hero Left Side */
 .hero .text {
   flex: 1;
   min-width: 300px;
@@ -133,10 +131,43 @@ button.secondary:hover {
   to {opacity: 1;}
 }
 
+/* Features Section */
+.features {
+  padding: 60px 20px;
+  background: #f9fafb;
+  text-align: center;
+}
+.features h2 {
+  font-size: 36px;
+  color: #1e3a8a;
+  margin-bottom: 40px;
+}
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.feature {
+  background: white;
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 260px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.feature h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+.feature p {
+  color: #374151;
+}
+
 /* Pricing Section */
 .pricing {
   padding: 60px 20px;
-  background: #f9fafb;
+  background: #ffffff;
   text-align: center;
 }
 .pricing h2 {
@@ -151,7 +182,7 @@ button.secondary:hover {
   gap: 20px;
 }
 .card {
-  background: white;
+  background: #f3f4f6;
   border-radius: 15px;
   padding: 30px 20px;
   width: 280px;
@@ -200,6 +231,7 @@ footer a {
   .phone-sim {
     margin-top: 30px;
   }
+  .feature-grid,
   .pricing-cards {
     flex-direction: column;
     align-items: center;
@@ -233,6 +265,25 @@ footer a {
   </div>
 </section>
 
+<!-- Features Section -->
+<section class="features">
+  <h2>Why Choose LeadReply?</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Instant SMS Replies</h3>
+      <p>Never lose a lead. Your customers get a response immediately after a missed call.</p>
+    </div>
+    <div class="feature">
+      <h3>Automated Follow-Up</h3>
+      <p>Keep your leads warm automatically without lifting a finger.</p>
+    </div>
+    <div class="feature">
+      <h3>Works With Any Business</h3>
+      <p>Roofing, HVAC, Med Spas, and other service businesses love our platform.</p>
+    </div>
+  </div>
+</section>
+
 <!-- Pricing Section -->
 <section class="pricing">
   <h2>Choose Your Plan</h2>
@@ -241,7 +292,7 @@ footer a {
       <h3>Starter</h3>
       <p class="price">$49 / month</p>
       <p>100 SMS/month</p>
-      <p>Basic missed-call auto reply</p>
+      <p>Basic auto-reply</p>
       <p>Email support</p>
       <button class="primary" onclick="location.href='signup.html'">Start Here</button>
     </div>
