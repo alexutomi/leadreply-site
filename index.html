@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,7 +73,8 @@ height:70px;
 
 .logo{
 font-weight:700;
-font-size:20px;
+font-size:22px;
+color:#2563eb;
 }
 
 .nav-links a{
@@ -134,7 +136,7 @@ background:white;
 color:#2563eb;
 }
 
-/* PHONE SIMULATOR */
+/* PHONE */
 
 .phone-container{
 display:flex;
@@ -179,6 +181,29 @@ color:white;
 align-self:flex-end;
 }
 
+/* TRUST */
+
+.trusted{
+background:#f8fafc;
+padding:60px 0;
+text-align:center;
+}
+
+.trusted h3{
+margin-bottom:30px;
+color:#6b7280;
+}
+
+.trusted-logos{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:40px;
+font-weight:600;
+color:#374151;
+font-size:18px;
+}
+
 /* CARDS */
 
 .cards{
@@ -202,19 +227,32 @@ transition:all .2s ease;
 transform:translateY(-5px);
 }
 
-.card h3{
-margin-bottom:10px;
-}
+/* CALCULATOR */
 
-/* MESSAGE BOX */
-
-.message-box{
+.calculator{
 background:white;
-padding:30px;
+padding:40px;
 max-width:500px;
 margin:40px auto;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.calculator input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #d1d5db;
+font-size:16px;
+}
+
+.result{
+font-size:24px;
+font-weight:700;
+margin-top:20px;
+color:#2563eb;
 }
 
 /* PRICING */
@@ -230,7 +268,6 @@ margin:10px 0;
 
 .pricing ul{
 list-style:none;
-padding:0;
 margin:15px 0;
 }
 
@@ -242,10 +279,6 @@ margin-bottom:6px;
 
 .contact{
 text-align:center;
-}
-
-.contact p{
-margin-bottom:20px;
 }
 
 /* FOOTER */
@@ -267,38 +300,16 @@ footer a:hover{
 color:white;
 }
 
-/* MOBILE */
-
-@media(max-width:700px){
-
-h1{
-font-size:36px;
-}
-
-.cards{
-flex-direction:column;
-align-items:center;
-}
-
-.nav-links{
-display:none;
-}
-
-}
-
 </style>
 
 </head>
-
 
 <body>
 
 <!-- NAVBAR -->
 
 <div class="navbar">
-
 <div class="container navbar-content">
-
 <div class="logo">LeadReply</div>
 
 <div class="nav-links">
@@ -308,9 +319,7 @@ display:none;
 </div>
 
 </div>
-
 </div>
-
 
 <!-- HERO -->
 
@@ -321,16 +330,13 @@ display:none;
 <h1>Never Miss Another Lead</h1>
 
 <p>
-LeadReply automatically texts back missed callers in seconds so your
-business can capture more leads and convert more customers.
+LeadReply automatically texts missed callers in seconds so your business captures more leads and wins more jobs.
 </p>
 
 <button class="primary">Start Here</button>
 <button class="secondary">Book Demo</button>
 
 <p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
-
-<!-- PHONE SIMULATOR -->
 
 <div class="phone-container">
 
@@ -356,6 +362,28 @@ Hi! Sorry we missed your call. How can we help you today?
 
 </section>
 
+<!-- TRUST -->
+
+<section class="trusted">
+
+<div class="container">
+
+<h3>Trusted by Local Service Businesses</h3>
+
+<div class="trusted-logos">
+
+<div>HVAC</div>
+<div>Roofing</div>
+<div>Plumbing</div>
+<div>Med Spas</div>
+<div>Dental</div>
+<div>Contractors</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- FEATURES -->
 
@@ -368,18 +396,18 @@ Hi! Sorry we missed your call. How can we help you today?
 <div class="cards">
 
 <div class="card">
-<h3>Customers Don't Wait</h3>
-<p>Callers usually contact multiple companies when they need service.</p>
+<h3>Customers Call Multiple Businesses</h3>
+<p>If you don't answer, they simply call the next company.</p>
 </div>
 
 <div class="card">
-<h3>No Voicemails</h3>
-<p>Most customers never leave a voicemail when a call is missed.</p>
+<h3>Most Callers Don't Leave Voicemail</h3>
+<p>Over 80% of callers hang up instead of leaving a message.</p>
 </div>
 
 <div class="card">
-<h3>Win More Jobs</h3>
-<p>Instant follow-up dramatically increases lead conversion.</p>
+<h3>Speed Wins the Job</h3>
+<p>The first company to respond usually wins the customer.</p>
 </div>
 
 </div>
@@ -387,7 +415,6 @@ Hi! Sorry we missed your call. How can we help you today?
 </div>
 
 </section>
-
 
 <!-- SOLUTION -->
 
@@ -398,23 +425,20 @@ Hi! Sorry we missed your call. How can we help you today?
 <h2>Automatic Missed Call Text Back</h2>
 
 <p style="text-align:center;">
-LeadReply instantly sends a text message when a call is missed.
+LeadReply automatically sends a text message when your business misses a call.
 </p>
 
-<div class="message-box">
+<div class="calculator">
 
 <strong>Example Message</strong>
 
-<p>
-Hi! Sorry we missed your call. How can we help you today?
-</p>
+<p>Hi! Sorry we missed your call. How can we help you today?</p>
 
 </div>
 
 </div>
 
 </section>
-
 
 <!-- HOW IT WORKS -->
 
@@ -427,18 +451,18 @@ Hi! Sorry we missed your call. How can we help you today?
 <div class="cards">
 
 <div class="card">
-<h3>1. Customer Calls</h3>
+<h3>Customer Calls</h3>
 <p>A potential customer calls your business.</p>
 </div>
 
 <div class="card">
-<h3>2. Call Is Missed</h3>
-<p>If no one answers, LeadReply detects it.</p>
+<h3>Call Is Missed</h3>
+<p>If no one answers, LeadReply detects the missed call.</p>
 </div>
 
 <div class="card">
-<h3>3. Text Sent Instantly</h3>
-<p>An automatic SMS message is sent immediately.</p>
+<h3>Instant Text Sent</h3>
+<p>The caller receives an automatic SMS message immediately.</p>
 </div>
 
 </div>
@@ -447,6 +471,31 @@ Hi! Sorry we missed your call. How can we help you today?
 
 </section>
 
+<!-- CALCULATOR -->
+
+<section>
+
+<div class="container">
+
+<h2>How Much Revenue Are Missed Calls Costing You?</h2>
+
+<div class="calculator">
+
+<p>Estimate lost revenue from missed calls.</p>
+
+<input id="missedCalls" type="number" placeholder="Missed calls per week">
+
+<input id="jobValue" type="number" placeholder="Average job value ($)">
+
+<div class="result" id="lostRevenue">
+Lost Revenue: $0 / month
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- PRICING -->
 
@@ -459,7 +508,9 @@ Hi! Sorry we missed your call. How can we help you today?
 <div class="cards">
 
 <div class="card">
+
 <h3>Starter</h3>
+
 <div class="price">$49/mo</div>
 
 <ul>
@@ -475,6 +526,7 @@ Hi! Sorry we missed your call. How can we help you today?
 <div class="card" style="border:2px solid #2563eb">
 
 <h3>Growth</h3>
+
 <div class="price">$99/mo</div>
 
 <ul>
@@ -490,6 +542,7 @@ Hi! Sorry we missed your call. How can we help you today?
 <div class="card">
 
 <h3>Pro</h3>
+
 <div class="price">$199/mo</div>
 
 <ul>
@@ -508,7 +561,6 @@ Hi! Sorry we missed your call. How can we help you today?
 
 </section>
 
-
 <!-- CONTACT -->
 
 <section id="contact">
@@ -517,31 +569,46 @@ Hi! Sorry we missed your call. How can we help you today?
 
 <h2>Contact Us</h2>
 
-<p>
-Interested in using LeadReply for your business?
-</p>
-
-<p>
-Email: support@leadreplygroup.com
-</p>
+<p>Email: support@leadreplygroup.com</p>
 
 </div>
 
 </section>
 
-
 <!-- FOOTER -->
 
 <footer>
 
-<p>© 2026 LeadReply Group</p>
+<p>© 2026 LeadReply</p>
 
-<a href="/privacy-policy.html">Privacy Policy</a>
-<a href="/terms-and-conditions.html">Terms & Conditions</a>
+<a href="/privacy.html">Privacy Policy</a>
+<a href="/terms.html">Terms & Conditions</a>
 
 </footer>
 
+<script>
+
+function calculateRevenue(){
+
+let missed=document.getElementById("missedCalls").value;
+let value=document.getElementById("jobValue").value;
+
+let monthly=missed*value*4;
+
+if(!monthly){
+monthly=0;
+}
+
+document.getElementById("lostRevenue").innerText=
+"Lost Revenue: $"+monthly.toLocaleString()+" / month";
+
+}
+
+document.getElementById("missedCalls").addEventListener("input",calculateRevenue);
+document.getElementById("jobValue").addEventListener("input",calculateRevenue);
+
+</script>
 
 </body>
-
 </html>
+```
