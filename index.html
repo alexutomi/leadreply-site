@@ -10,302 +10,110 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: #1f2937;
-  line-height: 1.6;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-section {
-  padding: 100px 0;
-}
-
-h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-p {
-  color: #4b5563;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; color:#1f2937; line-height:1.6; }
+html { scroll-behavior:smooth; }
+.container { max-width:1100px; margin:auto; padding:0 20px; }
+section { padding:100px 0; }
+h1 { font-size:48px; margin-bottom:20px; }
+h2 { font-size:36px; margin-bottom:20px; text-align:center; }
+p { color:#4b5563; }
 
 /* NAVBAR */
 .navbar {
   position: sticky;
   top: 0;
-  background: white;
+  background: #fff;
   border-bottom: 1px solid #e5e7eb;
-  z-index: 1000;
+  z-index: 10000;
 }
-
 .navbar-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
 }
-
 .logo {
   font-weight: 700;
   font-size: 22px;
   color: #2563eb;
 }
-
 .nav-links a {
   margin-left: 20px;
   text-decoration: none;
   color: #374151;
   font-weight: 500;
 }
-
-.nav-links a:hover {
-  color: #2563eb;
-}
+.nav-links a:hover { color: #2563eb; }
 
 /* HERO */
 .hero {
-  background: linear-gradient(135deg, #2563eb, #6366f1);
-  color: white;
-  text-align: center;
-  padding: 140px 20px;
+  background: linear-gradient(135deg,#2563eb,#6366f1);
+  color:white;
+  text-align:center;
+  padding:140px 20px;
 }
-
-.hero p {
-  color: white;
-  max-width: 600px;
-  margin: auto;
-  margin-bottom: 30px;
-}
+.hero p { color:white; max-width:600px; margin:auto; margin-bottom:30px; }
 
 a.button {
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-size: 16px;
-  margin: 10px;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
+  padding:14px 28px;
+  border-radius:8px;
+  font-size:16px;
+  margin:10px;
+  display:inline-block;
+  text-decoration:none;
+  text-align:center;
   transition: all .2s ease;
 }
-
-.primary {
-  background: white;
-  color: #2563eb;
-  font-weight: 600;
-}
-
-.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.secondary {
-  background: transparent;
-  border: 2px solid white;
-  color: white;
-}
-
-.secondary:hover {
-  background: white;
-  color: #2563eb;
-}
+.primary { background:white; color:#2563eb; font-weight:600; }
+.primary:hover { transform:translateY(-2px); box-shadow:0 10px 20px rgba(0,0,0,0.15); }
+.secondary { background:transparent; border:2px solid white; color:white; }
+.secondary:hover { background:white; color:#2563eb; }
 
 /* PHONE */
-.phone-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.phone {
-  width: 260px;
-  height: 480px;
-  background: #e5e7eb;
-  border-radius: 30px;
-  border: 2px solid #d1d5db;
-  padding: 20px;
-}
-
-.screen {
-  background: white;
-  height: 100%;
-  border-radius: 20px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.msg {
-  padding: 10px 14px;
-  border-radius: 18px;
-  margin-bottom: 10px;
-  max-width: 70%;
-  font-size: 14px;
-}
-
-.incoming {
-  background: #e5e7eb;
-}
-
-.outgoing {
-  background: #2563eb;
-  color: white;
-  align-self: flex-end;
-}
+.phone-container { display:flex; justify-content:center; margin-top:50px; }
+.phone { width:260px; height:480px; background:#e5e7eb; border-radius:30px; border:2px solid #d1d5db; padding:20px; }
+.screen { background:white; height:100%; border-radius:20px; padding:15px; display:flex; flex-direction:column; justify-content:flex-end; }
+.msg { padding:10px 14px; border-radius:18px; margin-bottom:10px; max-width:70%; font-size:14px; }
+.incoming { background:#e5e7eb; }
+.outgoing { background:#2563eb; color:white; align-self:flex-end; }
 
 /* TRUST */
-.trusted {
-  background: #f8fafc;
-  padding: 60px 0;
-  text-align: center;
-}
-
-.trusted h3 {
-  margin-bottom: 30px;
-  color: #6b7280;
-}
-
-.trusted-logos {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  font-weight: 600;
-  color: #374151;
-  font-size: 18px;
-}
+.trusted { background:#f8fafc; padding:60px 0; text-align:center; }
+.trusted h3 { margin-bottom:30px; color:#6b7280; }
+.trusted-logos { display:flex; justify-content:center; flex-wrap:wrap; gap:40px; font-weight:600; color:#374151; font-size:18px; }
 
 /* CARDS */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 40px;
-}
-
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 260px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all .2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
+.cards { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:40px; }
+.card { background:white; padding:30px; border-radius:12px; width:260px; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition:all .2s ease; }
+.card:hover { transform:translateY(-5px); }
 
 /* CALCULATOR */
-.calculator {
-  background: white;
-  padding: 40px;
-  max-width: 500px;
-  margin: 40px auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.calculator input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 16px;
-}
-
-.result {
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 20px;
-  color: #2563eb;
-}
+.calculator { background:white; padding:40px; max-width:500px; margin:40px auto; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.08); text-align:center; }
+.calculator input { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #d1d5db; font-size:16px; }
+.result { font-size:24px; font-weight:700; margin-top:20px; color:#2563eb; }
 
 /* PRICING */
-.pricing {
-  background: #f8fafc;
-}
-
-.price {
-  font-size: 28px;
-  margin: 10px 0;
-}
-
-.pricing ul {
-  list-style: none;
-  margin: 15px 0;
-}
-
-.pricing li {
-  margin-bottom: 6px;
-}
+.pricing { background:#f8fafc; }
+.price { font-size:28px; margin:10px 0; }
+.pricing ul { list-style:none; margin:15px 0; }
+.pricing li { margin-bottom:6px; }
 
 /* CONTACT */
-.contact {
-  text-align: center;
-}
+.contact { text-align:center; }
 
 /* FOOTER */
-footer {
-  background: #111827;
-  color: white;
-  padding: 40px;
-  text-align: center;
-}
-
-footer a {
-  color: #9ca3af;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: white;
-}
+footer { background:#111827; color:white; padding:40px; text-align:center; }
+footer a { color:#9ca3af; margin:0 10px; text-decoration:none; }
+footer a:hover { color:white; }
 
 /* MOBILE */
 @media(max-width:700px) {
-  h1 {
-    font-size: 36px;
-  }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-links {
-    display: none;
-  }
+  h1 { font-size:36px; }
+  .cards { flex-direction:column; align-items:center; }
+  .nav-links { display:none; }
 }
 </style>
-
 </head>
 
 <body>
@@ -326,13 +134,11 @@ footer a:hover {
 <section class="hero">
   <div class="container">
     <h1>Never Miss Another Lead</h1>
-    <p>
-      LeadReply automatically texts missed callers in seconds so your business captures more leads and wins more jobs.
-    </p>
+    <p>LeadReply automatically texts missed callers in seconds so your business captures more leads and wins more jobs.</p>
 
     <!-- BUTTONS -->
-    <a href="lead-form.html" class="button primary">Start Here</a>
-    <a href="/demo" class="button secondary">Book Demo</a>
+    <a href="/lead-form.html" class="button primary">Start Here</a>
+    <a href="/demo/index.html" class="button secondary">Book Demo</a>
 
     <p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
 
@@ -389,9 +195,7 @@ footer a:hover {
 <section class="pricing">
   <div class="container">
     <h2>Automatic Missed Call Text Back</h2>
-    <p style="text-align:center;">
-      LeadReply automatically sends a text message when your business misses a call.
-    </p>
+    <p style="text-align:center;">LeadReply automatically sends a text message when your business misses a call.</p>
     <div class="calculator">
       <strong>Example Message</strong>
       <p>Hi! Sorry we missed your call. How can we help you today?</p>
@@ -447,7 +251,7 @@ footer a:hover {
           <li>Missed call auto reply</li>
           <li>Email support</li>
         </ul>
-        <a href="lead-form.html" class="button primary">Start Here</a>
+        <a href="/lead-form.html" class="button primary">Start Here</a>
       </div>
 
       <div class="card" style="border:2px solid #2563eb">
@@ -458,7 +262,7 @@ footer a:hover {
           <li>Custom text templates</li>
           <li>Priority support</li>
         </ul>
-        <a href="lead-form.html" class="button primary">Start Here</a>
+        <a href="/lead-form.html" class="button primary">Start Here</a>
       </div>
 
       <div class="card">
@@ -469,7 +273,7 @@ footer a:hover {
           <li>Advanced automation</li>
           <li>Priority support</li>
         </ul>
-        <a href="lead-form.html" class="button primary">Start Here</a>
+        <a href="/lead-form.html" class="button primary">Start Here</a>
       </div>
 
     </div>
