@@ -134,6 +134,51 @@ background:white;
 color:#2563eb;
 }
 
+/* PHONE SIMULATOR */
+
+.phone-container{
+display:flex;
+justify-content:center;
+margin-top:50px;
+}
+
+.phone{
+width:260px;
+height:480px;
+background:#e5e7eb;
+border-radius:30px;
+border:2px solid #d1d5db;
+padding:20px;
+}
+
+.screen{
+background:white;
+height:100%;
+border-radius:20px;
+padding:15px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+}
+
+.msg{
+padding:10px 14px;
+border-radius:18px;
+margin-bottom:10px;
+max-width:70%;
+font-size:14px;
+}
+
+.incoming{
+background:#e5e7eb;
+}
+
+.outgoing{
+background:#2563eb;
+color:white;
+align-self:flex-end;
+}
+
 /* CARDS */
 
 .cards{
@@ -181,6 +226,16 @@ background:#f8fafc;
 .price{
 font-size:28px;
 margin:10px 0;
+}
+
+.pricing ul{
+list-style:none;
+padding:0;
+margin:15px 0;
+}
+
+.pricing li{
+margin-bottom:6px;
 }
 
 /* CONTACT */
@@ -270,10 +325,32 @@ LeadReply automatically texts back missed callers in seconds so your
 business can capture more leads and convert more customers.
 </p>
 
-<button class="primary">Start Free Trial</button>
+<button class="primary">Start Here</button>
 <button class="secondary">Book Demo</button>
 
 <p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
+
+<!-- PHONE SIMULATOR -->
+
+<div class="phone-container">
+
+<div class="phone">
+
+<div class="screen">
+
+<div class="msg incoming">
+Missed call from John
+</div>
+
+<div class="msg outgoing">
+Hi! Sorry we missed your call. How can we help you today?
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -384,19 +461,45 @@ Hi! Sorry we missed your call. How can we help you today?
 <div class="card">
 <h3>Starter</h3>
 <div class="price">$49/mo</div>
-<p>Up to 500 conversations</p>
+
+<ul>
+<li>500 conversations</li>
+<li>Missed call auto reply</li>
+<li>Email support</li>
+</ul>
+
+<button class="primary">Start Here</button>
+
 </div>
 
-<div class="card">
+<div class="card" style="border:2px solid #2563eb">
+
 <h3>Growth</h3>
 <div class="price">$99/mo</div>
-<p>Up to 2000 conversations</p>
+
+<ul>
+<li>2000 conversations</li>
+<li>Custom text templates</li>
+<li>Priority support</li>
+</ul>
+
+<button class="primary">Start Here</button>
+
 </div>
 
 <div class="card">
+
 <h3>Pro</h3>
 <div class="price">$199/mo</div>
-<p>Unlimited conversations</p>
+
+<ul>
+<li>Unlimited conversations</li>
+<li>Advanced automation</li>
+<li>Priority support</li>
+</ul>
+
+<button class="primary">Start Here</button>
+
 </div>
 
 </div>
