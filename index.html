@@ -39,33 +39,45 @@ h2{
 p{
   color:#4b5563;
 }
-/* NAVBAR */
-.navbar{
-  position:sticky;
-  top:0;
-  background:white;
-  border-bottom:1px solid #e5e7eb;
-  z-index:1000;
+/* NAVBAR FIXED */
+.navbar {
+  position: fixed; /* use fixed instead of sticky for reliability */
+  top: 0;
+  left: 0;
+  width: 100%; /* make it span the full viewport width */
+  background-color: white; /* ensure background so text is visible */
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 9999; /* make sure it’s on top of everything */
+  display: flex;
+  justify-content: center; /* centers the inner container */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* subtle shadow for visibility */
 }
-.navbar-content{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:70px;
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 20px;
+  height: 70px;
 }
-.logo{
-  font-weight:700;
-  font-size:22px;
-  color:#2563eb;
+
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #2563eb;
 }
-.nav-links a{
-  margin-left:20px;
-  text-decoration:none;
-  color:#374151;
-  font-weight:500;
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
 }
-.nav-links a:hover{
-  color:#2563eb;
+
+.nav-links a:hover {
+  color: #2563eb;
 }
 /* HERO */
 .hero{
