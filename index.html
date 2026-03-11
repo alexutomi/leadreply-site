@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,294 +10,297 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-font-family:'Inter',sans-serif;
-color:#1f2937;
-line-height:1.6;
+  font-family:'Inter',sans-serif;
+  color:#1f2937;
+  line-height:1.6;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:0 20px;
+  max-width:1100px;
+  margin:auto;
+  padding:0 20px;
 }
 
 section{
-padding:100px 0;
+  padding:100px 0;
 }
 
 h1{
-font-size:48px;
-margin-bottom:20px;
+  font-size:48px;
+  margin-bottom:20px;
 }
 
 h2{
-font-size:36px;
-margin-bottom:20px;
-text-align:center;
+  font-size:36px;
+  margin-bottom:20px;
+  text-align:center;
 }
 
 p{
-color:#4b5563;
+  color:#4b5563;
 }
 
 /* NAVBAR */
-
 .navbar{
-position:sticky;
-top:0;
-background:white;
-border-bottom:1px solid #e5e7eb;
-z-index:1000;
+  position:sticky;
+  top:0;
+  background:white;
+  border-bottom:1px solid #e5e7eb;
+  z-index:1000;
 }
 
 .navbar-content{
-display:flex;
-justify-content:space-between;
-align-items:center;
-height:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:70px;
 }
 
 .logo{
-font-weight:700;
-font-size:22px;
-color:#2563eb;
+  font-weight:700;
+  font-size:22px;
+  color:#2563eb;
 }
 
 .nav-links a{
-margin-left:20px;
-text-decoration:none;
-color:#374151;
-font-weight:500;
+  margin-left:20px;
+  text-decoration:none;
+  color:#374151;
+  font-weight:500;
 }
 
 .nav-links a:hover{
-color:#2563eb;
+  color:#2563eb;
 }
 
 /* HERO */
-
 .hero{
-background:linear-gradient(135deg,#2563eb,#6366f1);
-color:white;
-text-align:center;
-padding:140px 20px;
+  background:linear-gradient(135deg,#2563eb,#6366f1);
+  color:white;
+  text-align:center;
+  padding:140px 20px;
 }
 
 .hero p{
-color:white;
-max-width:600px;
-margin:auto;
-margin-bottom:30px;
+  color:white;
+  max-width:600px;
+  margin:auto;
+  margin-bottom:30px;
 }
 
 button{
-padding:14px 28px;
-border-radius:8px;
-border:none;
-font-size:16px;
-margin:10px;
-cursor:pointer;
-transition:all .2s ease;
+  padding:14px 28px;
+  border-radius:8px;
+  border:none;
+  font-size:16px;
+  margin:10px;
+  cursor:pointer;
+  transition:all .2s ease;
 }
 
 .primary{
-background:white;
-color:#2563eb;
-font-weight:600;
+  background:white;
+  color:#2563eb;
+  font-weight:600;
 }
 
 .primary:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
 .secondary{
-background:transparent;
-border:2px solid white;
-color:white;
+  background:transparent;
+  border:2px solid white;
+  color:white;
 }
 
 .secondary:hover{
-background:white;
-color:#2563eb;
+  background:white;
+  color:#2563eb;
 }
 
 /* PHONE */
-
 .phone-container{
-display:flex;
-justify-content:center;
-margin-top:50px;
+  display:flex;
+  justify-content:center;
+  margin-top:50px;
 }
 
 .phone{
-width:260px;
-height:480px;
-background:#e5e7eb;
-border-radius:30px;
-border:2px solid #d1d5db;
-padding:20px;
+  width:260px;
+  height:480px;
+  background:#e5e7eb;
+  border-radius:30px;
+  border:2px solid #d1d5db;
+  padding:20px;
 }
 
 .screen{
-background:white;
-height:100%;
-border-radius:20px;
-padding:15px;
-display:flex;
-flex-direction:column;
-justify-content:flex-end;
+  background:white;
+  height:100%;
+  border-radius:20px;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
 }
 
 .msg{
-padding:10px 14px;
-border-radius:18px;
-margin-bottom:10px;
-max-width:70%;
-font-size:14px;
+  padding:10px 14px;
+  border-radius:18px;
+  margin-bottom:10px;
+  max-width:70%;
+  font-size:14px;
 }
 
 .incoming{
-background:#e5e7eb;
+  background:#e5e7eb;
 }
 
 .outgoing{
-background:#2563eb;
-color:white;
-align-self:flex-end;
+  background:#2563eb;
+  color:white;
+  align-self:flex-end;
 }
 
 /* TRUST */
-
 .trusted{
-background:#f8fafc;
-padding:60px 0;
-text-align:center;
+  background:#f8fafc;
+  padding:60px 0;
+  text-align:center;
 }
 
 .trusted h3{
-margin-bottom:30px;
-color:#6b7280;
+  margin-bottom:30px;
+  color:#6b7280;
 }
 
 .trusted-logos{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:40px;
-font-weight:600;
-color:#374151;
-font-size:18px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:40px;
+  font-weight:600;
+  color:#374151;
+  font-size:18px;
 }
 
 /* CARDS */
-
 .cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:40px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  margin-top:40px;
 }
 
 .card{
-background:white;
-padding:30px;
-border-radius:12px;
-width:260px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:all .2s ease;
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  width:260px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:all .2s ease;
 }
 
 .card:hover{
-transform:translateY(-5px);
+  transform:translateY(-5px);
 }
 
 /* CALCULATOR */
-
 .calculator{
-background:white;
-padding:40px;
-max-width:500px;
-margin:40px auto;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-text-align:center;
+  background:white;
+  padding:40px;
+  max-width:500px;
+  margin:40px auto;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  text-align:center;
 }
 
 .calculator input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:8px;
-border:1px solid #d1d5db;
-font-size:16px;
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #d1d5db;
+  font-size:16px;
 }
 
 .result{
-font-size:24px;
-font-weight:700;
-margin-top:20px;
-color:#2563eb;
+  font-size:24px;
+  font-weight:700;
+  margin-top:20px;
+  color:#2563eb;
 }
 
 /* PRICING */
-
 .pricing{
-background:#f8fafc;
+  background:#f8fafc;
 }
 
 .price{
-font-size:28px;
-margin:10px 0;
+  font-size:28px;
+  margin:10px 0;
 }
 
 .pricing ul{
-list-style:none;
-margin:15px 0;
+  list-style:none;
+  margin:15px 0;
 }
 
 .pricing li{
-margin-bottom:6px;
+  margin-bottom:6px;
 }
 
 /* CONTACT */
-
 .contact{
-text-align:center;
+  text-align:center;
 }
 
 /* FOOTER */
-
 footer{
-background:#111827;
-color:white;
-padding:40px;
-text-align:center;
+  background:#111827;
+  color:white;
+  padding:40px;
+  text-align:center;
 }
 
 footer a{
-color:#9ca3af;
-margin:0 10px;
-text-decoration:none;
+  color:#9ca3af;
+  margin:0 10px;
+  text-decoration:none;
 }
 
 footer a:hover{
-color:white;
+  color:white;
 }
 
+/* MOBILE */
+@media(max-width:700px){
+  h1{
+    font-size:36px;
+  }
+  .cards{
+    flex-direction:column;
+    align-items:center;
+  }
+  .nav-links{
+    display:none;
+  }
+}
 </style>
 
 </head>
@@ -306,317 +308,190 @@ color:white;
 <body>
 
 <!-- NAVBAR -->
-
 <div class="navbar">
-<div class="container navbar-content">
-<div class="logo">LeadReply</div>
-
-<div class="nav-links">
-<a href="#features">Features</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
-</div>
-
-</div>
+  <div class="container navbar-content">
+    <div class="logo">LeadReply</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </div>
 
 <!-- HERO -->
-
 <section class="hero">
+  <div class="container">
+    <h1>Never Miss Another Lead</h1>
+    <p>LeadReply automatically texts missed callers in seconds so your business captures more leads and wins more jobs.</p>
 
-<div class="container">
+    <!-- Updated buttons -->
+    <button class="primary" onclick="window.location.href='lead-form.html'">Start Here</button>
+    <button class="secondary" onclick="window.location.href='/demo'">Book Demo</button>
 
-<h1>Never Miss Another Lead</h1>
+    <p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
 
-<p>
-LeadReply automatically texts missed callers in seconds so your business captures more leads and wins more jobs.
-</p>
+    <div class="phone-container">
+      <div class="phone">
+        <div class="screen">
+          <div class="msg incoming">Missed call from John</div>
+          <div class="msg outgoing">Hi! Sorry we missed your call. How can we help you today?</div>
+        </div>
+      </div>
+    </div>
 
-<a href="/start.html">
-<button class="primary">Start Here</button>
-</a>
-
-<button class="secondary">Book Demo</button>
-
-<p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
-
-<div class="phone-container">
-
-<div class="phone">
-
-<div class="screen">
-
-<div class="msg incoming">
-Missed call from John
-</div>
-
-<div class="msg outgoing">
-Hi! Sorry we missed your call. How can we help you today?
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- TRUST -->
-
 <section class="trusted">
-
-<div class="container">
-
-<h3>Trusted by Local Service Businesses</h3>
-
-<div class="trusted-logos">
-
-<div>HVAC</div>
-<div>Roofing</div>
-<div>Plumbing</div>
-<div>Med Spas</div>
-<div>Dental</div>
-<div>Contractors</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <h3>Trusted by Local Service Businesses</h3>
+    <div class="trusted-logos">
+      <div>HVAC</div>
+      <div>Roofing</div>
+      <div>Plumbing</div>
+      <div>Med Spas</div>
+      <div>Dental</div>
+      <div>Contractors</div>
+    </div>
+  </div>
 </section>
 
 <!-- FEATURES -->
-
 <section id="features">
-
-<div class="container">
-
-<h2>Missed Calls = Lost Revenue</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Customers Call Multiple Businesses</h3>
-<p>If you don't answer, they simply call the next company.</p>
-</div>
-
-<div class="card">
-<h3>Most Callers Don't Leave Voicemail</h3>
-<p>Over 80% of callers hang up instead of leaving a message.</p>
-</div>
-
-<div class="card">
-<h3>Speed Wins the Job</h3>
-<p>The first company to respond usually wins the customer.</p>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <h2>Missed Calls = Lost Revenue</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Customers Call Multiple Businesses</h3>
+        <p>If you don't answer, they simply call the next company.</p>
+      </div>
+      <div class="card">
+        <h3>Most Callers Don't Leave Voicemail</h3>
+        <p>Over 80% of callers hang up instead of leaving a message.</p>
+      </div>
+      <div class="card">
+        <h3>Speed Wins the Job</h3>
+        <p>The first company to respond usually wins the customer.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SOLUTION -->
-
 <section class="pricing">
+  <div class="container">
+    <h2>Automatic Missed Call Text Back</h2>
+    <p style="text-align:center;">LeadReply automatically sends a text message when your business misses a call.</p>
 
-<div class="container">
-
-<h2>Automatic Missed Call Text Back</h2>
-
-<p style="text-align:center;">
-LeadReply automatically sends a text message when your business misses a call.
-</p>
-
-<div class="calculator">
-
-<strong>Example Message</strong>
-
-<p>Hi! Sorry we missed your call. How can we help you today?</p>
-
-</div>
-
-</div>
-
+    <div class="calculator">
+      <strong>Example Message</strong>
+      <p>Hi! Sorry we missed your call. How can we help you today?</p>
+    </div>
+  </div>
 </section>
 
 <!-- HOW IT WORKS -->
-
 <section>
-
-<div class="container">
-
-<h2>How It Works</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Customer Calls</h3>
-<p>A potential customer calls your business.</p>
-</div>
-
-<div class="card">
-<h3>Call Is Missed</h3>
-<p>If no one answers, LeadReply detects the missed call.</p>
-</div>
-
-<div class="card">
-<h3>Instant Text Sent</h3>
-<p>The caller receives an automatic SMS message immediately.</p>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Customer Calls</h3>
+        <p>A potential customer calls your business.</p>
+      </div>
+      <div class="card">
+        <h3>Call Is Missed</h3>
+        <p>If no one answers, LeadReply detects the missed call.</p>
+      </div>
+      <div class="card">
+        <h3>Instant Text Sent</h3>
+        <p>The caller receives an automatic SMS message immediately.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CALCULATOR -->
-
 <section>
-
-<div class="container">
-
-<h2>How Much Revenue Are Missed Calls Costing You?</h2>
-
-<div class="calculator">
-
-<p>Estimate lost revenue from missed calls.</p>
-
-<input id="missedCalls" type="number" placeholder="Missed calls per week">
-
-<input id="jobValue" type="number" placeholder="Average job value ($)">
-
-<div class="result" id="lostRevenue">
-Lost Revenue: $0 / month
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <h2>How Much Revenue Are Missed Calls Costing You?</h2>
+    <div class="calculator">
+      <p>Estimate lost revenue from missed calls.</p>
+      <input id="missedCalls" type="number" placeholder="Missed calls per week">
+      <input id="jobValue" type="number" placeholder="Average job value ($)">
+      <div class="result" id="lostRevenue">Lost Revenue: $0 / month</div>
+    </div>
+  </div>
 </section>
 
 <!-- PRICING -->
-
 <section id="pricing" class="pricing">
-
-<div class="container">
-
-<h2>Simple Pricing</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>Starter</h3>
-
-<div class="price">$49/mo</div>
-
-<ul>
-<li>500 conversations</li>
-<li>Missed call auto reply</li>
-<li>Email support</li>
-</ul>
-
-<a href="/start.html">
-<button class="primary">Start Here</button>
-</a>
-
-</div>
-
-<div class="card" style="border:2px solid #2563eb">
-
-<h3>Growth</h3>
-
-<div class="price">$99/mo</div>
-
-<ul>
-<li>2000 conversations</li>
-<li>Custom text templates</li>
-<li>Priority support</li>
-</ul>
-
-<a href="/start.html">
-<button class="primary">Start Here</button>
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>Pro</h3>
-
-<div class="price">$199/mo</div>
-
-<ul>
-<li>Unlimited conversations</li>
-<li>Advanced automation</li>
-<li>Priority support</li>
-</ul>
-
-<a href="/start.html">
-<button class="primary">Start Here</button>
-</a>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <h2>Simple Pricing</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Starter</h3>
+        <div class="price">$49/mo</div>
+        <ul>
+          <li>500 conversations</li>
+          <li>Missed call auto reply</li>
+          <li>Email support</li>
+        </ul>
+        <button class="primary" onclick="window.location.href='lead-form.html'">Start Here</button>
+      </div>
+      <div class="card" style="border:2px solid #2563eb">
+        <h3>Growth</h3>
+        <div class="price">$99/mo</div>
+        <ul>
+          <li>2000 conversations</li>
+          <li>Custom text templates</li>
+          <li>Priority support</li>
+        </ul>
+        <button class="primary" onclick="window.location.href='lead-form.html'">Start Here</button>
+      </div>
+      <div class="card">
+        <h3>Pro</h3>
+        <div class="price">$199/mo</div>
+        <ul>
+          <li>Unlimited conversations</li>
+          <li>Advanced automation</li>
+          <li>Priority support</li>
+        </ul>
+        <button class="primary" onclick="window.location.href='lead-form.html'">Start Here</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact">
-
-<div class="container contact">
-
-<h2>Contact Us</h2>
-
-<p>Email: support@leadreplygroup.com</p>
-
-</div>
-
+  <div class="container contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@leadreplygroup.com</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
-
 <footer>
-
-<p>© 2026 LeadReply</p>
-
-<a href="/privacy.html">Privacy Policy</a>
-<a href="/terms.html">Terms & Conditions</a>
-
+  <p>© 2026 LeadReply</p>
+  <a href="/privacy.html">Privacy Policy</a>
+  <a href="/terms.html">Terms & Conditions</a>
 </footer>
 
 <script>
-
 function calculateRevenue(){
-
-let missed=document.getElementById("missedCalls").value;
-let value=document.getElementById("jobValue").value;
-
-let monthly=missed*value*4;
-
-if(!monthly){
-monthly=0;
+  let missed=document.getElementById("missedCalls").value;
+  let value=document.getElementById("jobValue").value;
+  let monthly=missed*value*4;
+  if(!monthly) monthly=0;
+  document.getElementById("lostRevenue").innerText=
+    "Lost Revenue: $"+monthly.toLocaleString()+" / month";
 }
-
-document.getElementById("lostRevenue").innerText=
-"Lost Revenue: $"+monthly.toLocaleString()+" / month";
-
-}
-
 document.getElementById("missedCalls").addEventListener("input",calculateRevenue);
 document.getElementById("jobValue").addEventListener("input",calculateRevenue);
-
 </script>
 
 </body>
 </html>
-```
