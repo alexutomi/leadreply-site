@@ -1,345 +1,382 @@
-<!DOCTYPE html>
-<html lang="en">
+export default function Home() {
+  return (
+    <main style={{fontFamily:"Inter, sans-serif", lineHeight:1.6}}>
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LeadReply | Never Miss a Lead</title>
+      {/* HERO */}
+      <section style={{
+        padding:"120px 20px",
+        textAlign:"center",
+        background:"linear-gradient(135deg,#2563eb,#6366f1)",
+        color:"white"
+      }}>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <h1 style={{fontSize:"48px", marginBottom:"20px"}}>
+          Never Miss Another Lead
+        </h1>
 
-<style>
+        <p style={{fontSize:"20px", maxWidth:"700px", margin:"0 auto 30px"}}>
+          LeadReply automatically texts back missed callers in seconds so your
+          business can capture more leads and close more customers.
+        </p>
 
-body{
-font-family:'Inter',sans-serif;
-margin:0;
-background:#f3f4f6;
-color:#1f2937;
+        <div>
+          <button style={buttonPrimary}>
+            Start Here
+          </button>
+
+          <button style={buttonSecondary}>
+            Book Demo
+          </button>
+        </div>
+
+        <p style={{marginTop:"25px", opacity:.9}}>
+          Built for Roofing, HVAC, Med Spas, and Local Service Businesses
+        </p>
+
+        {/* PHONE TEXT SIMULATOR */}
+        <div style={phoneContainer}>
+
+          <div style={phone}>
+
+            <div style={screen}>
+
+              <div style={incomingMsg}>
+                Missed call from John
+              </div>
+
+              <div style={outgoingMsg}>
+                Hi! Sorry we missed your call. How can we help you today?
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* PROBLEM */}
+      <section style={sectionStyle}>
+        <h2 style={sectionTitle}>Missed Calls = Lost Revenue</h2>
+
+        <p style={sectionText}>
+          When a potential customer calls your business and no one answers,
+          they usually move on to the next company. Most callers never leave
+          a voicemail.
+        </p>
+
+        <div style={cardContainer}>
+
+          <div style={card}>
+            <h3>Customers Don't Wait</h3>
+            <p>Most callers contact multiple businesses when they need service.</p>
+          </div>
+
+          <div style={card}>
+            <h3>Voicemails Are Rare</h3>
+            <p>Over 80% of callers hang up without leaving a voicemail.</p>
+          </div>
+
+          <div style={card}>
+            <h3>Competitors Respond Faster</h3>
+            <p>If they answer first, they usually win the job.</p>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* SOLUTION */}
+      <section style={{...sectionStyle, background:"#f8fafc"}}>
+
+        <h2 style={sectionTitle}>Automatic Missed Call Text Back</h2>
+
+        <p style={sectionText}>
+          LeadReply instantly sends a text message when a call is missed,
+          allowing your team to reconnect with leads before competitors do.
+        </p>
+
+        <div style={messageBox}>
+
+          <p>
+            <strong>Auto Message:</strong><br/>
+            Hi! Sorry we missed your call. How can we help you today?
+          </p>
+
+        </div>
+
+      </section>
+
+
+      {/* HOW IT WORKS */}
+      <section style={sectionStyle}>
+
+        <h2 style={sectionTitle}>How It Works</h2>
+
+        <div style={cardContainer}>
+
+          <div style={card}>
+            <h3>1. Customer Calls</h3>
+            <p>A potential customer calls your business.</p>
+          </div>
+
+          <div style={card}>
+            <h3>2. Call Is Missed</h3>
+            <p>If the call goes unanswered, LeadReply detects it instantly.</p>
+          </div>
+
+          <div style={card}>
+            <h3>3. Text Is Sent</h3>
+            <p>The customer receives an automatic text message in seconds.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* PRICING */}
+      <section style={{...sectionStyle, background:"#f8fafc"}}>
+
+        <h2 style={sectionTitle}>Simple Pricing</h2>
+
+        <div style={cardContainer}>
+
+          <div style={pricingCard}>
+
+            <h3>Starter</h3>
+            <h2>$49/mo</h2>
+
+            <ul style={priceList}>
+              <li>500 conversations</li>
+              <li>Missed call auto reply</li>
+              <li>Email support</li>
+            </ul>
+
+            <button style={buttonPrimary}>
+              Start Here
+            </button>
+
+          </div>
+
+
+          <div style={{...pricingCard, border:"2px solid #2563eb"}}>
+
+            <h3>Growth</h3>
+            <h2>$99/mo</h2>
+
+            <ul style={priceList}>
+              <li>2000 conversations</li>
+              <li>Custom text templates</li>
+              <li>Priority support</li>
+            </ul>
+
+            <button style={buttonPrimary}>
+              Start Here
+            </button>
+
+          </div>
+
+
+          <div style={pricingCard}>
+
+            <h3>Pro</h3>
+            <h2>$199/mo</h2>
+
+            <ul style={priceList}>
+              <li>Unlimited conversations</li>
+              <li>Advanced automation</li>
+              <li>Priority support</li>
+            </ul>
+
+            <button style={buttonPrimary}>
+              Start Here
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* CTA */}
+      <section style={{
+        padding:"120px 20px",
+        textAlign:"center",
+        background:"#111827",
+        color:"white"
+      }}>
+
+        <h2 style={{fontSize:"36px", marginBottom:"20px"}}>
+          Stop Losing Leads Today
+        </h2>
+
+        <button style={buttonPrimary}>
+          Start Here
+        </button>
+
+      </section>
+
+
+      {/* FOOTER */}
+      <footer style={{
+        padding:"40px",
+        textAlign:"center",
+        background:"#f1f5f9"
+      }}>
+
+        <p>© {new Date().getFullYear()} LeadReply Group</p>
+
+        <div style={{marginTop:"10px"}}>
+
+          <a href="/privacy-policy" style={footerLink}>
+            Privacy Policy
+          </a>
+
+          <a href="/terms-and-conditions" style={footerLink}>
+            Terms & Conditions
+          </a>
+
+          <a href="/contact" style={footerLink}>
+            Contact
+          </a>
+
+        </div>
+
+      </footer>
+
+    </main>
+  )
 }
 
-/* Header */
-.header{
-background:#2563eb;
-color:white;
-text-align:center;
-padding:18px;
-font-size:26px;
-font-weight:700;
+
+/* PHONE SIMULATOR */
+
+const phoneContainer = {
+  marginTop:"50px",
+  display:"flex",
+  justifyContent:"center"
 }
 
-/* Hero */
-
-.hero{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-justify-content:space-between;
-padding:60px 20px;
-background:white;
+const phone = {
+  width:"260px",
+  height:"480px",
+  background:"#e5e7eb",
+  borderRadius:"30px",
+  border:"2px solid #d1d5db",
+  padding:"20px"
 }
 
-.hero-text{
-flex:1;
-min-width:300px;
+const screen = {
+  background:"white",
+  height:"100%",
+  borderRadius:"20px",
+  padding:"15px",
+  display:"flex",
+  flexDirection:"column",
+  justifyContent:"flex-end"
 }
 
-.hero-text h1{
-font-size:42px;
-margin-bottom:20px;
+const incomingMsg = {
+  background:"#e5e7eb",
+  padding:"10px 14px",
+  borderRadius:"18px",
+  marginBottom:"10px",
+  maxWidth:"70%"
 }
 
-.hero-text p{
-font-size:18px;
-margin-bottom:20px;
+const outgoingMsg = {
+  background:"#2563eb",
+  color:"white",
+  padding:"10px 14px",
+  borderRadius:"18px",
+  maxWidth:"70%",
+  alignSelf:"flex-end"
 }
 
-button{
-padding:12px 25px;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-border:none;
+
+/* GENERAL STYLES */
+
+const sectionStyle = {
+  padding:"100px 20px",
+  textAlign:"center"
 }
 
-.primary{
-background:#2563eb;
-color:white;
-margin-right:10px;
+const sectionTitle = {
+  fontSize:"36px",
+  marginBottom:"20px"
 }
 
-.secondary{
-background:white;
-border:2px solid #2563eb;
-color:#2563eb;
+const sectionText = {
+  maxWidth:"700px",
+  margin:"0 auto 40px"
 }
 
-/* Phone */
-
-.phone{
-width:260px;
-height:480px;
-background:#e5e7eb;
-border-radius:30px;
-border:2px solid #d1d5db;
-display:flex;
-align-items:center;
-justify-content:center;
+const cardContainer = {
+  display:"flex",
+  gap:"30px",
+  justifyContent:"center",
+  flexWrap:"wrap"
 }
 
-.screen{
-width:90%;
-height:90%;
-background:white;
-border-radius:20px;
-padding:15px;
-display:flex;
-flex-direction:column;
-justify-content:flex-end;
+const card = {
+  background:"white",
+  padding:"30px",
+  borderRadius:"10px",
+  width:"260px",
+  boxShadow:"0 10px 25px rgba(0,0,0,.08)"
 }
 
-.message{
-padding:10px 15px;
-border-radius:20px;
-max-width:80%;
-margin:5px 0;
-font-size:14px;
+const pricingCard = {
+  background:"white",
+  padding:"40px",
+  borderRadius:"12px",
+  width:"260px",
+  boxShadow:"0 10px 30px rgba(0,0,0,.1)"
 }
 
-.incoming{
-background:#e5e7eb;
-align-self:flex-start;
+const priceList = {
+  listStyle:"none",
+  padding:"0",
+  marginBottom:"20px"
 }
 
-.outgoing{
-background:#2563eb;
-color:white;
-align-self:flex-end;
+const messageBox = {
+  background:"white",
+  padding:"30px",
+  borderRadius:"10px",
+  maxWidth:"500px",
+  margin:"30px auto",
+  boxShadow:"0 10px 25px rgba(0,0,0,.1)"
 }
 
-/* Features */
-
-.features{
-text-align:center;
-padding:60px 20px;
-background:#f9fafb;
+const buttonPrimary = {
+  background:"#2563eb",
+  color:"white",
+  border:"none",
+  padding:"15px 28px",
+  fontSize:"16px",
+  borderRadius:"8px",
+  margin:"10px",
+  cursor:"pointer"
 }
 
-.features h2{
-font-size:36px;
-margin-bottom:40px;
+const buttonSecondary = {
+  background:"white",
+  color:"#2563eb",
+  border:"none",
+  padding:"15px 28px",
+  fontSize:"16px",
+  borderRadius:"8px",
+  margin:"10px",
+  cursor:"pointer"
 }
 
-.feature-grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
+const footerLink = {
+  margin:"0 10px",
+  color:"#2563eb",
+  textDecoration:"none"
 }
-
-.feature{
-background:white;
-padding:30px;
-border-radius:12px;
-width:250px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
-}
-
-/* Pricing */
-
-.pricing{
-text-align:center;
-padding:60px 20px;
-background:white;
-}
-
-.pricing h2{
-font-size:36px;
-margin-bottom:40px;
-}
-
-.pricing-grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-}
-
-.plan{
-background:#f3f4f6;
-padding:30px;
-border-radius:12px;
-width:260px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
-}
-
-.price{
-font-size:30px;
-font-weight:600;
-margin:15px 0;
-}
-
-/* Footer */
-
-footer{
-text-align:center;
-padding:30px;
-background:#111827;
-color:white;
-}
-
-footer a{
-color:white;
-margin:0 10px;
-}
-
-/* Mobile */
-
-@media(max-width:900px){
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-.phone{
-margin-top:40px;
-}
-
-}
-
-</style>
-</head>
-
-
-<body>
-
-<!-- Header -->
-
-<div class="header">
-LeadReply
-</div>
-
-
-<!-- Hero -->
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h1>Never Miss Another Lead</h1>
-
-<p>
-LeadReply automatically texts back missed callers in seconds so your business
-can capture more leads and convert more customers.
-</p>
-
-<button class="primary" onclick="location.href='signup.html'">Start Here</button>
-
-<button class="secondary" onclick="location.href='demo.html'">Book Demo</button>
-
-<p>Built for Roofing, HVAC, Med Spas, and Local Service Businesses</p>
-
-</div>
-
-
-<div class="phone">
-
-<div class="screen">
-
-<div class="message incoming">
-Missed call from John Doe
-</div>
-
-<div class="message outgoing">
-Hi! Sorry we missed your call. How can we help you today?
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- Features -->
-
-<section class="features">
-
-<h2>Why Choose LeadReply?</h2>
-
-<div class="feature-grid">
-
-<div class="feature">
-<h3>Instant SMS Replies</h3>
-<p>Never lose a lead again. Customers get an immediate response.</p>
-</div>
-
-<div class="feature">
-<h3>Automated Follow-Ups</h3>
-<p>Keep leads engaged automatically without manual work.</p>
-</div>
-
-<div class="feature">
-<h3>Works With Any Business</h3>
-<p>Perfect for roofing, HVAC, med spas, and service companies.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- Pricing -->
-
-<section class="pricing">
-
-<h2>Choose Your Plan</h2>
-
-<div class="pricing-grid">
-
-<div class="plan">
-<h3>Starter</h3>
-<div class="price">$49/mo</div>
-<p>100 SMS / month</p>
-<p>Basic missed call auto reply</p>
-<p>Email support</p>
-<button class="primary">Start Here</button>
-</div>
-
-<div class="plan">
-<h3>Pro</h3>
-<div class="price">$99/mo</div>
-<p>500 SMS / month</p>
-<p>Custom SMS templates</p>
-<p>Phone support</p>
-<button class="primary">Start Here</button>
-</div>
-
-<div class="plan">
-<h3>Premium</h3>
-<div class="price">$199/mo</div>
-<p>2000 SMS / month</p>
-<p>Priority support</p>
-<p>Multi-user access</p>
-<button class="primary">Start Here</button>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- Footer -->
-
-<footer>
-
-<p>© 2026 LeadReply</p>
-
-<a href="privacy-policy.html">Privacy Policy</a>
-
-<a href="terms-and-conditions.html">Terms & Conditions</a>
-
-</footer>
-
-</body>
-</html>
