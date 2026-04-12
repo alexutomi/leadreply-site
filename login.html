@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login | LeadReply</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -70,6 +69,7 @@ body{
   font-size:16px;
   font-weight:600;
   cursor:pointer;
+  font-family:inherit;
   transition:all .2s;
   margin-top:8px;
 }
@@ -90,7 +90,11 @@ body{
   font-size:13px;
   color:#6b7280;
 }
-.footer-link a{color:#2563eb;text-decoration:none;font-weight:600;}
+.footer-link a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:600;
+}
 </style>
 </head>
 <body>
@@ -110,17 +114,24 @@ body{
     <input type="password" id="password" placeholder="••••••••">
   </div>
 
-  <button class="btn" id="loginBtn" onclick="login()">Sign In</button>
+  <button class="btn" id="loginBtn">Sign In</button>
 
   <div class="footer-link">
     <a href="index.html">← Back to homepage</a>
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL = 'https://rxnftfnknqhcuvzqmbpu.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function showError(msg){
+  const el = document.getElementById('errorMsg');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
 
 async function login(){
   const email    = document.getElementById('email').value.trim();
@@ -161,17 +172,9 @@ async function login(){
     window.location.href = 'admin-dashboard.html';
   } else if(role === 'agency'){
     window.location.href = 'agency-dashboard.html';
-  } else if(role === 'business'){
-    window.location.href = 'business-dashboard.html';
   } else {
-    window.location.href = 'agency-dashboard.html';
+    window.location.href = 'business-dashboard.html';
   }
-}
-
-function showError(msg){
-  const el = document.getElementById('errorMsg');
-  el.textContent = msg;
-  el.style.display = 'block';
 }
 
 // Allow pressing Enter to submit
@@ -188,11 +191,14 @@ supabase.auth.getSession().then(async ({ data }) => {
       .eq('user_id', data.session.user.id)
       .single();
     const role = roleData?.role || 'agency';
-    if(role === 'admin') window.location.href = 'admin-dashboard.html';
+    if(role === 'admin')       window.location.href = 'admin-dashboard.html';
     else if(role === 'agency') window.location.href = 'agency-dashboard.html';
-    else window.location.href = 'business-dashboard.html';
+    else                       window.location.href = 'business-dashboard.html';
   }
 });
+
+// Attach button click AFTER scripts are loaded
+document.getElementById('loginBtn').addEventListener('click', login);
 </script>
 </body>
 </html>
