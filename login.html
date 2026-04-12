@@ -123,82 +123,85 @@ body{
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL = 'https://rxnftfnknqhcuvzqmbpu.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+(function() {
+  var SUPABASE_URL = 'https://rxnftfnknqhcuvzqmbpu.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-function showError(msg){
-  const el = document.getElementById('errorMsg');
-  el.textContent = msg;
-  el.style.display = 'block';
-}
-
-async function login(){
-  const email    = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
-  const btn      = document.getElementById('loginBtn');
-  const errorMsg = document.getElementById('errorMsg');
-
-  errorMsg.style.display = 'none';
-
-  if(!email || !password){
-    showError('Please enter your email and password.');
-    return;
+  function showError(msg) {
+    var el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.style.display = 'block';
   }
 
-  btn.textContent = 'Signing in...';
-  btn.disabled = true;
+  async function login() {
+    var email    = document.getElementById('email').value.trim();
+    var password = document.getElementById('password').value;
+    var btn      = document.getElementById('loginBtn');
 
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    document.getElementById('errorMsg').style.display = 'none';
 
-  if(error){
-    showError('Invalid email or password. Please try again.');
-    btn.textContent = 'Sign In';
-    btn.disabled = false;
-    return;
-  }
+    if (!email || !password) {
+      showError('Please enter your email and password.');
+      return;
+    }
 
-  // Get user role
-  const { data: roleData } = await supabase
-    .from('user_roles')
-    .select('role')
-    .eq('user_id', data.user.id)
-    .single();
+    btn.textContent = 'Signing in...';
+    btn.disabled = true;
 
-  const role = roleData?.role || 'agency';
+    var result = await sb.auth.signInWithPassword({ email: email, password: password });
 
-  // Redirect based on role
-  if(role === 'admin'){
-    window.location.href = 'admin-dashboard.html';
-  } else if(role === 'agency'){
-    window.location.href = 'agency-dashboard.html';
-  } else {
-    window.location.href = 'business-dashboard.html';
-  }
-}
+    if (result.error) {
+      showError('Invalid email or password. Please try again.');
+      btn.textContent = 'Sign In';
+      btn.disabled = false;
+      return;
+    }
 
-// Allow pressing Enter to submit
-document.addEventListener('keydown', e => {
-  if(e.key === 'Enter') login();
-});
+    var userId = result.data.user.id;
 
-// If already logged in redirect immediately
-supabase.auth.getSession().then(async ({ data }) => {
-  if(data.session){
-    const { data: roleData } = await supabase
+    var roleResult = await sb
       .from('user_roles')
       .select('role')
-      .eq('user_id', data.session.user.id)
+      .eq('user_id', userId)
       .single();
-    const role = roleData?.role || 'agency';
-    if(role === 'admin')       window.location.href = 'admin-dashboard.html';
-    else if(role === 'agency') window.location.href = 'agency-dashboard.html';
-    else                       window.location.href = 'business-dashboard.html';
-  }
-});
 
-// Attach button click AFTER scripts are loaded
-document.getElementById('loginBtn').addEventListener('click', login);
+    var role = roleResult.data ? roleResult.data.role : 'agency';
+
+    if (role === 'admin') {
+      window.location.href = 'admin-dashboard.html';
+    } else if (role === 'agency') {
+      window.location.href = 'agency-dashboard.html';
+    } else {
+      window.location.href = 'business-dashboard.html';
+    }
+  }
+
+  // Button click
+  document.getElementById('loginBtn').addEventListener('click', login);
+
+  // Enter key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') login();
+  });
+
+  // If already logged in redirect immediately
+  sb.auth.getSession().then(function(result) {
+    if (result.data && result.data.session) {
+      sb.from('user_roles')
+        .select('role')
+        .eq('user_id', result.data.session.user.id)
+        .single()
+        .then(function(roleResult) {
+          var role = roleResult.data ? roleResult.data.role : 'agency';
+          if (role === 'admin')       window.location.href = 'admin-dashboard.html';
+          else if (role === 'agency') window.location.href = 'agency-dashboard.html';
+          else                        window.location.href = 'business-dashboard.html';
+        });
+    }
+  });
+
+})();
 </script>
 </body>
 </html>
