@@ -1,125 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Start Here | LeadReply</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<title>Get Started | LeadReply</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-
+:root{
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --indigo:#6366f1;
+  --gray-50:#f8fafc;
+  --gray-100:#f1f5f9;
+  --gray-200:#e2e8f0;
+  --gray-400:#94a3b8;
+  --gray-600:#475569;
+  --gray-800:#1e293b;
+  --gray-900:#0f172a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-font-family:Inter,sans-serif;
-background:#f8fafc;
-margin:0;
-color:#1f2937;
+  font-family:'Sora',sans-serif;
+  background:var(--gray-900);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  position:relative;
+  overflow:hidden;
 }
 
-.container{
-max-width:600px;
-margin:auto;
-padding:60px 20px;
+/* BACKGROUND */
+body::before{
+  content:'';position:absolute;
+  top:-200px;left:-200px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(37,99,235,0.15) 0%,transparent 70%);
+  border-radius:50%;pointer-events:none;
+}
+body::after{
+  content:'';position:absolute;
+  bottom:-200px;right:-200px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);
+  border-radius:50%;pointer-events:none;
 }
 
-h1{
-text-align:center;
-margin-bottom:10px;
+/* LOGO */
+.logo{
+  font-size:22px;font-weight:700;
+  color:var(--blue);margin-bottom:48px;
+  text-decoration:none;
+  position:relative;z-index:1;
 }
 
-p{
-text-align:center;
-margin-bottom:40px;
-color:#6b7280;
+/* HEADER */
+.header{text-align:center;margin-bottom:48px;position:relative;z-index:1;}
+.header h1{
+  font-size:38px;font-weight:800;
+  color:white;line-height:1.2;margin-bottom:12px;
+}
+.header h1 span{
+  background:linear-gradient(135deg,#60a5fa,#818cf8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.header p{font-size:16px;color:var(--gray-400);max-width:480px;margin:auto;line-height:1.6;}
+
+/* CARDS */
+.cards{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:20px;width:100%;max-width:680px;
+  position:relative;z-index:1;
+}
+.card{
+  background:rgba(255,255,255,0.04);
+  border:1.5px solid rgba(255,255,255,0.08);
+  border-radius:20px;padding:36px 32px;
+  cursor:pointer;transition:all .3s ease;
+  text-decoration:none;display:block;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(37,99,235,0.08),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.card:hover{
+  border-color:rgba(37,99,235,0.5);
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  background:rgba(255,255,255,0.06);
+}
+.card:hover::before{opacity:1;}
+.card.agency:hover{border-color:rgba(99,102,241,0.5);}
+.card.agency::before{background:linear-gradient(135deg,rgba(99,102,241,0.08),transparent);}
+
+.card-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:20px;
+}
+.card-icon.blue{background:rgba(37,99,235,0.15);}
+.card-icon.indigo{background:rgba(99,102,241,0.15);}
+
+.card h2{
+  font-size:20px;font-weight:700;
+  color:white;margin-bottom:10px;
+}
+.card p{
+  font-size:13px;color:var(--gray-400);
+  line-height:1.7;margin-bottom:24px;
+}
+.card-examples{
+  display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;
+}
+.tag{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  color:var(--gray-400);
+  font-size:11px;font-weight:600;
+  padding:4px 10px;border-radius:20px;
+}
+.card-cta{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:600;
+  color:var(--blue);transition:gap .2s;
+}
+.card.agency .card-cta{color:#818cf8;}
+.card:hover .card-cta{gap:12px;}
+
+/* DIVIDER */
+.divider{
+  display:flex;align-items:center;gap:12px;
+  color:var(--gray-600);font-size:12px;
+  margin:32px 0 0;position:relative;z-index:1;
 }
 
-form{
-background:white;
-padding:40px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+/* BACK */
+.back{
+  margin-top:24px;font-size:13px;
+  color:var(--gray-600);text-decoration:none;
+  position:relative;z-index:1;transition:color .2s;
 }
+.back:hover{color:var(--gray-400);}
 
-input,select{
-width:100%;
-padding:14px;
-margin-bottom:15px;
-border-radius:8px;
-border:1px solid #d1d5db;
-font-size:16px;
+/* MOBILE */
+@media(max-width:580px){
+  .cards{grid-template-columns:1fr;}
+  .header h1{font-size:28px;}
 }
-
-button{
-width:100%;
-padding:16px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-font-weight:600;
-}
-
-button:hover{
-background:#1d4ed8;
-}
-
 </style>
-
 </head>
-
 <body>
 
-<div class="container">
+<a href="index.html" class="logo">LeadReply</a>
 
-<h1>Start Capturing Missed Call Leads</h1>
+<div class="header">
+  <h1>Who are you signing up <span>as?</span></h1>
+  <p>Choose the option that best describes you. We'll guide you through the right setup.</p>
+</div>
 
-<p>
-Tell us about your business and we'll help you start converting missed calls into customers.
-</p>
+<div class="cards">
 
-<form action="https://formsubmit.co/support@leadreplygroup.com" method="POST">
+  <!-- BUSINESS -->
+  <a href="signup-business.html" class="card">
+    <div class="card-icon blue">🏢</div>
+    <h2>I'm a Local Business</h2>
+    <p>I want to automatically text back customers who call my business and don't get an answer.</p>
+    <div class="card-examples">
+      <span class="tag">HVAC</span>
+      <span class="tag">Roofing</span>
+      <span class="tag">Plumbing</span>
+      <span class="tag">Med Spa</span>
+      <span class="tag">Dental</span>
+      <span class="tag">Restaurant</span>
+    </div>
+    <div class="card-cta">Get my number set up →</div>
+  </a>
 
-<input type="text" name="name" placeholder="Full Name" required>
-
-<input type="text" name="business" placeholder="Business Name" required>
-
-<input type="tel" name="phone" placeholder="Phone Number" required>
-
-<input type="email" name="email" placeholder="Email Address" required>
-
-<select name="industry">
-
-<option value="">Select Industry</option>
-<option>HVAC</option>
-<option>Roofing</option>
-<option>Plumbing</option>
-<option>Med Spa</option>
-<option>Dental</option>
-<option>Medical</option>  
-<option>Restaurant</option>
-<option>Hospitality</option>  
-<option>Other</option>
-
-</select>
-
-<input type="number" name="missedcalls" placeholder="Missed Calls Per Week (optional)">
-
-<input type="hidden" name="_next" value="https://leadreplygroup.com/thank-you.html">
-
-<input type="hidden" name="_captcha" value="false">
-
-<button type="submit">Get Started</button>
-
-</form>
+  <!-- AGENCY -->
+  <a href="signup-agency.html" class="card agency">
+    <div class="card-icon indigo">🚀</div>
+    <h2>I'm a Marketing Agency</h2>
+    <p>I manage multiple local business clients and want to offer missed call automation as a service.</p>
+    <div class="card-examples">
+      <span class="tag">Marketing Agency</span>
+      <span class="tag">Reseller</span>
+      <span class="tag">Consultant</span>
+      <span class="tag">White Label</span>
+    </div>
+    <div class="card-cta" style="color:#818cf8;">Manage my clients →</div>
+  </a>
 
 </div>
 
-</body>
+<a href="index.html" class="back">← Back to homepage</a>
 
+</body>
 </html>
-```
