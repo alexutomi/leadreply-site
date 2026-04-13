@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Signup | LeadReply</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
+<style>
+:root{
+  --blue:#2563eb;--blue-dark:#1d4ed8;
+  --gray-50:#f8fafc;--gray-100:#f1f5f9;
+  --gray-200:#e2e8f0;--gray-400:#94a3b8;
+  --gray-600:#475569;--gray-800:#1e293b;--gray-900:#0f172a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Sora',sans-serif;
+  background:var(--gray-50);
+  min-height:100vh;padding:40px 20px;
+}
+.page{max-width:560px;margin:auto;}
+
+/* HEADER */
+.logo{font-size:20px;font-weight:700;color:var(--blue);text-decoration:none;display:block;margin-bottom:32px;}
+.back-link{font-size:13px;color:var(--gray-400);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;transition:color .2s;}
+.back-link:hover{color:var(--gray-600);}
+h1{font-size:28px;font-weight:800;color:var(--gray-900);margin-bottom:6px;}
+.subtitle{font-size:14px;color:var(--gray-400);margin-bottom:32px;}
+
+/* STEPS */
+.steps{display:flex;gap:8px;margin-bottom:32px;}
+.step{
+  flex:1;height:4px;border-radius:4px;
+  background:var(--gray-200);transition:background .3s;
+}
+.step.active{background:var(--blue);}
+
+/* PLAN CARDS */
+.plan-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.plan-card{
+  border:2px solid var(--gray-200);border-radius:14px;
+  padding:20px 22px;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:16px;
+  background:white;
+}
+.plan-card:hover{border-color:#93c5fd;}
+.plan-card.selected{border-color:var(--blue);background:#eff6ff;}
+.plan-radio{
+  width:20px;height:20px;border-radius:50%;
+  border:2px solid var(--gray-300);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .2s;
+}
+.plan-card.selected .plan-radio{border-color:var(--blue);background:var(--blue);}
+.plan-radio::after{
+  content:'';width:8px;height:8px;
+  border-radius:50%;background:white;
+  display:none;
+}
+.plan-card.selected .plan-radio::after{display:block;}
+.plan-info{flex:1;}
+.plan-name{font-size:15px;font-weight:700;color:var(--gray-900);}
+.plan-desc{font-size:12px;color:var(--gray-400);margin-top:2px;}
+.plan-price{font-size:18px;font-weight:700;color:var(--blue);white-space:nowrap;}
+.plan-badge{
+  background:#dbeafe;color:var(--blue);
+  font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:20px;
+  margin-left:8px;
+}
+
+/* FORM */
+.section-title{font-size:13px;font-weight:700;color:var(--gray-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:6px;}
+.form-group input,
+.form-group select{
+  width:100%;padding:13px 14px;border-radius:10px;
+  border:1.5px solid var(--gray-200);font-size:14px;
+  font-family:inherit;transition:border .2s;
+  background:white;color:var(--gray-800);
+}
+.form-group input:focus,
+.form-group select:focus{
+  outline:none;border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(37,99,235,0.08);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+/* CARD SECTION */
+.card-section{
+  background:var(--gray-50);border-radius:12px;
+  padding:20px;border:1.5px solid var(--gray-200);
+  margin-bottom:20px;
+}
+.card-section label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:10px;}
+#card-element{
+  background:white;padding:13px 14px;
+  border-radius:10px;border:1.5px solid var(--gray-200);
+}
+
+/* SUMMARY */
+.summary{
+  background:var(--gray-900);border-radius:14px;
+  padding:20px 22px;margin-bottom:20px;
+}
+.summary-row{
+  display:flex;justify-content:space-between;
+  font-size:13px;color:rgba(255,255,255,0.6);
+  margin-bottom:8px;
+}
+.summary-row.total{
+  font-size:16px;font-weight:700;
+  color:white;border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:12px;margin-top:4px;
+}
+
+/* BUTTON */
+.btn{
+  width:100%;padding:15px;background:var(--blue);
+  color:white;border:none;border-radius:12px;
+  font-size:16px;font-weight:700;cursor:pointer;
+  font-family:inherit;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.btn:disabled{background:#93c5fd;cursor:not-allowed;transform:none;}
+.btn-outline{
+  width:100%;padding:13px;background:white;
+  color:var(--gray-600);border:1.5px solid var(--gray-200);
+  border-radius:12px;font-size:15px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:all .2s;margin-bottom:12px;
+}
+.btn-outline:hover{background:var(--gray-50);}
+
+/* ERROR / SUCCESS */
+.error-msg{
+  background:#fee2e2;color:#dc2626;
+  padding:12px 14px;border-radius:10px;
+  font-size:13px;margin-bottom:16px;display:none;
+}
+.secure-note{
+  text-align:center;font-size:12px;
+  color:var(--gray-400);margin-top:14px;
+}
+
+/* STEP SECTIONS */
+.step-section{display:none;}
+.step-section.active{display:block;}
+
+@media(max-width:500px){
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a href="index.html" class="logo">LeadReply</a>
+  <a href="start.html" class="back-link">← Back</a>
+
+  <h1>Set Up Your Business</h1>
+  <p class="subtitle">Get your missed call automation running in minutes.</p>
+
+  <!-- PROGRESS -->
+  <div class="steps">
+    <div class="step active" id="step1bar"></div>
+    <div class="step" id="step2bar"></div>
+    <div class="step" id="step3bar"></div>
+  </div>
+
+  <div class="error-msg" id="errorMsg"></div>
+
+  <!-- STEP 1 — CHOOSE PLAN -->
+  <div class="step-section active" id="step1">
+    <div class="section-title">Step 1 of 3 — Choose Your Plan</div>
+
+    <div class="plan-grid">
+      <div class="plan-card" onclick="selectPlan('starter', this)">
+        <div class="plan-radio"></div>
+        <div class="plan-info">
+          <div class="plan-name">Business Starter</div>
+          <div class="plan-desc">500 SMS/mo · 1 number · Email support</div>
+        </div>
+        <div class="plan-price">$49<span style="font-size:13px;font-weight:400;color:#94a3b8">/mo</span></div>
+      </div>
+      <div class="plan-card" onclick="selectPlan('growth', this)">
+        <div class="plan-radio"></div>
+        <div class="plan-info">
+          <div class="plan-name">Business Growth <span class="plan-badge">POPULAR</span></div>
+          <div class="plan-desc">2,000 SMS/mo · Custom templates · Priority support</div>
+        </div>
+        <div class="plan-price">$99<span style="font-size:13px;font-weight:400;color:#94a3b8">/mo</span></div>
+      </div>
+      <div class="plan-card" onclick="selectPlan('pro', this)">
+        <div class="plan-radio"></div>
+        <div class="plan-info">
+          <div class="plan-name">Business Pro</div>
+          <div class="plan-desc">Unlimited SMS · Advanced automation · Priority support</div>
+        </div>
+        <div class="plan-price">$199<span style="font-size:13px;font-weight:400;color:#94a3b8">/mo</span></div>
+      </div>
+    </div>
+
+    <button class="btn" onclick="goToStep2()">Continue →</button>
+  </div>
+
+  <!-- STEP 2 — BUSINESS INFO -->
+  <div class="step-section" id="step2">
+    <div class="section-title">Step 2 of 3 — Your Business Info</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="firstName" placeholder="John">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="lastName" placeholder="Smith">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Business Name</label>
+      <input type="text" id="businessName" placeholder="Houston Roofing Co.">
+    </div>
+    <div class="form-group">
+      <label>Business Phone Number</label>
+      <input type="tel" id="businessPhone" placeholder="+17135550000">
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="you@yourbusiness.com">
+    </div>
+    <div class="form-group">
+      <label>Industry</label>
+      <select id="industry">
+        <option value="">Select your industry</option>
+        <option>HVAC</option>
+        <option>Roofing</option>
+        <option>Plumbing</option>
+        <option>Med Spa</option>
+        <option>Dental</option>
+        <option>Medical</option>
+        <option>Restaurant</option>
+        <option>Hospitality</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <button class="btn-outline" onclick="goToStep1()">← Back</button>
+    <button class="btn" onclick="goToStep3()">Continue to Payment →</button>
+  </div>
+
+  <!-- STEP 3 — PAYMENT -->
+  <div class="step-section" id="step3">
+    <div class="section-title">Step 3 of 3 — Payment</div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="summary">
+      <div class="summary-row">
+        <span>Plan</span>
+        <span id="summaryPlan">—</span>
+      </div>
+      <div class="summary-row">
+        <span>Your number</span>
+        <span>Provisioned after payment</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total today</span>
+        <span id="summaryPrice">—</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="paymentEmail" placeholder="you@yourbusiness.com">
+    </div>
+    <div class="form-group">
+      <label>Create Password</label>
+      <input type="password" id="password" placeholder="Min. 8 characters">
+    </div>
+
+    <div class="card-section">
+      <label>Card Details</label>
+      <div id="card-element"></div>
+    </div>
+
+    <button class="btn-outline" onclick="goToStep2()">← Back</button>
+    <button class="btn" id="payBtn" onclick="submitPayment()">
+      🔒 Complete Setup
+    </button>
+    <p class="secure-note">🔒 Secured by Stripe · Cancel anytime</p>
+  </div>
+
+</div>
+
+<script>
+var STRIPE_PK = 'pk_test_YOUR_PUBLISHABLE_KEY_HERE';
+var BACKEND   = 'https://leadreply-backend.onrender.com';
+
+var PLANS = {
+  starter: { name:'Business Starter', price:'$49/mo', priceId:'price_1TLXsLRveoRYepdSnN81EFRB', amount:49 },
+  growth:  { name:'Business Growth',  price:'$99/mo', priceId:'price_1TLXt3RveoRYepdSsj7ozJL5', amount:99 },
+  pro:     { name:'Business Pro',     price:'$199/mo',priceId:'price_1TLXtrRveoRYepdSABZy3Gh4', amount:199 }
+};
+
+var selectedPlan = null;
+var stripe = Stripe(STRIPE_PK);
+var elements = stripe.elements();
+var cardElement = elements.create('card', {
+  style:{
+    base:{
+      fontFamily:'Sora, sans-serif',
+      fontSize:'14px',
+      color:'#1e293b',
+      '::placeholder':{color:'#94a3b8'}
+    }
+  }
+});
+cardElement.mount('#card-element');
+
+function selectPlan(plan, el){
+  document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPlan = plan;
+}
+
+function goToStep1(){
+  setStep(1);
+}
+
+function goToStep2(){
+  if(!selectedPlan){ showError('Please select a plan to continue.'); return; }
+  clearError();
+  setStep(2);
+}
+
+function goToStep3(){
+  var firstName    = document.getElementById('firstName').value.trim();
+  var lastName     = document.getElementById('lastName').value.trim();
+  var businessName = document.getElementById('businessName').value.trim();
+  var businessPhone= document.getElementById('businessPhone').value.trim();
+  var email        = document.getElementById('email').value.trim();
+  var industry     = document.getElementById('industry').value;
+
+  if(!firstName||!lastName||!businessName||!businessPhone||!email||!industry){
+    showError('Please fill in all fields.'); return;
+  }
+  clearError();
+
+  // Pre-fill payment email
+  document.getElementById('paymentEmail').value = email;
+
+  // Update summary
+  var plan = PLANS[selectedPlan];
+  document.getElementById('summaryPlan').textContent  = plan.name;
+  document.getElementById('summaryPrice').textContent = plan.price;
+
+  setStep(3);
+}
+
+async function submitPayment(){
+  var email    = document.getElementById('paymentEmail').value.trim();
+  var password = document.getElementById('password').value;
+
+  if(!email||!password){ showError('Please fill in your email and password.'); return; }
+  if(password.length < 8){ showError('Password must be at least 8 characters.'); return; }
+  clearError();
+
+  var btn = document.getElementById('payBtn');
+  btn.textContent = 'Processing...';
+  btn.disabled = true;
+
+  try {
+    // Create payment method
+    var result = await stripe.createPaymentMethod({
+      type:'card', card:cardElement,
+      billing_details:{ email:email }
+    });
+
+    if(result.error){
+      showError(result.error.message);
+      btn.textContent = '🔒 Complete Setup';
+      btn.disabled = false;
+      return;
+    }
+
+    // Send to backend
+    var res = await fetch(BACKEND + '/create-business', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        first_name:     document.getElementById('firstName').value.trim(),
+        last_name:      document.getElementById('lastName').value.trim(),
+        business_name:  document.getElementById('businessName').value.trim(),
+        business_phone: document.getElementById('businessPhone').value.trim(),
+        industry:       document.getElementById('industry').value,
+        email:          email,
+        password:       password,
+        plan:           selectedPlan,
+        price_id:       PLANS[selectedPlan].priceId,
+        payment_method: result.paymentMethod.id
+      })
+    });
+
+    var data = await res.json();
+
+    if(data.success){
+      window.location.href = 'thank-you-business.html';
+    } else {
+      showError(data.error || 'Something went wrong. Please try again.');
+      btn.textContent = '🔒 Complete Setup';
+      btn.disabled = false;
+    }
+  } catch(err){
+    showError('Network error. Please try again.');
+    btn.textContent = '🔒 Complete Setup';
+    btn.disabled = false;
+  }
+}
+
+function setStep(n){
+  document.querySelectorAll('.step-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  document.querySelectorAll('.step').forEach((s,i)=>{
+    s.classList.toggle('active', i < n);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showError(msg){
+  var el = document.getElementById('errorMsg');
+  el.textContent = msg;
+  el.style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function clearError(){
+  document.getElementById('errorMsg').style.display = 'none';
+}
+</script>
+</body>
+</html>
