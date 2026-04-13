@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agency Created! | LeadReply</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Sora',sans-serif;
+  background:linear-gradient(135deg,#4f46e5,#7c3aed);
+  min-height:100vh;display:flex;
+  align-items:center;justify-content:center;padding:20px;
+}
+.card{
+  background:white;border-radius:20px;
+  padding:52px 44px;max-width:480px;width:100%;
+  text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.2);
+}
+.icon{font-size:56px;margin-bottom:20px;}
+h1{font-size:28px;font-weight:800;color:#0f172a;margin-bottom:10px;}
+p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:8px;}
+.steps-list{
+  background:#f8fafc;border-radius:12px;
+  padding:20px 24px;margin:24px 0;text-align:left;
+}
+.step-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 0;border-bottom:1px solid #e2e8f0;
+  font-size:14px;color:#374151;
+}
+.step-item:last-child{border-bottom:none;}
+.step-num{
+  width:24px;height:24px;border-radius:50%;
+  background:#6366f1;color:white;font-size:12px;
+  font-weight:700;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;margin-top:1px;
+}
+.btn{
+  display:inline-block;background:#6366f1;color:white;
+  padding:14px 32px;border-radius:10px;text-decoration:none;
+  font-weight:700;font-size:15px;transition:all .2s;margin-top:8px;
+}
+.btn:hover{background:#4f46e5;transform:translateY(-1px);}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">🚀</div>
+  <h1>Agency Account Created!</h1>
+  <p>Your LeadReply agency account is ready. Check your email for your login credentials and get started adding your first clients.</p>
+
+  <div class="steps-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div>Check your email for your login credentials</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div>Log in to your agency dashboard</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div>Click "+ Add Client" to provision your first business with a dedicated number</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div>Each client gets their own LeadReply number — set up in seconds</div>
+    </div>
+  </div>
+
+  <a href="login.html" class="btn">Go to Agency Dashboard →</a>
+</div>
+</body>
+</html>
