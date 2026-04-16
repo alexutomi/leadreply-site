@@ -3,203 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login | LeadReply</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Sign In | LeadReply</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Inter',sans-serif;
-  background:linear-gradient(135deg,#2563eb,#6366f1);
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-.card{
-  background:white;
-  border-radius:16px;
-  padding:48px 40px;
-  width:100%;
-  max-width:420px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.2);
-}
-.logo{
-  font-size:24px;
-  font-weight:700;
-  color:#2563eb;
-  text-align:center;
-  margin-bottom:8px;
-}
-.tagline{
-  text-align:center;
-  color:#6b7280;
-  font-size:14px;
-  margin-bottom:32px;
-}
-.form-group{margin-bottom:16px;}
-.form-group label{
-  display:block;
-  font-size:13px;
-  font-weight:600;
-  color:#374151;
-  margin-bottom:6px;
-}
-.form-group input{
-  width:100%;
-  padding:12px 14px;
-  border-radius:8px;
-  border:1px solid #d1d5db;
-  font-size:15px;
-  font-family:inherit;
-  transition:border .2s;
-}
-.form-group input:focus{
-  outline:none;
-  border-color:#2563eb;
-  box-shadow:0 0 0 3px rgba(37,99,235,0.1);
-}
-.btn{
-  width:100%;
-  padding:14px;
-  background:#2563eb;
-  color:white;
-  border:none;
-  border-radius:8px;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
-  font-family:inherit;
-  transition:all .2s;
-  margin-top:8px;
-}
-.btn:hover{background:#1d4ed8;}
-.btn:disabled{background:#93c5fd;cursor:not-allowed;}
-.error{
-  background:#fee2e2;
-  color:#dc2626;
-  padding:12px 14px;
-  border-radius:8px;
-  font-size:13px;
-  margin-bottom:16px;
-  display:none;
-}
-.footer-link{
-  text-align:center;
-  margin-top:24px;
-  font-size:13px;
-  color:#6b7280;
-}
-.footer-link a{
-  color:#2563eb;
-  text-decoration:none;
-  font-weight:600;
-}
+body{font-family:'Inter',sans-serif;background:#f8fafc;min-height:100vh;display:flex;flex-direction:column;}
+.navbar{background:white;border-bottom:1px solid #e2e8f0;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-weight:700;font-size:20px;color:#2563eb;text-decoration:none;}
+.nav-link{font-size:13px;color:#64748b;text-decoration:none;}
+.nav-link:hover{color:#2563eb;}
+.page{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+.card{background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:44px 40px;width:100%;max-width:420px;}
+.card-icon{width:52px;height:52px;background:#eff6ff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;}
+.card-title{font-size:22px;font-weight:700;color:#0f172a;margin-bottom:6px;}
+.card-sub{font-size:14px;color:#64748b;margin-bottom:32px;line-height:1.5;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+.form-group input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #e2e8f0;font-size:14px;font-family:inherit;color:#1e293b;transition:border .2s,box-shadow .2s;background:white;}
+.form-group input:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.08);}
+.form-group input.error{border-color:#ef4444;}
+.forgot-link{display:block;text-align:right;font-size:12px;color:#2563eb;text-decoration:none;margin-top:6px;font-weight:500;}
+.forgot-link:hover{text-decoration:underline;}
+.btn-submit{width:100%;padding:13px;background:#2563eb;color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-submit:hover{background:#1d4ed8;transform:translateY(-1px);}
+.btn-submit:disabled{background:#93c5fd;cursor:not-allowed;transform:none;}
+.divider{display:flex;align-items:center;gap:12px;margin:24px 0;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:#e2e8f0;}
+.divider span{font-size:12px;color:#94a3b8;}
+.signup-link{text-align:center;font-size:13px;color:#64748b;}
+.signup-link a{color:#2563eb;font-weight:600;text-decoration:none;}
+.signup-link a:hover{text-decoration:underline;}
+.error-msg{background:#fee2e2;border:1px solid #fecaca;color:#991b1b;padding:12px 14px;border-radius:8px;font-size:13px;margin-bottom:18px;display:none;}
+.success-msg{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;padding:12px 14px;border-radius:8px;font-size:13px;margin-bottom:18px;display:none;}
+footer{text-align:center;padding:24px;font-size:12px;color:#94a3b8;}
+footer a{color:#94a3b8;text-decoration:none;margin:0 8px;}
+footer a:hover{color:#2563eb;}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
 
-<div class="card">
-  <div class="logo">LeadReply</div>
-  <div class="tagline">Sign in to your account</div>
+<div class="navbar">
+  <a href="index.html" class="logo">LeadReply</a>
+  <a href="index.html" class="nav-link">← Back to home</a>
+</div>
 
-  <div class="error" id="errorMsg"></div>
+<div class="page">
+  <div class="card">
+    <div class="card-icon">🔐</div>
+    <div class="card-title">Welcome back</div>
+    <div class="card-sub">Sign in to your LeadReply dashboard.</div>
 
-  <div class="form-group">
-    <label>Email Address</label>
-    <input type="email" id="email" placeholder="you@example.com">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" id="password" placeholder="••••••••">
-  </div>
+    <div class="error-msg" id="errorMsg"></div>
+    <div class="success-msg" id="successMsg"></div>
 
-  <button class="btn" id="loginBtn">Sign In</button>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+    </div>
 
-  <div class="footer-link">
-    <a href="index.html">← Back to homepage</a>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Your password" autocomplete="current-password">
+      <a href="reset-password.html" class="forgot-link">Forgot your password?</a>
+    </div>
+
+    <button class="btn-submit" id="loginBtn">Sign In</button>
+
+    <div class="divider"><span>Don't have an account?</span></div>
+    <div class="signup-link">
+      <a href="start.html">Create an account →</a>
+    </div>
   </div>
 </div>
 
+<footer>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms-and-conditions.html">Terms & Conditions</a>
+  <span>© 2026 LeadReply Group</span>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-(function() {
-  var SUPABASE_URL = 'https://rxnftfnknqhcuvzqmbpu.supabase.co';
-  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
-  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+(function(){
 
-  function showError(msg) {
-    var el = document.getElementById('errorMsg');
-    el.textContent = msg;
-    el.style.display = 'block';
-  }
+var SUPABASE_URL = 'https://rxnftfnknqhcuvzqmbpu.supabase.co';
+var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
+var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  async function login() {
-    var email    = document.getElementById('email').value.trim();
-    var password = document.getElementById('password').value;
-    var btn      = document.getElementById('loginBtn');
+function showError(msg){ var el=document.getElementById('errorMsg'); el.textContent=msg; el.style.display='block'; document.getElementById('successMsg').style.display='none'; }
+function showSuccess(msg){ var el=document.getElementById('successMsg'); el.textContent=msg; el.style.display='block'; document.getElementById('errorMsg').style.display='none'; }
+function clearMessages(){ document.getElementById('errorMsg').style.display='none'; document.getElementById('successMsg').style.display='none'; }
 
-    document.getElementById('errorMsg').style.display = 'none';
+document.getElementById('loginBtn').addEventListener('click', async function(){
+  clearMessages();
+  var email    = document.getElementById('email').value.trim();
+  var password = document.getElementById('password').value;
+  if(!email || !password){ showError('Please enter your email and password.'); return; }
 
-    if (!email || !password) {
-      showError('Please enter your email and password.');
-      return;
-    }
+  var btn = document.getElementById('loginBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> Signing in...';
 
-    btn.textContent = 'Signing in...';
-    btn.disabled = true;
-
-    var result = await sb.auth.signInWithPassword({ email: email, password: password });
-
-    if (result.error) {
-      showError('Invalid email or password. Please try again.');
-      btn.textContent = 'Sign In';
-      btn.disabled = false;
-      return;
-    }
+  try {
+    var result = await sb.auth.signInWithPassword({ email, password });
+    if(result.error) throw result.error;
 
     var userId = result.data.user.id;
+    var roleResult = await sb.from('user_roles').select('role').eq('user_id', userId).single();
 
-    var roleResult = await sb
-      .from('user_roles')
-      .select('role')
-      .eq('user_id', userId)
-      .single();
-
-    var role = roleResult.data ? roleResult.data.role : 'agency';
-
-    if (role === 'admin') {
-      window.location.href = 'admin-dashboard.html';
-    } else if (role === 'agency') {
-      window.location.href = 'agency-dashboard.html';
-    } else {
-      window.location.href = 'business-dashboard.html';
+    if(roleResult.error || !roleResult.data){
+      showError('Account not found. Please contact support@leadreplygroup.com');
+      btn.disabled=false; btn.innerHTML='Sign In'; return;
     }
+
+    var role = roleResult.data.role;
+    if(role === 'admin')         window.location.href = 'admin-dashboard.html';
+    else if(role === 'agency')   window.location.href = 'agency-dashboard.html';
+    else if(role === 'business') window.location.href = 'business-dashboard.html';
+    else { showError('Unknown account type. Contact support@leadreplygroup.com'); btn.disabled=false; btn.innerHTML='Sign In'; }
+
+  } catch(e){
+    var msg = e.message || 'Sign in failed. Please try again.';
+    if(msg.toLowerCase().includes('invalid login')) msg = 'Incorrect email or password. Please try again.';
+    showError(msg);
+    btn.disabled=false; btn.innerHTML='Sign In';
   }
+});
 
-  // Button click
-  document.getElementById('loginBtn').addEventListener('click', login);
+document.getElementById('password').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') document.getElementById('loginBtn').click();
+});
 
-  // Enter key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') login();
-  });
-
-  // If already logged in redirect immediately
-  sb.auth.getSession().then(function(result) {
-    if (result.data && result.data.session) {
-      sb.from('user_roles')
-        .select('role')
-        .eq('user_id', result.data.session.user.id)
-        .single()
-        .then(function(roleResult) {
-          var role = roleResult.data ? roleResult.data.role : 'agency';
-          if (role === 'admin')       window.location.href = 'admin-dashboard.html';
-          else if (role === 'agency') window.location.href = 'agency-dashboard.html';
-          else                        window.location.href = 'business-dashboard.html';
-        });
-    }
-  });
+document.getElementById('email').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') document.getElementById('password').focus();
+});
 
 })();
 </script>
