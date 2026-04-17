@@ -16,11 +16,13 @@
   --gray-400:#94a3b8;--gray-600:#475569;--gray-800:#1e293b;--gray-900:#0f172a;
   --shadow-sm:0 1px 3px rgba(0,0,0,0.08);
   --shadow-md:0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg:0 10px 40px rgba(0,0,0,0.12);
+  --shadow-lg:0 10px 40px rgba(0,0,0,0.15);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray-800);padding-top:70px;min-height:100vh;}
-.navbar{position:fixed;top:0;left:0;width:100%;background:white;border-bottom:1px solid var(--gray-200);z-index:9999;display:flex;justify-content:center;box-shadow:var(--shadow-sm);}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;width:100%;background:white;border-bottom:1px solid var(--gray-200);z-index:900;display:flex;justify-content:center;box-shadow:var(--shadow-sm);}
 .navbar-content{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:1100px;padding:0 24px;height:70px;}
 .logo{font-weight:700;font-size:22px;color:var(--blue);text-decoration:none;}
 .nav-right{display:flex;align-items:center;gap:12px;}
@@ -28,7 +30,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
 .nav-email{font-size:13px;color:var(--gray-400);}
 .btn-logout{padding:7px 14px;background:var(--gray-100);color:var(--gray-600);border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
 .btn-logout:hover{background:var(--gray-200);}
+
+/* PAGE */
 .page{max-width:1100px;margin:auto;padding:36px 24px;}
+
+/* HERO */
 .hero-card{background:var(--gray-900);border-radius:20px;padding:36px 40px;margin-bottom:24px;position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
 .hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(37,99,235,0.3) 0%,transparent 70%);border-radius:50%;}
 .hero-left{position:relative;z-index:1;}
@@ -41,11 +47,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
 .status-pill.inactive{background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.3);color:#fca5a5;}
 .status-pill.inactive .status-dot{background:#ef4444;box-shadow:none;animation:none;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* NUMBER SECTION */
 .number-section{background:white;border-radius:16px;padding:28px 32px;margin-bottom:24px;box-shadow:var(--shadow-md);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-left:4px solid var(--blue);}
 .section-label{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;}
 .phone-number-display{font-family:'DM Mono',monospace;font-size:34px;font-weight:500;color:var(--gray-900);letter-spacing:2px;}
 .number-hint{font-size:13px;color:var(--gray-400);margin-top:6px;}
 .number-actions{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* STATS */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;}
 .stat-card{background:white;border-radius:14px;padding:22px 24px;box-shadow:var(--shadow-sm);}
 .stat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px;}
@@ -56,12 +66,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
 .stat-label{font-size:12px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
 .stat-value{font-size:28px;font-weight:700;color:var(--gray-900);}
 .stat-sub{font-size:12px;color:var(--gray-400);margin-top:4px;}
+
+/* SECTION CARD */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
 .section-card{background:white;border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:24px;}
 .section-head{padding:20px 24px;border-bottom:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center;}
 .section-head h2{font-size:15px;font-weight:700;color:var(--gray-900);}
 .section-head p{font-size:12px;color:var(--gray-400);margin-top:2px;}
 .section-body{padding:24px;}
+
+/* BUTTONS */
 .btn{padding:10px 20px;border-radius:10px;border:none;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:6px;}
 .btn-blue{background:var(--blue);color:white;}
 .btn-blue:hover{background:var(--blue-dark);transform:translateY(-1px);}
@@ -71,6 +85,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray
 .btn-danger{background:var(--red-light);color:var(--red);border:1.5px solid #fecaca;}
 .btn-danger:hover{background:#fecaca;}
 .btn-sm{padding:6px 12px;font-size:12px;}
+
+/* FORMS */
 .message-bubble{background:var(--blue);color:white;border-radius:18px 18px 4px 18px;padding:14px 18px;font-size:14px;line-height:1.6;margin-bottom:20px;max-width:85%;box-shadow:0 4px 12px rgba(37,99,235,0.3);}
 .message-bubble::before{content:'LeadReply Auto-Reply';display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.7;margin-bottom:6px;}
 .form-label{font-size:12px;font-weight:700;color:var(--gray-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:block;}
@@ -79,20 +95,17 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .char-count{font-size:12px;color:var(--gray-400);text-align:right;margin-top:6px;}
 .char-count.warn{color:var(--orange);}
 .char-count.over{color:var(--red);}
-.ai-profile-banner{background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:14px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.ai-badge{background:rgba(99,102,241,0.3);color:#a5b4fc;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:6px;}
-.ai-profile-banner h3{font-size:15px;font-weight:700;color:white;margin-bottom:4px;}
-.ai-profile-banner p{font-size:13px;color:rgba(255,255,255,0.6);}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
 .form-group{margin-bottom:16px;}
 .form-group label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:6px;}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--gray-200);font-size:14px;font-family:inherit;transition:border .2s;background:white;color:var(--gray-800);}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.08);}
-.form-group textarea{resize:vertical;min-height:80px;}
 .form-hint{font-size:12px;color:var(--gray-400);margin-top:4px;}
 .ai-preview-box{background:var(--gray-900);border-radius:12px;padding:20px;margin-top:20px;}
 .ai-preview-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
 .ai-preview-bubble{background:var(--blue);color:white;border-radius:16px 16px 4px 16px;padding:12px 16px;font-size:13px;line-height:1.6;max-width:85%;display:inline-block;}
+
+/* USAGE BAR */
 .usage-bar-wrap{margin-bottom:20px;}
 .usage-bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;}
 .usage-bar-label .used{font-weight:700;color:var(--gray-900);}
@@ -101,6 +114,8 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .usage-bar-fill{height:100%;border-radius:10px;background:var(--blue);transition:width .5s ease;}
 .usage-bar-fill.warn{background:var(--orange);}
 .usage-bar-fill.danger{background:var(--red);}
+
+/* CONVERSATIONS */
 .convo-filter{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;}
 .convo-filter input{padding:9px 14px;border-radius:10px;border:1.5px solid var(--gray-200);font-size:13px;font-family:inherit;flex:1;min-width:200px;}
 .convo-filter input:focus{outline:none;border-color:var(--blue);}
@@ -125,6 +140,28 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .empty-convos{text-align:center;padding:48px 20px;color:var(--gray-400);}
 .empty-convos .icon{font-size:40px;margin-bottom:12px;}
 .empty-convos h3{font-size:15px;font-weight:600;color:var(--gray-600);margin-bottom:6px;}
+
+/* FORWARDING GUIDE */
+.carrier-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.carrier-tab{padding:8px 16px;border-radius:20px;border:1.5px solid var(--gray-200);background:white;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;color:var(--gray-600);}
+.carrier-tab:hover{border-color:var(--blue);color:var(--blue);}
+.carrier-tab.active{background:var(--blue);border-color:var(--blue);color:white;}
+.carrier-content{display:none;}
+.carrier-content.active{display:block;}
+.step-list{list-style:none;margin-bottom:20px;}
+.step-item{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--blue);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-text{font-size:14px;color:var(--gray-700);line-height:1.6;flex:1;}
+.code-box{background:var(--gray-900);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin:10px 0;}
+.code-text{font-family:'DM Mono',monospace;font-size:20px;color:white;letter-spacing:2px;}
+.copy-code-btn{padding:7px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
+.copy-code-btn:hover{background:rgba(255,255,255,0.2);}
+.forward-note{background:var(--orange-light);border-radius:10px;padding:14px 16px;font-size:13px;color:#92400e;margin-top:16px;line-height:1.6;}
+.to-disable{background:var(--gray-100);border-radius:10px;padding:14px 16px;margin-top:12px;}
+.to-disable p{font-size:12px;color:var(--gray-600);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+.to-disable code{font-family:'DM Mono',monospace;font-size:14px;color:var(--gray-900);}
+
+/* TIPS */
 .tips-list{list-style:none;}
 .tip-item{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--gray-100);}
 .tip-item:last-child{border-bottom:none;}
@@ -134,6 +171,8 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .tip-icon.purple{background:var(--purple-light);}
 .tip-text strong{display:block;font-size:13px;font-weight:600;color:var(--gray-800);margin-bottom:2px;}
 .tip-text span{font-size:12px;color:var(--gray-400);line-height:1.5;}
+
+/* CALCULATOR */
 .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
 .calc-input-wrap label{display:block;font-size:12px;font-weight:700;color:var(--gray-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
 .calc-input-wrap input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--gray-200);font-size:15px;font-family:inherit;font-weight:600;}
@@ -146,30 +185,11 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .calc-breakdown-item .b-label{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;}
 .calc-breakdown-item .b-value{font-size:18px;font-weight:700;color:white;}
 
-/* FORWARDING GUIDE */
-.forwarding-banner{background:linear-gradient(135deg,#0f4c75,#1b6ca8);border-radius:14px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.forwarding-banner h3{font-size:15px;font-weight:700;color:white;margin-bottom:4px;}
-.forwarding-banner p{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5;}
-.carrier-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
-.carrier-tab{padding:8px 16px;border-radius:20px;border:1.5px solid var(--gray-200);background:white;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;color:var(--gray-600);}
-.carrier-tab:hover{border-color:var(--blue);color:var(--blue);}
-.carrier-tab.active{background:var(--blue);border-color:var(--blue);color:white;}
-.carrier-content{display:none;}
-.carrier-content.active{display:block;}
-.step-list{list-style:none;margin-bottom:20px;}
-.step-item{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;}
-.step-num{width:28px;height:28px;border-radius:50%;background:var(--blue);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.step-text{font-size:14px;color:var(--gray-700);line-height:1.6;flex:1;}
-.step-text strong{color:var(--gray-900);}
-.code-box{background:var(--gray-900);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin:10px 0;}
-.code-text{font-family:'DM Mono',monospace;font-size:20px;color:white;letter-spacing:2px;}
-.copy-code-btn{padding:7px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
-.copy-code-btn:hover{background:rgba(255,255,255,0.2);}
-.forward-note{background:var(--orange-light);border-radius:10px;padding:14px 16px;font-size:13px;color:#92400e;margin-top:16px;line-height:1.6;}
-.forward-note strong{display:block;margin-bottom:4px;}
-.to-disable{background:var(--gray-100);border-radius:10px;padding:14px 16px;margin-top:12px;}
-.to-disable p{font-size:12px;color:var(--gray-600);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
-.to-disable code{font-family:'DM Mono',monospace;font-size:14px;color:var(--gray-900);}
+/* AI PROFILE BANNER */
+.ai-profile-banner{background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:14px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.ai-badge{background:rgba(99,102,241,0.3);color:#a5b4fc;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:6px;}
+.ai-profile-banner h3{font-size:15px;font-weight:700;color:white;margin-bottom:4px;}
+.ai-profile-banner p{font-size:13px;color:rgba(255,255,255,0.6);}
 
 /* DANGER ZONE */
 .danger-zone{background:white;border:1.5px solid #fecaca;border-radius:16px;padding:24px;margin-bottom:24px;}
@@ -184,12 +204,121 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .modal p{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:20px;}
 .modal-btns{display:flex;gap:10px;}
 
+/* TOAST */
 .toast{position:fixed;bottom:28px;right:28px;background:var(--gray-900);color:white;padding:13px 20px;border-radius:12px;font-size:13px;font-weight:500;transform:translateY(80px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);z-index:99999;box-shadow:var(--shadow-lg);}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.success{background:#064e3b;border-left:3px solid var(--green);}
 .toast.error{background:#7f1d1d;border-left:3px solid var(--red);}
+
+/* ═══════════════════════════════════════════════
+   ONBOARDING WIDGET
+═══════════════════════════════════════════════ */
+.onboarding-widget{
+  position:fixed;
+  bottom:28px;right:28px;
+  width:340px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.18);
+  z-index:9000;
+  overflow:hidden;
+  transition:all .35s cubic-bezier(.34,1.1,.64,1);
+  border:1px solid var(--gray-200);
+}
+.onboarding-widget.collapsed{
+  width:220px;
+  border-radius:14px;
+}
+.widget-header{
+  background:linear-gradient(135deg,#1e3a6e,#2563eb);
+  padding:16px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  user-select:none;
+}
+.widget-header-left{}
+.widget-title{font-size:13px;font-weight:700;color:white;margin-bottom:2px;}
+.widget-subtitle{font-size:11px;color:rgba(255,255,255,0.6);}
+.widget-toggle{background:rgba(255,255,255,0.15);border:none;color:white;width:26px;height:26px;border-radius:8px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0;}
+.widget-toggle:hover{background:rgba(255,255,255,0.25);}
+
+/* Progress bar */
+.widget-progress-wrap{padding:12px 18px 0;background:white;}
+.widget-progress-bar{height:6px;background:var(--gray-200);border-radius:10px;overflow:hidden;margin-bottom:6px;}
+.widget-progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--blue),var(--green));transition:width .5s ease;}
+.widget-progress-label{font-size:11px;color:var(--gray-400);display:flex;justify-content:space-between;margin-bottom:12px;}
+.widget-progress-label span:last-child{font-weight:600;color:var(--blue);}
+
+/* Steps */
+.widget-steps{padding:0 18px 14px;}
+.widget-step{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid var(--gray-100);
+  cursor:pointer;
+  transition:all .2s;
+}
+.widget-step:last-child{border-bottom:none;}
+.widget-step:hover .step-label{color:var(--blue);}
+.step-check{
+  width:22px;height:22px;border-radius:50%;
+  border:2px solid var(--gray-200);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:11px;
+  transition:all .3s;
+  margin-top:1px;
+}
+.step-check.done{background:var(--green);border-color:var(--green);color:white;}
+.step-check.active{border-color:var(--blue);}
+.step-info{flex:1;}
+.step-label{font-size:13px;font-weight:600;color:var(--gray-800);margin-bottom:2px;transition:color .2s;}
+.step-label.done{color:var(--gray-400);text-decoration:line-through;}
+.step-desc{font-size:11px;color:var(--gray-400);line-height:1.4;}
+.step-action{font-size:11px;font-weight:700;color:var(--blue);margin-top:4px;}
+.step-arrow{font-size:12px;color:var(--gray-400);flex-shrink:0;margin-top:3px;}
+
+/* Bonus step */
+.widget-bonus{
+  margin:0 18px 14px;
+  background:linear-gradient(135deg,#eef2ff,#ede9fe);
+  border-radius:12px;
+  padding:12px 14px;
+  cursor:pointer;
+  transition:all .2s;
+  border:1.5px solid #c7d2fe;
+}
+.widget-bonus:hover{border-color:var(--purple);}
+.widget-bonus-header{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.widget-bonus-star{font-size:16px;}
+.widget-bonus-label{font-size:13px;font-weight:700;color:var(--purple);}
+.widget-bonus-badge{background:var(--purple);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:auto;}
+.widget-bonus-desc{font-size:11px;color:#4c1d95;line-height:1.5;}
+.widget-bonus.done{background:var(--green-light);border-color:#a7f3d0;}
+.widget-bonus.done .widget-bonus-label{color:var(--green);}
+
+/* Dismiss */
+.widget-dismiss{text-align:center;padding:0 18px 14px;}
+.widget-dismiss button{background:none;border:none;font-size:11px;color:var(--gray-400);cursor:pointer;font-family:inherit;text-decoration:underline;}
+.widget-dismiss button:hover{color:var(--gray-600);}
+
+/* Completed state */
+.widget-complete{padding:20px 18px;text-align:center;}
+.widget-complete .icon{font-size:36px;margin-bottom:10px;}
+.widget-complete h3{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
+.widget-complete p{font-size:12px;color:var(--gray-400);line-height:1.5;}
+
 .loading{text-align:center;padding:80px;color:var(--gray-400);font-size:14px;}
-@media(max-width:720px){.two-col{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.calc-grid{grid-template-columns:1fr;}.phone-number-display{font-size:24px;}.hero-card{padding:24px;}}
+@media(max-width:720px){
+  .two-col{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .calc-grid{grid-template-columns:1fr;}
+  .phone-number-display{font-size:24px;}
+  .hero-card{padding:24px;}
+  .onboarding-widget{width:calc(100vw - 32px);right:16px;bottom:16px;}
+  .onboarding-widget.collapsed{width:200px;}
+}
 </style>
 </head>
 <body>
@@ -202,6 +331,45 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
       <span class="nav-email" id="navEmail"></span>
       <button class="btn-logout" id="logoutBtn">Sign Out</button>
     </div>
+  </div>
+</div>
+
+<!-- ONBOARDING WIDGET -->
+<div class="onboarding-widget" id="onboardingWidget" style="display:none;">
+  <div class="widget-header" id="widgetHeader">
+    <div class="widget-header-left">
+      <div class="widget-title">🚀 Get Started</div>
+      <div class="widget-subtitle" id="widgetSubtitle">Complete setup to go live</div>
+    </div>
+    <button class="widget-toggle" id="widgetToggle">▾</button>
+  </div>
+  <div id="widgetBody">
+    <div class="widget-progress-wrap">
+      <div class="widget-progress-bar">
+        <div class="widget-progress-fill" id="widgetProgressFill" style="width:0%"></div>
+      </div>
+      <div class="widget-progress-label">
+        <span>Setup progress</span>
+        <span id="widgetProgressLabel">0 of 4 complete</span>
+      </div>
+    </div>
+    <div class="widget-steps" id="widgetSteps"></div>
+    <div class="widget-bonus" id="widgetBonus">
+      <div class="widget-bonus-header">
+        <span class="widget-bonus-star">⭐</span>
+        <span class="widget-bonus-label">Set Up AI Profile</span>
+        <span class="widget-bonus-badge">OPTIONAL</span>
+      </div>
+      <div class="widget-bonus-desc">Unlock personalized AI replies that sound exactly like your business. Takes 2 minutes.</div>
+    </div>
+    <div class="widget-dismiss">
+      <button id="dismissWidget">Dismiss this checklist</button>
+    </div>
+  </div>
+  <div class="widget-complete" id="widgetComplete" style="display:none;">
+    <div class="icon">🎉</div>
+    <h3>You're all set!</h3>
+    <p>LeadReply is fully configured. Every missed call will now get an instant AI text reply.</p>
   </div>
 </div>
 
@@ -227,49 +395,184 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 <script>
 (function(){
 
-var SUPABASE_URL = 'https://rxnftfnknqhcuvzqmbpu.supabase.co';
-var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
-var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-var BACKEND = 'https://leadreply-backend.onrender.com';
+var SUPABASE_URL='https://rxnftfnknqhcuvzqmbpu.supabase.co';
+var SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
+var sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+var BACKEND='https://leadreply-backend.onrender.com';
 
-var businessData = null;
-var profileData  = null;
-var allConvos    = [];
-var currentUserId = null;
-var currentEmail  = null;
+var businessData=null,profileData=null,allConvos=[],currentUserId=null,currentEmail=null;
+var onboardingState={account:true,forwarding:false,number:false,testcall:false,aiprofile:false,dismissed:false};
+var widgetCollapsed=false;
 
-document.getElementById('logoutBtn').addEventListener('click', function(){
-  sb.auth.signOut().then(function(){ window.location.href='login.html'; });
-});
-document.getElementById('cancelModalClose').addEventListener('click', function(){
-  document.getElementById('cancelModal').classList.remove('open');
-});
-document.getElementById('confirmCancelBtn').addEventListener('click', cancelSubscription);
+// ── AUTH ─────────────────────────────────────────────────
+document.getElementById('logoutBtn').addEventListener('click',function(){ sb.auth.signOut().then(function(){window.location.href='login.html';}); });
+document.getElementById('cancelModalClose').addEventListener('click',function(){ document.getElementById('cancelModal').classList.remove('open'); });
+document.getElementById('confirmCancelBtn').addEventListener('click',cancelSubscription);
 
 async function init(){
-  var result = await sb.auth.getSession();
-  if(!result.data.session){ window.location.href='login.html'; return; }
-  currentUserId = result.data.session.user.id;
-  currentEmail  = result.data.session.user.email;
-  var roleResult = await sb.from('user_roles').select('role,linked_id').eq('user_id',currentUserId).single();
-  if(!roleResult.data||roleResult.data.role!=='business'){ window.location.href='login.html'; return; }
-  var bizResult = await sb.from('businesses').select('*').eq('id',roleResult.data.linked_id).single();
-  if(!bizResult.data){ document.getElementById('page').innerHTML='<p style="color:red;padding:40px">Business not found.</p>'; return; }
-  businessData = bizResult.data;
-  var profileResult = await sb.from('ai_profiles').select('*').eq('business_id',businessData.id).single();
-  profileData = profileResult.data||null;
-  var convoResult = await sb.from('conversations').select('*').eq('business_id',businessData.id).order('created_at',{ascending:false}).limit(200);
-  allConvos = convoResult.data||[];
-  document.getElementById('navBizName').textContent = businessData.business_name;
-  document.getElementById('navEmail').textContent   = currentEmail;
+  var result=await sb.auth.getSession();
+  if(!result.data.session){window.location.href='login.html';return;}
+  currentUserId=result.data.session.user.id;
+  currentEmail=result.data.session.user.email;
+  var roleResult=await sb.from('user_roles').select('role,linked_id').eq('user_id',currentUserId).single();
+  if(!roleResult.data||roleResult.data.role!=='business'){window.location.href='login.html';return;}
+  var bizResult=await sb.from('businesses').select('*').eq('id',roleResult.data.linked_id).single();
+  if(!bizResult.data){document.getElementById('page').innerHTML='<p style="color:red;padding:40px">Business not found.</p>';return;}
+  businessData=bizResult.data;
+  var profileResult=await sb.from('ai_profiles').select('*').eq('business_id',businessData.id).single();
+  profileData=profileResult.data||null;
+  var convoResult=await sb.from('conversations').select('*').eq('business_id',businessData.id).order('created_at',{ascending:false}).limit(200);
+  allConvos=convoResult.data||[];
+  document.getElementById('navBizName').textContent=businessData.business_name;
+  document.getElementById('navEmail').textContent=currentEmail;
+
+  // Load onboarding state
+  loadOnboardingState();
   renderDashboard();
+  renderWidget();
 }
 
+// ── ONBOARDING STATE ─────────────────────────────────────
+function loadOnboardingState(){
+  var key='lr_onboarding_'+businessData.id;
+  var saved=localStorage.getItem(key);
+  if(saved){
+    try{ var parsed=JSON.parse(saved); Object.assign(onboardingState,parsed); }catch(e){}
+  }
+  // Auto-detect completed steps
+  onboardingState.account=true;
+  if(profileData) onboardingState.aiprofile=true;
+  if(allConvos.length>0) onboardingState.testcall=true;
+  saveOnboardingState();
+}
+
+function saveOnboardingState(){
+  var key='lr_onboarding_'+businessData.id;
+  localStorage.setItem(key,JSON.stringify(onboardingState));
+}
+
+function markStep(step){
+  onboardingState[step]=true;
+  saveOnboardingState();
+  renderWidget();
+  showToast('✅ Step completed!','success');
+}
+
+// ── WIDGET ────────────────────────────────────────────────
+function renderWidget(){
+  if(onboardingState.dismissed){
+    document.getElementById('onboardingWidget').style.display='none';
+    return;
+  }
+
+  var steps=[
+    {key:'account',  label:'Account Created',        desc:'Your LeadReply account is ready.',          action:null,            scroll:null},
+    {key:'number',   label:'Copy Your LeadReply Number', desc:'Save your dedicated LeadReply number.',  action:'Copy Number',   scroll:'numSection'},
+    {key:'forwarding',label:'Set Up Call Forwarding', desc:'Forward missed calls to LeadReply.',        action:'View Guide',    scroll:'forwardingSection'},
+    {key:'testcall', label:'Send a Test Missed Call', desc:'Call your LeadReply number and hang up.',   action:'Mark Complete', scroll:null},
+  ];
+
+  var completed=steps.filter(function(s){return onboardingState[s.key];}).length;
+  var total=steps.length;
+  var allDone=completed===total;
+  var pct=Math.round((completed/total)*100);
+
+  document.getElementById('onboardingWidget').style.display='block';
+  document.getElementById('widgetProgressFill').style.width=pct+'%';
+  document.getElementById('widgetProgressLabel').textContent=completed+' of '+total+' complete';
+  document.getElementById('widgetSubtitle').textContent=allDone?'All steps complete! 🎉':(total-completed)+' step'+(total-completed!==1?'s':'')+' remaining';
+
+  if(allDone){
+    document.getElementById('widgetSteps').style.display='none';
+    document.getElementById('widgetBonus').style.display='none';
+    document.getElementById('widgetComplete').style.display='block';
+    document.getElementById('dismissWidget').parentElement.style.display='none';
+  } else {
+    document.getElementById('widgetComplete').style.display='none';
+    document.getElementById('widgetSteps').style.display='block';
+    document.getElementById('widgetBonus').style.display='block';
+    document.getElementById('dismissWidget').parentElement.style.display='block';
+  }
+
+  // Render steps
+  document.getElementById('widgetSteps').innerHTML=steps.map(function(s){
+    var done=onboardingState[s.key];
+    var isNext=!done && steps.slice(0,steps.indexOf(s)).every(function(prev){return onboardingState[prev.key];});
+    return '<div class="widget-step" data-step="'+s.key+'" data-scroll="'+(s.scroll||'')+'" data-action="'+(s.action||'')+'">'+
+      '<div class="step-check '+(done?'done':isNext?'active':'')+'">'+( done?'✓':isNext?'→':'')+'</div>'+
+      '<div class="step-info">'+
+        '<div class="step-label '+(done?'done':'')+'">'+s.label+'</div>'+
+        '<div class="step-desc">'+s.desc+'</div>'+
+        (!done&&s.action?'<div class="step-action">'+s.action+' →</div>':'')+
+      '</div>'+
+      (!done&&s.action?'<div class="step-arrow">›</div>':'')+
+    '</div>';
+  }).join('');
+
+  // Bonus step
+  var bonusEl=document.getElementById('widgetBonus');
+  bonusEl.className='widget-bonus'+(onboardingState.aiprofile?' done':'');
+  bonusEl.querySelector('.widget-bonus-label').textContent=onboardingState.aiprofile?'✓ AI Profile Complete':'Set Up AI Profile';
+  bonusEl.querySelector('.widget-bonus-desc').textContent=onboardingState.aiprofile?'Your AI replies are personalized to your business.':'Unlock personalized AI replies that sound exactly like your business. Takes 2 minutes.';
+}
+
+// Widget step clicks
+document.getElementById('widgetSteps').addEventListener('click',function(e){
+  var step=e.target.closest('.widget-step');
+  if(!step) return;
+  var key=step.dataset.step;
+  var scrollTarget=step.dataset.scroll;
+  var action=step.dataset.action;
+
+  if(onboardingState[key]) return; // Already done
+
+  if(scrollTarget){
+    var el=document.getElementById(scrollTarget);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  if(action==='Mark Complete'){
+    markStep(key);
+  }
+  if(action==='Copy Number'){
+    var num=businessData.twilio_number;
+    if(num){ navigator.clipboard.writeText(num).then(function(){ markStep('number'); }); }
+  }
+});
+
+// Bonus step click
+document.getElementById('widgetBonus').addEventListener('click',function(){
+  var el=document.getElementById('aiProfileSection');
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  if(onboardingState.aiprofile) showToast('AI profile already complete!','success');
+});
+
+// Toggle collapse
+document.getElementById('widgetHeader').addEventListener('click',function(){
+  widgetCollapsed=!widgetCollapsed;
+  var body=document.getElementById('widgetBody');
+  var toggle=document.getElementById('widgetToggle');
+  var widget=document.getElementById('onboardingWidget');
+  body.style.display=widgetCollapsed?'none':'block';
+  toggle.textContent=widgetCollapsed?'▴':'▾';
+  widget.classList.toggle('collapsed',widgetCollapsed);
+});
+
+// Dismiss
+document.getElementById('dismissWidget').addEventListener('click',function(){
+  if(confirm('Dismiss the setup checklist? You can always find these steps in the dashboard.')){
+    onboardingState.dismissed=true;
+    saveOnboardingState();
+    document.getElementById('onboardingWidget').style.display='none';
+    showToast('Checklist dismissed.','success');
+  }
+});
+
+// ── DASHBOARD ─────────────────────────────────────────────
 function renderDashboard(){
-  var biz  = businessData;
-  var prof = profileData;
-  var msg  = biz.auto_reply_message||'Hi! Sorry we missed your call. How can we help you today?';
-  var plan = biz.plan||'starter';
+  var biz=businessData,prof=profileData;
+  var msg=biz.auto_reply_message||'Hi! Sorry we missed your call. How can we help you today?';
+  var plan=biz.plan||'starter';
   var limits={starter:500,growth:2000,pro:999999,agency_starter:999999,agency_growth:999999,agency_pro:999999};
   var limit=limits[plan]||500;
   var used=biz.sms_count||0;
@@ -282,33 +585,24 @@ function renderDashboard(){
   var num=biz.twilio_number||'';
   var numClean=num.replace(/\D/g,'');
 
-  // Build forwarding codes for each carrier
   var carriers={
-    'AT&T':    { forward:'*92'+num,     disable:'*93',   steps:['Open your phone dialer','Dial the code below and press call','You will hear a confirmation tone','Forwarding is now active'] },
-    'Verizon': { forward:'*71'+num,     disable:'*73',   steps:['Open your phone dialer','Dial the code below and press call','Wait for the confirmation message','Forwarding is now active'] },
-    'T-Mobile':{ forward:'**61*+1'+numClean+'*11*20#', disable:'##61#', steps:['Open your phone dialer','Dial the code below and press call','You will see a confirmation screen','Forwarding is now active for unanswered calls'] },
-    'Sprint':  { forward:'*28'+num,     disable:'*38',   steps:['Open your phone dialer','Dial the code below and press call','Listen for the confirmation tone','Forwarding is now active'] },
-    'Landline':{ forward:'*92'+num,     disable:'*93',   steps:['Pick up your landline handset','Dial the code below','Listen for the confirmation tone','Hang up — forwarding is now active'] },
-    'Other':   { forward:'*92'+num,     disable:'*93',   steps:['Open your phone dialer','Try dialing the code below','If it does not work contact your carrier and ask to set up conditional call forwarding to: '+num,'Forwarding is now active'] },
+    'AT&T':    {forward:'*92'+num,disable:'*93',steps:['Open your phone dialer','Dial the code below and press call','You will hear a confirmation tone','Forwarding is now active']},
+    'Verizon': {forward:'*71'+num,disable:'*73',steps:['Open your phone dialer','Dial the code below and press call','Wait for the confirmation message','Forwarding is now active']},
+    'T-Mobile':{forward:'**61*+1'+numClean+'*11*20#',disable:'##61#',steps:['Open your phone dialer','Dial the code below exactly as shown','You will see a confirmation screen','Forwarding is now active for unanswered calls']},
+    'Sprint':  {forward:'*28'+num,disable:'*38',steps:['Open your phone dialer','Dial the code below and press call','Listen for the confirmation tone','Forwarding is now active']},
+    'Landline':{forward:'*92'+num,disable:'*93',steps:['Pick up your landline handset','Dial the code below','Listen for the confirmation tone','Hang up — forwarding is now active']},
+    'Other':   {forward:'*92'+num,disable:'*93',steps:['Open your phone dialer','Try dialing the code below','If it does not work contact your carrier and request conditional call forwarding to: '+num,'Forwarding is now active']},
   };
-
-  var carrierTabsHTML = Object.keys(carriers).map(function(c,i){
-    return '<button class="carrier-tab'+(i===0?' active':'')+'" data-carrier="'+c+'">'+c+'</button>';
-  }).join('');
-
-  var carrierContentHTML = Object.keys(carriers).map(function(c,i){
+  var carrierTabsHTML=Object.keys(carriers).map(function(c,i){ return '<button class="carrier-tab'+(i===0?' active':'')+'" data-carrier="'+c+'">'+c+'</button>'; }).join('');
+  var carrierContentHTML=Object.keys(carriers).map(function(c,i){
     var info=carriers[c];
-    var stepsHTML=info.steps.map(function(s,si){
-      return '<li class="step-item"><div class="step-num">'+(si+1)+'</div><div class="step-text">'+s+'</div></li>';
-    }).join('');
+    var stepsHTML=info.steps.map(function(s,si){ return '<li class="step-item"><div class="step-num">'+(si+1)+'</div><div class="step-text">'+s+'</div></li>'; }).join('');
     return '<div class="carrier-content'+(i===0?' active':'')+'" data-carrier="'+c+'">'+
       '<ol class="step-list">'+stepsHTML+'</ol>'+
-      '<div class="code-box">'+
-        '<span class="code-text">'+info.forward+'</span>'+
-        '<button class="copy-code-btn" data-code="'+info.forward+'">📋 Copy</button>'+
-      '</div>'+
-      '<div class="forward-note"><strong>📌 Important:</strong> This sets up "No Answer" forwarding only — calls only forward to LeadReply if you do not pick up within 4 rings. Your normal calls are not affected.</div>'+
+      '<div class="code-box"><span class="code-text">'+info.forward+'</span><button class="copy-code-btn" data-code="'+info.forward+'">📋 Copy</button></div>'+
+      '<div class="forward-note">📌 Conditional forwarding only — your phone rings normally and only forwards to LeadReply if you do not answer within 4 rings.</div>'+
       '<div class="to-disable"><p>To disable forwarding later:</p><code>'+info.disable+'</code></div>'+
+      '<div style="margin-top:16px;"><button class="btn btn-blue btn-sm" id="markForwardingDone">✅ Mark Forwarding as Set Up</button></div>'+
     '</div>';
   }).join('');
 
@@ -328,11 +622,11 @@ function renderDashboard(){
       </div>
     </div>
 
-    <div class="number-section">
+    <div class="number-section" id="numSection">
       <div>
         <div class="section-label">📞 Your LeadReply Number</div>
         <div class="phone-number-display">${biz.twilio_number||'Provisioning...'}</div>
-        <div class="number-hint">Forward your business number to this number to capture every missed call.</div>
+        <div class="number-hint">Forward your business number here to capture every missed call.</div>
       </div>
       <div class="number-actions">
         <button class="btn btn-blue" id="copyNumBtn">📋 Copy Number</button>
@@ -342,51 +636,26 @@ function renderDashboard(){
 
     <div class="stats">
       <div class="stat-card"><div class="stat-icon blue">📨</div><div class="stat-label">SMS Sent This Month</div><div class="stat-value">${used.toLocaleString()}</div><div class="stat-sub">of ${limitLabel} available</div></div>
-      <div class="stat-card"><div class="stat-icon green">💬</div><div class="stat-label">Total Conversations</div><div class="stat-value">${callerCount}</div><div class="stat-sub">Unique callers captured</div></div>
+      <div class="stat-card"><div class="stat-icon green">💬</div><div class="stat-label">Conversations</div><div class="stat-value">${callerCount}</div><div class="stat-sub">Unique callers captured</div></div>
       <div class="stat-card"><div class="stat-icon purple">🏭</div><div class="stat-label">Industry</div><div class="stat-value" style="font-size:18px;margin-top:6px;">${biz.industry||'—'}</div><div class="stat-sub">Business category</div></div>
       <div class="stat-card"><div class="stat-icon orange">⚡</div><div class="stat-label">Response Time</div><div class="stat-value" style="font-size:18px;margin-top:6px;">~5 sec</div><div class="stat-sub">Average reply speed</div></div>
     </div>
 
-    ${limit!==999999?`
-    <div class="section-card" style="margin-bottom:24px;">
-      <div class="section-head"><div><h2>📊 Monthly SMS Usage</h2><p>Resets on the 1st of each month</p></div></div>
-      <div class="section-body">
-        <div class="usage-bar-wrap">
-          <div class="usage-bar-label"><span class="used">${used.toLocaleString()} sent</span><span class="limit">${limitLabel} limit</span></div>
-          <div class="usage-bar"><div class="usage-bar-fill ${barClass}" style="width:${pct}%"></div></div>
-        </div>
-        ${pct>90?'<p style="color:var(--red);font-size:13px;font-weight:600;margin-top:8px;">⚠️ Near your monthly limit. Consider upgrading your plan.</p>':''}
-      </div>
-    </div>`:''}
+    ${limit!==999999?`<div class="section-card" style="margin-bottom:24px;"><div class="section-head"><div><h2>📊 Monthly SMS Usage</h2><p>Resets on the 1st of each month</p></div></div><div class="section-body"><div class="usage-bar-wrap"><div class="usage-bar-label"><span class="used">${used.toLocaleString()} sent</span><span class="limit">${limitLabel} limit</span></div><div class="usage-bar"><div class="usage-bar-fill ${barClass}" style="width:${pct}%"></div></div></div>${pct>90?'<p style="color:var(--red);font-size:13px;font-weight:600;margin-top:8px;">⚠️ Near your monthly limit. Consider upgrading.</p>':''}</div></div>`:''}
 
     <!-- CALL FORWARDING GUIDE -->
-    <div class="forwarding-banner">
-      <div style="font-size:32px;">📡</div>
-      <div>
-        <h3>Set Up Call Forwarding</h3>
-        <p>Forward your existing business number to your LeadReply number so every missed call triggers an automatic AI text reply.</p>
-      </div>
-    </div>
-
     <div class="section-card" id="forwardingSection" style="margin-bottom:24px;">
-      <div class="section-head">
-        <div><h2>📡 Call Forwarding Setup</h2><p>Select your phone carrier for step-by-step instructions</p></div>
-      </div>
+      <div class="section-head"><div><h2>📡 Call Forwarding Setup</h2><p>Select your carrier for step-by-step instructions</p></div></div>
       <div class="section-body">
-        <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px;line-height:1.6;">
-          These codes set up <strong>conditional forwarding</strong> — your phone rings as normal, and only forwards to LeadReply if you do not answer. Your LeadReply number is pre-filled in every code below.
-        </p>
+        <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px;line-height:1.6;">Forward your existing business number to LeadReply. Your phone rings normally — LeadReply only activates when you do not answer.</p>
         <div class="carrier-tabs" id="carrierTabs">${carrierTabsHTML}</div>
         <div id="carrierContents">${carrierContentHTML}</div>
       </div>
     </div>
 
-    <!-- CONVERSATION HISTORY -->
+    <!-- CONVERSATIONS -->
     <div class="section-card" style="margin-bottom:24px;">
-      <div class="section-head">
-        <div><h2>💬 Conversation History</h2><p>Every missed call and SMS exchange</p></div>
-        <span style="font-size:13px;color:var(--gray-400);">${allConvos.length} messages · ${callerCount} callers</span>
-      </div>
+      <div class="section-head"><div><h2>💬 Conversation History</h2><p>Every missed call and SMS exchange</p></div><span style="font-size:13px;color:var(--gray-400);">${allConvos.length} messages · ${callerCount} callers</span></div>
       <div class="section-body">
         <div class="convo-filter">
           <input type="text" id="convoSearch" placeholder="Search by phone number...">
@@ -397,24 +666,22 @@ function renderDashboard(){
       </div>
     </div>
 
-    <!-- AI PROFILE -->
-    <div class="ai-profile-banner">
-      <div style="font-size:32px;">🤖</div>
-      <div>
-        <div class="ai-badge">AI PERSONALIZATION</div>
-        <h3>Make Your AI Sound Like Your Business</h3>
-        <p>Fill out your business profile so replies feel personal and on-brand.</p>
+    <!-- AI PROFILE (OPTIONAL) -->
+    <div class="ai-profile-banner" id="aiProfileSection">
+      <div style="font-size:32px;">⭐</div>
+      <div style="flex:1;">
+        <div class="ai-badge">OPTIONAL UPGRADE</div>
+        <h3>Unlock Personalized AI Replies</h3>
+        <p>Fill out your business profile so every auto-reply sounds like it came from your actual team — not a robot.</p>
       </div>
+      <span style="background:rgba(255,255,255,0.15);color:white;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;">${prof?'✅ COMPLETE':'Takes 2 min'}</span>
     </div>
 
     <div class="section-card">
-      <div class="section-head">
-        <div><h2>🤖 AI Business Profile</h2><p>Trains your AI to reply like a real team member</p></div>
-        <span style="font-size:12px;color:${prof?'var(--green)':'var(--orange)'};font-weight:600;">${prof?'✅ Profile saved':'⚠️ Not set up yet'}</span>
-      </div>
+      <div class="section-head"><div><h2>🤖 AI Business Profile</h2><p>Optional — makes replies sound like your real team</p></div><span style="font-size:12px;color:${prof?'var(--green)':'var(--gray-400)'};font-weight:600;">${prof?'✅ Active':'Not set up'}</span></div>
       <div class="section-body">
         <div class="form-grid">
-          <div class="form-group"><label>Owner / Contact Name</label><input type="text" id="ownerName" placeholder="e.g. Sarah Johnson" value="${prof?.owner_name||''}"><div class="form-hint">The AI will sign off using this name</div></div>
+          <div class="form-group"><label>Owner / Contact Name</label><input type="text" id="ownerName" placeholder="e.g. Sarah Johnson" value="${prof?.owner_name||''}"><div class="form-hint">The AI signs off using this name</div></div>
           <div class="form-group"><label>Tone of Voice</label><select id="tone"><option value="friendly and professional" ${(prof?.tone||'')==='friendly and professional'?'selected':''}>Friendly & Professional</option><option value="casual and warm" ${(prof?.tone||'')==='casual and warm'?'selected':''}>Casual & Warm</option><option value="formal and professional" ${(prof?.tone||'')==='formal and professional'?'selected':''}>Formal & Professional</option><option value="energetic and enthusiastic" ${(prof?.tone||'')==='energetic and enthusiastic'?'selected':''}>Energetic & Enthusiastic</option></select></div>
         </div>
         <div class="form-group"><label>Business Description</label><input type="text" id="bizDesc" placeholder="e.g. Houston's most trusted roofing company" value="${prof?.business_description||''}"></div>
@@ -425,10 +692,7 @@ function renderDashboard(){
         </div>
         <div class="form-group"><label>Common Questions</label><textarea id="commonQ" placeholder="e.g. How much does a repair cost? Do you offer free estimates?">${prof?.common_questions||''}</textarea></div>
         <div class="form-group"><label>Call To Action</label><input type="text" id="cta" placeholder="e.g. Ask for their address to schedule a free estimate" value="${prof?.call_to_action||''}"></div>
-        <div class="ai-preview-box">
-          <div class="ai-preview-label">Preview</div>
-          <div class="ai-preview-bubble" id="aiPreview">Fill out your profile above to see a preview.</div>
-        </div>
+        <div class="ai-preview-box"><div class="ai-preview-label">Preview</div><div class="ai-preview-bubble" id="aiPreview">Fill out your profile above to see a preview.</div></div>
         <div style="display:flex;justify-content:flex-end;margin-top:20px;gap:10px;">
           <button class="btn btn-outline" id="previewBtn">👁 Preview Reply</button>
           <button class="btn btn-blue" id="saveProfileBtn">Save AI Profile</button>
@@ -438,7 +702,7 @@ function renderDashboard(){
 
     <div class="two-col">
       <div class="section-card" id="replyEditorCard" style="margin-bottom:0;">
-        <div class="section-head"><div><h2>Auto-Reply Message</h2><p>Fallback if AI is unavailable</p></div></div>
+        <div class="section-head"><div><h2>Auto-Reply Message</h2><p>Fallback when AI profile is not set</p></div></div>
         <div class="section-body">
           <div class="message-bubble" id="msgPreview">${msg}</div>
           <label class="form-label">Edit your message</label>
@@ -448,13 +712,13 @@ function renderDashboard(){
         </div>
       </div>
       <div class="section-card" style="margin-bottom:0;">
-        <div class="section-head"><div><h2>Tips to Get More Responses</h2></div></div>
+        <div class="section-head"><div><h2>Quick Tips</h2></div></div>
         <div class="section-body">
           <ul class="tips-list">
-            <li class="tip-item"><div class="tip-icon blue">📡</div><div class="tip-text"><strong>Set up call forwarding first</strong><span>Use the forwarding guide above to route missed calls to LeadReply.</span></div></li>
-            <li class="tip-item"><div class="tip-icon blue">🤖</div><div class="tip-text"><strong>Complete your AI profile</strong><span>Full profiles make replies sound like a real team member.</span></div></li>
+            <li class="tip-item"><div class="tip-icon blue">📡</div><div class="tip-text"><strong>Set up call forwarding first</strong><span>Use the guide above to route missed calls to LeadReply.</span></div></li>
+            <li class="tip-item"><div class="tip-icon blue">⭐</div><div class="tip-text"><strong>Add your AI profile</strong><span>Optional but powerful — replies sound like your real team.</span></div></li>
             <li class="tip-item"><div class="tip-icon green">❓</div><div class="tip-text"><strong>End with a question</strong><span>Invite customers to reply and start a conversation.</span></div></li>
-            <li class="tip-item"><div class="tip-icon purple">🎯</div><div class="tip-text"><strong>Set a clear call to action</strong><span>Tell the AI exactly what to ask for.</span></div></li>
+            <li class="tip-item"><div class="tip-icon purple">⚡</div><div class="tip-text"><strong>Keep replies under 160 chars</strong><span>Shorter messages get higher response rates.</span></div></li>
           </ul>
         </div>
       </div>
@@ -481,7 +745,7 @@ function renderDashboard(){
 
     <div class="danger-zone" style="margin-top:0;">
       <h3>⚠️ Cancel Subscription</h3>
-      <p>Cancelling will deactivate your missed call automation at the end of your current billing period. Your dedicated LeadReply number will be released.</p>
+      <p>Cancelling will deactivate your missed call automation at the end of your current billing period.</p>
       <button class="btn btn-danger" id="cancelBtn">Cancel My Subscription</button>
     </div>
   `;
@@ -490,106 +754,106 @@ function renderDashboard(){
 }
 
 function groupConvos(convos){
-  var groups={};
-  convos.forEach(function(c){ if(!groups[c.caller_number])groups[c.caller_number]=[]; groups[c.caller_number].push(c); });
-  return groups;
+  var g={};
+  convos.forEach(function(c){ if(!g[c.caller_number])g[c.caller_number]=[]; g[c.caller_number].push(c); });
+  return g;
 }
 
 function renderConvoList(grouped){
   var numbers=Object.keys(grouped);
   if(!numbers.length) return '<div class="empty-convos"><div class="icon">💬</div><h3>No conversations yet</h3><p>Conversations appear here after your first missed call is captured.</p></div>';
   return numbers.map(function(num){
-    var messages=grouped[num];
-    var latest=messages[0];
-    var latestTime=new Date(latest.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
-    var thread=messages.slice().reverse().map(function(m){
+    var msgs=grouped[num];
+    var latest=msgs[0];
+    var t=new Date(latest.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    var thread=msgs.slice().reverse().map(function(m){
       var time=new Date(m.created_at).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
-      var dateStr=new Date(m.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-      return '<div class="msg-item '+m.direction+'"><div class="msg-direction '+m.direction+'">'+(m.direction==='outbound'?'Auto-Reply Sent':'Customer Reply')+'</div><div class="msg-bubble '+m.direction+'">'+m.message+'</div><div class="msg-time">'+dateStr+' · '+time+'</div></div>';
+      var ds=new Date(m.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+      return '<div class="msg-item '+m.direction+'"><div class="msg-direction '+m.direction+'">'+(m.direction==='outbound'?'Auto-Reply Sent':'Customer Reply')+'</div><div class="msg-bubble '+m.direction+'">'+m.message+'</div><div class="msg-time">'+ds+' · '+time+'</div></div>';
     }).join('');
-    return '<div class="caller-group"><div class="caller-header" id="ch_'+num.replace(/\+/g,'')+'" ><div><div class="caller-number">'+num+'</div><div class="caller-meta">Last: '+latestTime+'</div></div><div style="display:flex;align-items:center;gap:10px;"><span class="caller-badge">'+messages.length+' msg'+(messages.length!==1?'s':'')+'</span><span style="color:var(--gray-400);">▾</span></div></div><div class="messages-thread" style="display:none;">'+thread+'</div></div>';
+    return '<div class="caller-group"><div class="caller-header"><div><div class="caller-number">'+num+'</div><div class="caller-meta">Last: '+t+'</div></div><div style="display:flex;align-items:center;gap:10px;"><span class="caller-badge">'+msgs.length+' msg'+(msgs.length!==1?'s':'')+'</span><span style="color:var(--gray-400);">▾</span></div></div><div class="messages-thread" style="display:none;">'+thread+'</div></div>';
   }).join('');
 }
 
 function attachEvents(){
-  document.getElementById('copyNumBtn').addEventListener('click', function(){
-    var num=businessData.twilio_number;
-    if(!num){showToast('Number not yet assigned.','error');return;}
-    navigator.clipboard.writeText(num).then(function(){showToast('📋 Number copied!','success');});
+  document.getElementById('copyNumBtn').addEventListener('click',function(){
+    var n=businessData.twilio_number;
+    if(!n){showToast('Number not yet assigned.','error');return;}
+    navigator.clipboard.writeText(n).then(function(){ markStep('number'); showToast('📋 Number copied!','success'); });
   });
 
-  document.getElementById('scrollForwardBtn').addEventListener('click', function(){
+  document.getElementById('scrollForwardBtn').addEventListener('click',function(){
     document.getElementById('forwardingSection').scrollIntoView({behavior:'smooth',block:'start'});
   });
 
   // Carrier tabs
-  document.getElementById('carrierTabs').addEventListener('click', function(e){
+  document.getElementById('carrierTabs').addEventListener('click',function(e){
     var tab=e.target.closest('.carrier-tab');
-    if(!tab)return;
-    var carrier=tab.dataset.carrier;
+    if(!tab) return;
+    var c=tab.dataset.carrier;
     document.querySelectorAll('.carrier-tab').forEach(function(t){t.classList.remove('active');});
-    document.querySelectorAll('.carrier-content').forEach(function(c){c.classList.remove('active');});
+    document.querySelectorAll('.carrier-content').forEach(function(x){x.classList.remove('active');});
     tab.classList.add('active');
-    document.querySelector('.carrier-content[data-carrier="'+carrier+'"]').classList.add('active');
+    document.querySelector('.carrier-content[data-carrier="'+c+'"]').classList.add('active');
   });
 
-  // Copy code buttons
-  document.getElementById('carrierContents').addEventListener('click', function(e){
-    var btn=e.target.closest('.copy-code-btn');
-    if(!btn)return;
-    navigator.clipboard.writeText(btn.dataset.code).then(function(){showToast('✅ Code copied — dial it on your phone!','success');});
+  // Copy code buttons & mark forwarding done
+  document.getElementById('carrierContents').addEventListener('click',function(e){
+    var copyBtn=e.target.closest('.copy-code-btn');
+    if(copyBtn){ navigator.clipboard.writeText(copyBtn.dataset.code).then(function(){ showToast('✅ Code copied — dial it on your phone!','success'); }); }
+    var doneBtn=e.target.closest('#markForwardingDone');
+    if(doneBtn){ markStep('forwarding'); }
   });
 
-  // Convo search
-  document.getElementById('convoSearch').addEventListener('input', filterConvos);
-  document.getElementById('convoFilter').addEventListener('change', filterConvos);
-  document.getElementById('refreshConvos').addEventListener('click', async function(){
-    var r=await sb.from('conversations').select('*').eq('business_id',businessData.id).order('created_at',{ascending:false}).limit(200);
-    allConvos=r.data||[];
-    document.getElementById('convoList').innerHTML=renderConvoList(groupConvos(allConvos));
-    showToast('Refreshed!','success');
-  });
-
-  // Caller thread toggle
-  document.getElementById('convoList').addEventListener('click', function(e){
+  // Convo
+  document.getElementById('convoList').addEventListener('click',function(e){
     var header=e.target.closest('.caller-header');
-    if(!header)return;
+    if(!header) return;
     var thread=header.nextElementSibling;
     thread.style.display=thread.style.display==='none'?'flex':'none';
   });
+  document.getElementById('convoSearch').addEventListener('input',filterConvos);
+  document.getElementById('convoFilter').addEventListener('change',filterConvos);
+  document.getElementById('refreshConvos').addEventListener('click',async function(){
+    var r=await sb.from('conversations').select('*').eq('business_id',businessData.id).order('created_at',{ascending:false}).limit(200);
+    allConvos=r.data||[];
+    document.getElementById('convoList').innerHTML=renderConvoList(groupConvos(allConvos));
+    if(allConvos.length>0){ onboardingState.testcall=true; saveOnboardingState(); renderWidget(); }
+    showToast('Refreshed!','success');
+  });
 
-  document.getElementById('replyTextarea').addEventListener('input', function(){
+  // Reply editor
+  document.getElementById('replyTextarea').addEventListener('input',function(){
     var msg=this.value;
     document.getElementById('msgPreview').textContent=msg||'Start typing...';
     var el=document.getElementById('charCount');
     el.textContent=msg.length+' / 160 characters';
     el.className='char-count'+(msg.length>140?(msg.length>=160?' over':' warn'):'');
   });
-
-  document.getElementById('saveReplyBtn').addEventListener('click', async function(){
+  document.getElementById('saveReplyBtn').addEventListener('click',async function(){
     var msg=document.getElementById('replyTextarea').value.trim();
     if(!msg){showToast('Message cannot be empty.','error');return;}
-    if(msg.length>160){showToast('Keep it under 160 characters.','error');return;}
     var r=await sb.from('businesses').update({auto_reply_message:msg}).eq('id',businessData.id);
     if(r.error){showToast('❌ Error saving.','error');return;}
     showToast('✅ Auto-reply saved!','success');
   });
 
-  document.getElementById('saveProfileBtn').addEventListener('click', saveProfile);
-  document.getElementById('previewBtn').addEventListener('click', generatePreview);
-  document.getElementById('calcMissed').addEventListener('input', calculate);
-  document.getElementById('calcValue').addEventListener('input', calculate);
-  document.getElementById('cancelBtn').addEventListener('click', function(){
-    document.getElementById('cancelModal').classList.add('open');
-  });
+  // AI Profile
+  document.getElementById('saveProfileBtn').addEventListener('click',saveProfile);
+  document.getElementById('previewBtn').addEventListener('click',generatePreview);
+
+  // Calculator
+  document.getElementById('calcMissed').addEventListener('input',calculate);
+  document.getElementById('calcValue').addEventListener('input',calculate);
+
+  // Cancel
+  document.getElementById('cancelBtn').addEventListener('click',function(){ document.getElementById('cancelModal').classList.add('open'); });
 }
 
 function filterConvos(){
-  var search=document.getElementById('convoSearch').value.toLowerCase();
-  var filter=document.getElementById('convoFilter').value;
-  var filtered=allConvos.filter(function(c){
-    return (!search||c.caller_number.includes(search)||c.message.toLowerCase().includes(search))&&(filter==='all'||c.direction===filter);
-  });
+  var s=document.getElementById('convoSearch').value.toLowerCase();
+  var f=document.getElementById('convoFilter').value;
+  var filtered=allConvos.filter(function(c){ return (!s||c.caller_number.includes(s)||c.message.toLowerCase().includes(s))&&(f==='all'||c.direction===f); });
   document.getElementById('convoList').innerHTML=renderConvoList(groupConvos(filtered));
 }
 
@@ -599,12 +863,9 @@ async function cancelSubscription(){
   try{
     var res=await fetch(BACKEND+'/cancel-subscription',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user_id:currentUserId,role:'business',email:currentEmail})});
     var data=await res.json();
-    if(data.success){
-      document.getElementById('cancelModal').classList.remove('open');
-      showToast('Subscription cancelled. Service remains active until end of billing period.','success');
-      setTimeout(function(){sb.auth.signOut().then(function(){window.location.href='index.html';});},3000);
-    }else{showToast('❌ '+(data.error||'Please contact support.'),'error');}
-  }catch(e){showToast('❌ Network error. Please try again.','error');}
+    if(data.success){ document.getElementById('cancelModal').classList.remove('open'); showToast('Subscription cancelled.','success'); setTimeout(function(){sb.auth.signOut().then(function(){window.location.href='index.html';});},3000); }
+    else{showToast('❌ '+(data.error||'Contact support.'),'error');}
+  }catch(e){showToast('❌ Network error.','error');}
   btn.textContent='Yes, Cancel';btn.disabled=false;
 }
 
@@ -614,7 +875,7 @@ async function saveProfile(){
   var payload={business_id:businessData.id,owner_name:document.getElementById('ownerName').value.trim(),business_description:document.getElementById('bizDesc').value.trim(),services:document.getElementById('services').value.trim(),hours:document.getElementById('hours').value.trim(),service_area:document.getElementById('serviceArea').value.trim(),tone:document.getElementById('tone').value,common_questions:document.getElementById('commonQ').value.trim(),call_to_action:document.getElementById('cta').value.trim(),updated_at:new Date().toISOString()};
   var r=profileData?await sb.from('ai_profiles').update(payload).eq('id',profileData.id):await sb.from('ai_profiles').insert(payload);
   if(r.error){showToast('❌ '+r.error.message,'error');}
-  else{profileData=payload;showToast('✅ AI profile saved!','success');}
+  else{ profileData=payload; onboardingState.aiprofile=true; saveOnboardingState(); renderWidget(); showToast('✅ AI profile saved!','success'); }
   btn.textContent='Save AI Profile';btn.disabled=false;
 }
 
@@ -622,11 +883,11 @@ function generatePreview(){
   var name=document.getElementById('ownerName').value.trim()||businessData.business_name;
   var services=document.getElementById('services').value.trim();
   var cta=document.getElementById('cta').value.trim();
-  var preview='Hi! This is '+name+' from '+businessData.business_name+'. Sorry we missed your call!';
-  if(services) preview+=' We offer '+services.split(',')[0].trim().toLowerCase()+'.';
-  preview+=cta?' '+cta.charAt(0).toUpperCase()+cta.slice(1)+' Reply STOP to unsubscribe.':' How can we help? Reply STOP to unsubscribe.';
-  if(preview.length>160) preview=preview.substring(0,157)+'...';
-  document.getElementById('aiPreview').textContent=preview;
+  var p='Hi! This is '+name+' from '+businessData.business_name+'. Sorry we missed your call!';
+  if(services) p+=' We offer '+services.split(',')[0].trim().toLowerCase()+'.';
+  p+=cta?' '+cta.charAt(0).toUpperCase()+cta.slice(1)+' Reply STOP to unsubscribe.':' How can we help? Reply STOP to unsubscribe.';
+  if(p.length>160) p=p.substring(0,157)+'...';
+  document.getElementById('aiPreview').textContent=p;
   showToast('Preview generated!','success');
 }
 
