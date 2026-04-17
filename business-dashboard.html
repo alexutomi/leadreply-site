@@ -145,10 +145,37 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .calc-breakdown-item{background:rgba(255,255,255,0.05);border-radius:10px;padding:12px;text-align:center;}
 .calc-breakdown-item .b-label{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;}
 .calc-breakdown-item .b-value{font-size:18px;font-weight:700;color:white;}
-/* CANCEL SECTION */
+
+/* FORWARDING GUIDE */
+.forwarding-banner{background:linear-gradient(135deg,#0f4c75,#1b6ca8);border-radius:14px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.forwarding-banner h3{font-size:15px;font-weight:700;color:white;margin-bottom:4px;}
+.forwarding-banner p{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.carrier-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.carrier-tab{padding:8px 16px;border-radius:20px;border:1.5px solid var(--gray-200);background:white;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;color:var(--gray-600);}
+.carrier-tab:hover{border-color:var(--blue);color:var(--blue);}
+.carrier-tab.active{background:var(--blue);border-color:var(--blue);color:white;}
+.carrier-content{display:none;}
+.carrier-content.active{display:block;}
+.step-list{list-style:none;margin-bottom:20px;}
+.step-item{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--blue);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-text{font-size:14px;color:var(--gray-700);line-height:1.6;flex:1;}
+.step-text strong{color:var(--gray-900);}
+.code-box{background:var(--gray-900);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin:10px 0;}
+.code-text{font-family:'DM Mono',monospace;font-size:20px;color:white;letter-spacing:2px;}
+.copy-code-btn{padding:7px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
+.copy-code-btn:hover{background:rgba(255,255,255,0.2);}
+.forward-note{background:var(--orange-light);border-radius:10px;padding:14px 16px;font-size:13px;color:#92400e;margin-top:16px;line-height:1.6;}
+.forward-note strong{display:block;margin-bottom:4px;}
+.to-disable{background:var(--gray-100);border-radius:10px;padding:14px 16px;margin-top:12px;}
+.to-disable p{font-size:12px;color:var(--gray-600);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+.to-disable code{font-family:'DM Mono',monospace;font-size:14px;color:var(--gray-900);}
+
+/* DANGER ZONE */
 .danger-zone{background:white;border:1.5px solid #fecaca;border-radius:16px;padding:24px;margin-bottom:24px;}
 .danger-zone h3{font-size:15px;font-weight:700;color:var(--red);margin-bottom:8px;}
 .danger-zone p{font-size:13px;color:var(--gray-600);margin-bottom:16px;line-height:1.6;}
+
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
@@ -156,18 +183,13 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 .modal h2{font-size:20px;font-weight:700;color:var(--gray-900);margin-bottom:8px;}
 .modal p{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:20px;}
 .modal-btns{display:flex;gap:10px;}
+
 .toast{position:fixed;bottom:28px;right:28px;background:var(--gray-900);color:white;padding:13px 20px;border-radius:12px;font-size:13px;font-weight:500;transform:translateY(80px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);z-index:99999;box-shadow:var(--shadow-lg);}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.success{background:#064e3b;border-left:3px solid var(--green);}
 .toast.error{background:#7f1d1d;border-left:3px solid var(--red);}
 .loading{text-align:center;padding:80px;color:var(--gray-400);font-size:14px;}
-@media(max-width:720px){
-  .two-col{grid-template-columns:1fr;}
-  .form-grid{grid-template-columns:1fr;}
-  .calc-grid{grid-template-columns:1fr;}
-  .phone-number-display{font-size:24px;}
-  .hero-card{padding:24px;}
-}
+@media(max-width:720px){.two-col{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.calc-grid{grid-template-columns:1fr;}.phone-number-display{font-size:24px;}.hero-card{padding:24px;}}
 </style>
 </head>
 <body>
@@ -191,7 +213,7 @@ textarea:focus{outline:none;border-color:var(--blue);background:white;box-shadow
 <div class="modal-overlay" id="cancelModal">
   <div class="modal">
     <h2>Cancel Subscription?</h2>
-    <p>Are you sure you want to cancel your LeadReply subscription? Your service will remain active until the end of your current billing period, after which your dedicated number will be released and SMS automation will stop.</p>
+    <p>Your service will remain active until the end of your current billing period, after which your dedicated number will be released and SMS automation will stop.</p>
     <div class="modal-btns">
       <button class="btn btn-outline" style="flex:1;" id="cancelModalClose">Keep Subscription</button>
       <button class="btn btn-danger" style="flex:1;" id="confirmCancelBtn">Yes, Cancel</button>
@@ -217,58 +239,80 @@ var currentUserId = null;
 var currentEmail  = null;
 
 document.getElementById('logoutBtn').addEventListener('click', function(){
-  sb.auth.signOut().then(function(){ window.location.href = 'login.html'; });
+  sb.auth.signOut().then(function(){ window.location.href='login.html'; });
 });
-
 document.getElementById('cancelModalClose').addEventListener('click', function(){
   document.getElementById('cancelModal').classList.remove('open');
 });
-
 document.getElementById('confirmCancelBtn').addEventListener('click', cancelSubscription);
 
 async function init(){
   var result = await sb.auth.getSession();
-  if(!result.data.session){ window.location.href = 'login.html'; return; }
-
+  if(!result.data.session){ window.location.href='login.html'; return; }
   currentUserId = result.data.session.user.id;
   currentEmail  = result.data.session.user.email;
-
-  var roleResult = await sb.from('user_roles').select('role, linked_id').eq('user_id', currentUserId).single();
-  if(!roleResult.data || roleResult.data.role !== 'business'){ window.location.href = 'login.html'; return; }
-
-  var bizResult = await sb.from('businesses').select('*').eq('id', roleResult.data.linked_id).single();
-  if(!bizResult.data){ document.getElementById('page').innerHTML = '<p style="color:red;padding:40px">Business not found.</p>'; return; }
-
+  var roleResult = await sb.from('user_roles').select('role,linked_id').eq('user_id',currentUserId).single();
+  if(!roleResult.data||roleResult.data.role!=='business'){ window.location.href='login.html'; return; }
+  var bizResult = await sb.from('businesses').select('*').eq('id',roleResult.data.linked_id).single();
+  if(!bizResult.data){ document.getElementById('page').innerHTML='<p style="color:red;padding:40px">Business not found.</p>'; return; }
   businessData = bizResult.data;
-
-  var profileResult = await sb.from('ai_profiles').select('*').eq('business_id', businessData.id).single();
-  profileData = profileResult.data || null;
-
-  var convoResult = await sb.from('conversations').select('*').eq('business_id', businessData.id).order('created_at',{ascending:false}).limit(200);
-  allConvos = convoResult.data || [];
-
+  var profileResult = await sb.from('ai_profiles').select('*').eq('business_id',businessData.id).single();
+  profileData = profileResult.data||null;
+  var convoResult = await sb.from('conversations').select('*').eq('business_id',businessData.id).order('created_at',{ascending:false}).limit(200);
+  allConvos = convoResult.data||[];
   document.getElementById('navBizName').textContent = businessData.business_name;
   document.getElementById('navEmail').textContent   = currentEmail;
-
   renderDashboard();
 }
 
 function renderDashboard(){
   var biz  = businessData;
   var prof = profileData;
-  var msg  = biz.auto_reply_message || 'Hi! Sorry we missed your call. How can we help you today?';
-  var plan    = biz.plan || 'starter';
-  var limits  = {starter:500,growth:2000,pro:999999,agency_starter:999999,agency_growth:999999,agency_pro:999999};
-  var limit   = limits[plan] || 500;
-  var used    = biz.sms_count || 0;
-  var pct     = limit === 999999 ? 5 : Math.min((used/limit)*100,100);
-  var barClass = pct > 90 ? 'danger' : pct > 70 ? 'warn' : '';
-  var limitLabel = limit === 999999 ? 'Unlimited' : limit.toLocaleString();
-  var grouped = groupConvos(allConvos);
-  var callerCount = Object.keys(grouped).length;
-  var isActive = biz.active !== false;
+  var msg  = biz.auto_reply_message||'Hi! Sorry we missed your call. How can we help you today?';
+  var plan = biz.plan||'starter';
+  var limits={starter:500,growth:2000,pro:999999,agency_starter:999999,agency_growth:999999,agency_pro:999999};
+  var limit=limits[plan]||500;
+  var used=biz.sms_count||0;
+  var pct=limit===999999?5:Math.min((used/limit)*100,100);
+  var barClass=pct>90?'danger':pct>70?'warn':'';
+  var limitLabel=limit===999999?'Unlimited':limit.toLocaleString();
+  var grouped=groupConvos(allConvos);
+  var callerCount=Object.keys(grouped).length;
+  var isActive=biz.active!==false;
+  var num=biz.twilio_number||'';
+  var numClean=num.replace(/\D/g,'');
 
-  document.getElementById('page').innerHTML = `
+  // Build forwarding codes for each carrier
+  var carriers={
+    'AT&T':    { forward:'*92'+num,     disable:'*93',   steps:['Open your phone dialer','Dial the code below and press call','You will hear a confirmation tone','Forwarding is now active'] },
+    'Verizon': { forward:'*71'+num,     disable:'*73',   steps:['Open your phone dialer','Dial the code below and press call','Wait for the confirmation message','Forwarding is now active'] },
+    'T-Mobile':{ forward:'**61*+1'+numClean+'*11*20#', disable:'##61#', steps:['Open your phone dialer','Dial the code below and press call','You will see a confirmation screen','Forwarding is now active for unanswered calls'] },
+    'Sprint':  { forward:'*28'+num,     disable:'*38',   steps:['Open your phone dialer','Dial the code below and press call','Listen for the confirmation tone','Forwarding is now active'] },
+    'Landline':{ forward:'*92'+num,     disable:'*93',   steps:['Pick up your landline handset','Dial the code below','Listen for the confirmation tone','Hang up — forwarding is now active'] },
+    'Other':   { forward:'*92'+num,     disable:'*93',   steps:['Open your phone dialer','Try dialing the code below','If it does not work contact your carrier and ask to set up conditional call forwarding to: '+num,'Forwarding is now active'] },
+  };
+
+  var carrierTabsHTML = Object.keys(carriers).map(function(c,i){
+    return '<button class="carrier-tab'+(i===0?' active':'')+'" data-carrier="'+c+'">'+c+'</button>';
+  }).join('');
+
+  var carrierContentHTML = Object.keys(carriers).map(function(c,i){
+    var info=carriers[c];
+    var stepsHTML=info.steps.map(function(s,si){
+      return '<li class="step-item"><div class="step-num">'+(si+1)+'</div><div class="step-text">'+s+'</div></li>';
+    }).join('');
+    return '<div class="carrier-content'+(i===0?' active':'')+'" data-carrier="'+c+'">'+
+      '<ol class="step-list">'+stepsHTML+'</ol>'+
+      '<div class="code-box">'+
+        '<span class="code-text">'+info.forward+'</span>'+
+        '<button class="copy-code-btn" data-code="'+info.forward+'">📋 Copy</button>'+
+      '</div>'+
+      '<div class="forward-note"><strong>📌 Important:</strong> This sets up "No Answer" forwarding only — calls only forward to LeadReply if you do not pick up within 4 rings. Your normal calls are not affected.</div>'+
+      '<div class="to-disable"><p>To disable forwarding later:</p><code>'+info.disable+'</code></div>'+
+    '</div>';
+  }).join('');
+
+  document.getElementById('page').innerHTML=`
 
     <div class="hero-card">
       <div class="hero-left">
@@ -288,18 +332,18 @@ function renderDashboard(){
       <div>
         <div class="section-label">📞 Your LeadReply Number</div>
         <div class="phone-number-display">${biz.twilio_number||'Provisioning...'}</div>
-        <div class="number-hint">Every missed call on this number triggers an instant AI text reply.</div>
+        <div class="number-hint">Forward your business number to this number to capture every missed call.</div>
       </div>
       <div class="number-actions">
         <button class="btn btn-blue" id="copyNumBtn">📋 Copy Number</button>
-        <button class="btn btn-outline" id="scrollEditorBtn">✏️ Edit Reply</button>
+        <button class="btn btn-outline" id="scrollForwardBtn">📡 Setup Forwarding</button>
       </div>
     </div>
 
     <div class="stats">
       <div class="stat-card"><div class="stat-icon blue">📨</div><div class="stat-label">SMS Sent This Month</div><div class="stat-value">${used.toLocaleString()}</div><div class="stat-sub">of ${limitLabel} available</div></div>
-      <div class="stat-card"><div class="stat-icon green">💬</div><div class="stat-label">Total Conversations</div><div class="stat-value">${callerCount}</div><div class="stat-sub">Unique callers</div></div>
-      <div class="stat-card"><div class="stat-icon purple">🏭</div><div class="stat-label">Industry</div><div class="stat-value" style="font-size:18px;margin-top:6px;">${biz.industry||'—'}</div><div class="stat-sub">Your business category</div></div>
+      <div class="stat-card"><div class="stat-icon green">💬</div><div class="stat-label">Total Conversations</div><div class="stat-value">${callerCount}</div><div class="stat-sub">Unique callers captured</div></div>
+      <div class="stat-card"><div class="stat-icon purple">🏭</div><div class="stat-label">Industry</div><div class="stat-value" style="font-size:18px;margin-top:6px;">${biz.industry||'—'}</div><div class="stat-sub">Business category</div></div>
       <div class="stat-card"><div class="stat-icon orange">⚡</div><div class="stat-label">Response Time</div><div class="stat-value" style="font-size:18px;margin-top:6px;">~5 sec</div><div class="stat-sub">Average reply speed</div></div>
     </div>
 
@@ -311,10 +355,33 @@ function renderDashboard(){
           <div class="usage-bar-label"><span class="used">${used.toLocaleString()} sent</span><span class="limit">${limitLabel} limit</span></div>
           <div class="usage-bar"><div class="usage-bar-fill ${barClass}" style="width:${pct}%"></div></div>
         </div>
-        ${pct>90?`<p style="color:var(--red);font-size:13px;font-weight:600;margin-top:8px;">⚠️ Near your monthly limit. Consider upgrading your plan.</p>`:''}
+        ${pct>90?'<p style="color:var(--red);font-size:13px;font-weight:600;margin-top:8px;">⚠️ Near your monthly limit. Consider upgrading your plan.</p>':''}
       </div>
     </div>`:''}
 
+    <!-- CALL FORWARDING GUIDE -->
+    <div class="forwarding-banner">
+      <div style="font-size:32px;">📡</div>
+      <div>
+        <h3>Set Up Call Forwarding</h3>
+        <p>Forward your existing business number to your LeadReply number so every missed call triggers an automatic AI text reply.</p>
+      </div>
+    </div>
+
+    <div class="section-card" id="forwardingSection" style="margin-bottom:24px;">
+      <div class="section-head">
+        <div><h2>📡 Call Forwarding Setup</h2><p>Select your phone carrier for step-by-step instructions</p></div>
+      </div>
+      <div class="section-body">
+        <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px;line-height:1.6;">
+          These codes set up <strong>conditional forwarding</strong> — your phone rings as normal, and only forwards to LeadReply if you do not answer. Your LeadReply number is pre-filled in every code below.
+        </p>
+        <div class="carrier-tabs" id="carrierTabs">${carrierTabsHTML}</div>
+        <div id="carrierContents">${carrierContentHTML}</div>
+      </div>
+    </div>
+
+    <!-- CONVERSATION HISTORY -->
     <div class="section-card" style="margin-bottom:24px;">
       <div class="section-head">
         <div><h2>💬 Conversation History</h2><p>Every missed call and SMS exchange</p></div>
@@ -330,6 +397,7 @@ function renderDashboard(){
       </div>
     </div>
 
+    <!-- AI PROFILE -->
     <div class="ai-profile-banner">
       <div style="font-size:32px;">🤖</div>
       <div>
@@ -383,10 +451,10 @@ function renderDashboard(){
         <div class="section-head"><div><h2>Tips to Get More Responses</h2></div></div>
         <div class="section-body">
           <ul class="tips-list">
+            <li class="tip-item"><div class="tip-icon blue">📡</div><div class="tip-text"><strong>Set up call forwarding first</strong><span>Use the forwarding guide above to route missed calls to LeadReply.</span></div></li>
             <li class="tip-item"><div class="tip-icon blue">🤖</div><div class="tip-text"><strong>Complete your AI profile</strong><span>Full profiles make replies sound like a real team member.</span></div></li>
             <li class="tip-item"><div class="tip-icon green">❓</div><div class="tip-text"><strong>End with a question</strong><span>Invite customers to reply and start a conversation.</span></div></li>
             <li class="tip-item"><div class="tip-icon purple">🎯</div><div class="tip-text"><strong>Set a clear call to action</strong><span>Tell the AI exactly what to ask for.</span></div></li>
-            <li class="tip-item"><div class="tip-icon blue">⚡</div><div class="tip-text"><strong>Keep replies under 160 chars</strong><span>Shorter messages get higher response rates.</span></div></li>
           </ul>
         </div>
       </div>
@@ -411,10 +479,9 @@ function renderDashboard(){
       </div>
     </div>
 
-    <!-- DANGER ZONE -->
-    <div class="danger-zone" style="margin-top:24px;">
+    <div class="danger-zone" style="margin-top:0;">
       <h3>⚠️ Cancel Subscription</h3>
-      <p>Cancelling your subscription will deactivate your missed call automation at the end of your current billing period. Your dedicated LeadReply number will be released and customers will no longer receive auto-replies.</p>
+      <p>Cancelling will deactivate your missed call automation at the end of your current billing period. Your dedicated LeadReply number will be released.</p>
       <button class="btn btn-danger" id="cancelBtn">Cancel My Subscription</button>
     </div>
   `;
@@ -424,13 +491,13 @@ function renderDashboard(){
 
 function groupConvos(convos){
   var groups={};
-  convos.forEach(function(c){ if(!groups[c.caller_number]) groups[c.caller_number]=[]; groups[c.caller_number].push(c); });
+  convos.forEach(function(c){ if(!groups[c.caller_number])groups[c.caller_number]=[]; groups[c.caller_number].push(c); });
   return groups;
 }
 
 function renderConvoList(grouped){
   var numbers=Object.keys(grouped);
-  if(!numbers.length) return `<div class="empty-convos"><div class="icon">💬</div><h3>No conversations yet</h3><p>Conversations will appear here after your first missed call.</p></div>`;
+  if(!numbers.length) return '<div class="empty-convos"><div class="icon">💬</div><h3>No conversations yet</h3><p>Conversations appear here after your first missed call is captured.</p></div>';
   return numbers.map(function(num){
     var messages=grouped[num];
     var latest=messages[0];
@@ -438,9 +505,9 @@ function renderConvoList(grouped){
     var thread=messages.slice().reverse().map(function(m){
       var time=new Date(m.created_at).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
       var dateStr=new Date(m.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-      return `<div class="msg-item ${m.direction}"><div class="msg-direction ${m.direction}">${m.direction==='outbound'?'Auto-Reply Sent':'Customer Reply'}</div><div class="msg-bubble ${m.direction}">${m.message}</div><div class="msg-time">${dateStr} · ${time}</div></div>`;
+      return '<div class="msg-item '+m.direction+'"><div class="msg-direction '+m.direction+'">'+(m.direction==='outbound'?'Auto-Reply Sent':'Customer Reply')+'</div><div class="msg-bubble '+m.direction+'">'+m.message+'</div><div class="msg-time">'+dateStr+' · '+time+'</div></div>';
     }).join('');
-    return `<div class="caller-group"><div class="caller-header" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'flex':'none'"><div><div class="caller-number">${num}</div><div class="caller-meta">Last: ${latestTime}</div></div><div style="display:flex;align-items:center;gap:10px;"><span class="caller-badge">${messages.length} msg${messages.length!==1?'s':''}</span><span style="color:var(--gray-400);">▾</span></div></div><div class="messages-thread" style="display:none;">${thread}</div></div>`;
+    return '<div class="caller-group"><div class="caller-header" id="ch_'+num.replace(/\+/g,'')+'" ><div><div class="caller-number">'+num+'</div><div class="caller-meta">Last: '+latestTime+'</div></div><div style="display:flex;align-items:center;gap:10px;"><span class="caller-badge">'+messages.length+' msg'+(messages.length!==1?'s':'')+'</span><span style="color:var(--gray-400);">▾</span></div></div><div class="messages-thread" style="display:none;">'+thread+'</div></div>';
   }).join('');
 }
 
@@ -450,9 +517,30 @@ function attachEvents(){
     if(!num){showToast('Number not yet assigned.','error');return;}
     navigator.clipboard.writeText(num).then(function(){showToast('📋 Number copied!','success');});
   });
-  document.getElementById('scrollEditorBtn').addEventListener('click', function(){
-    document.getElementById('replyEditorCard').scrollIntoView({behavior:'smooth',block:'start'});
+
+  document.getElementById('scrollForwardBtn').addEventListener('click', function(){
+    document.getElementById('forwardingSection').scrollIntoView({behavior:'smooth',block:'start'});
   });
+
+  // Carrier tabs
+  document.getElementById('carrierTabs').addEventListener('click', function(e){
+    var tab=e.target.closest('.carrier-tab');
+    if(!tab)return;
+    var carrier=tab.dataset.carrier;
+    document.querySelectorAll('.carrier-tab').forEach(function(t){t.classList.remove('active');});
+    document.querySelectorAll('.carrier-content').forEach(function(c){c.classList.remove('active');});
+    tab.classList.add('active');
+    document.querySelector('.carrier-content[data-carrier="'+carrier+'"]').classList.add('active');
+  });
+
+  // Copy code buttons
+  document.getElementById('carrierContents').addEventListener('click', function(e){
+    var btn=e.target.closest('.copy-code-btn');
+    if(!btn)return;
+    navigator.clipboard.writeText(btn.dataset.code).then(function(){showToast('✅ Code copied — dial it on your phone!','success');});
+  });
+
+  // Convo search
   document.getElementById('convoSearch').addEventListener('input', filterConvos);
   document.getElementById('convoFilter').addEventListener('change', filterConvos);
   document.getElementById('refreshConvos').addEventListener('click', async function(){
@@ -461,6 +549,15 @@ function attachEvents(){
     document.getElementById('convoList').innerHTML=renderConvoList(groupConvos(allConvos));
     showToast('Refreshed!','success');
   });
+
+  // Caller thread toggle
+  document.getElementById('convoList').addEventListener('click', function(e){
+    var header=e.target.closest('.caller-header');
+    if(!header)return;
+    var thread=header.nextElementSibling;
+    thread.style.display=thread.style.display==='none'?'flex':'none';
+  });
+
   document.getElementById('replyTextarea').addEventListener('input', function(){
     var msg=this.value;
     document.getElementById('msgPreview').textContent=msg||'Start typing...';
@@ -468,6 +565,7 @@ function attachEvents(){
     el.textContent=msg.length+' / 160 characters';
     el.className='char-count'+(msg.length>140?(msg.length>=160?' over':' warn'):'');
   });
+
   document.getElementById('saveReplyBtn').addEventListener('click', async function(){
     var msg=document.getElementById('replyTextarea').value.trim();
     if(!msg){showToast('Message cannot be empty.','error');return;}
@@ -476,6 +574,7 @@ function attachEvents(){
     if(r.error){showToast('❌ Error saving.','error');return;}
     showToast('✅ Auto-reply saved!','success');
   });
+
   document.getElementById('saveProfileBtn').addEventListener('click', saveProfile);
   document.getElementById('previewBtn').addEventListener('click', generatePreview);
   document.getElementById('calcMissed').addEventListener('input', calculate);
@@ -498,22 +597,14 @@ async function cancelSubscription(){
   var btn=document.getElementById('confirmCancelBtn');
   btn.textContent='Cancelling...';btn.disabled=true;
   try{
-    var res=await fetch(BACKEND+'/cancel-subscription',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({user_id:currentUserId,role:'business',email:currentEmail})
-    });
+    var res=await fetch(BACKEND+'/cancel-subscription',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user_id:currentUserId,role:'business',email:currentEmail})});
     var data=await res.json();
     if(data.success){
       document.getElementById('cancelModal').classList.remove('open');
-      showToast('Subscription cancelled. Your service remains active until end of billing period.','success');
+      showToast('Subscription cancelled. Service remains active until end of billing period.','success');
       setTimeout(function(){sb.auth.signOut().then(function(){window.location.href='index.html';});},3000);
-    } else {
-      showToast('❌ Error: '+(data.error||'Please contact support.'),'error');
-    }
-  } catch(e){
-    showToast('❌ Network error. Please try again.','error');
-  }
+    }else{showToast('❌ '+(data.error||'Please contact support.'),'error');}
+  }catch(e){showToast('❌ Network error. Please try again.','error');}
   btn.textContent='Yes, Cancel';btn.disabled=false;
 }
 
@@ -522,7 +613,7 @@ async function saveProfile(){
   btn.textContent='Saving...';btn.disabled=true;
   var payload={business_id:businessData.id,owner_name:document.getElementById('ownerName').value.trim(),business_description:document.getElementById('bizDesc').value.trim(),services:document.getElementById('services').value.trim(),hours:document.getElementById('hours').value.trim(),service_area:document.getElementById('serviceArea').value.trim(),tone:document.getElementById('tone').value,common_questions:document.getElementById('commonQ').value.trim(),call_to_action:document.getElementById('cta').value.trim(),updated_at:new Date().toISOString()};
   var r=profileData?await sb.from('ai_profiles').update(payload).eq('id',profileData.id):await sb.from('ai_profiles').insert(payload);
-  if(r.error){showToast('❌ Error: '+r.error.message,'error');}
+  if(r.error){showToast('❌ '+r.error.message,'error');}
   else{profileData=payload;showToast('✅ AI profile saved!','success');}
   btn.textContent='Save AI Profile';btn.disabled=false;
 }
@@ -531,9 +622,9 @@ function generatePreview(){
   var name=document.getElementById('ownerName').value.trim()||businessData.business_name;
   var services=document.getElementById('services').value.trim();
   var cta=document.getElementById('cta').value.trim();
-  var preview=`Hi! This is ${name} from ${businessData.business_name}. Sorry we missed your call!`;
-  if(services) preview+=` We offer ${services.split(',')[0].trim().toLowerCase()}.`;
-  preview+=cta?` ${cta.charAt(0).toUpperCase()+cta.slice(1)}`+' Reply STOP to unsubscribe.':' How can we help? Reply STOP to unsubscribe.';
+  var preview='Hi! This is '+name+' from '+businessData.business_name+'. Sorry we missed your call!';
+  if(services) preview+=' We offer '+services.split(',')[0].trim().toLowerCase()+'.';
+  preview+=cta?' '+cta.charAt(0).toUpperCase()+cta.slice(1)+' Reply STOP to unsubscribe.':' How can we help? Reply STOP to unsubscribe.';
   if(preview.length>160) preview=preview.substring(0,157)+'...';
   document.getElementById('aiPreview').textContent=preview;
   showToast('Preview generated!','success');
@@ -546,9 +637,9 @@ function calculate(){
   document.getElementById('calcMonthly').textContent='$'+monthly.toLocaleString(undefined,{maximumFractionDigits:0});
   document.getElementById('calcWeekly').textContent='$'+weekly.toLocaleString(undefined,{maximumFractionDigits:0});
   document.getElementById('calcAnnual').textContent='$'+annual.toLocaleString(undefined,{maximumFractionDigits:0});
-  var breakdown=document.getElementById('calcBreakdown'),sub=document.getElementById('calcSub');
-  if(monthly>0){breakdown.style.display='grid';sub.textContent="That's $"+annual.toLocaleString(undefined,{maximumFractionDigits:0})+" recovered per year";}
-  else{breakdown.style.display='none';sub.textContent='Enter your numbers above';}
+  var bd=document.getElementById('calcBreakdown'),sub=document.getElementById('calcSub');
+  if(monthly>0){bd.style.display='grid';sub.textContent="That's $"+annual.toLocaleString(undefined,{maximumFractionDigits:0})+" recovered per year";}
+  else{bd.style.display='none';sub.textContent='Enter your numbers above';}
 }
 
 function showToast(msg,type){
