@@ -8,7 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1f2937;padding-top:70px;}
-.navbar{position:fixed;top:0;left:0;width:100%;background:white;border-bottom:1px solid #e5e7eb;z-index:9999;display:flex;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,0.05);}
+.navbar{position:fixed;top:0;left:0;width:100%;background:white;border-bottom:1px solid #e5e7eb;z-index:900;display:flex;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,0.05);}
 .navbar-content{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:1200px;padding:0 20px;height:70px;}
 .logo{font-weight:700;font-size:22px;color:#2563eb;text-decoration:none;}
 .nav-right{display:flex;align-items:center;gap:16px;}
@@ -39,7 +39,7 @@ tr:hover td{background:#fafafa;}
 .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;}
 .badge-active{background:#dcfce7;color:#16a34a;}
 .badge-inactive{background:#f1f5f9;color:#6b7280;}
-.btn{padding:8px 16px;border-radius:8px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;font-family:inherit;}
+.btn{padding:8px 16px;border-radius:8px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-block;font-family:inherit;}
 .btn-primary{background:#2563eb;color:white;}
 .btn-primary:hover{background:#1d4ed8;}
 .btn-secondary{background:#f1f5f9;color:#374151;}
@@ -50,8 +50,6 @@ tr:hover td{background:#fafafa;}
 .btn-danger-soft:hover{background:#fecaca;}
 .btn-sm{padding:6px 12px;font-size:12px;}
 .action-group{display:flex;gap:6px;flex-wrap:wrap;}
-
-/* MODALS */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
 .modal{background:white;border-radius:16px;padding:40px;width:100%;max-width:520px;margin:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);max-height:90vh;overflow-y:auto;}
@@ -61,26 +59,23 @@ tr:hover td{background:#fafafa;}
 .form-group{margin-bottom:16px;}
 .form-group label{display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px;}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid #d1d5db;font-size:14px;font-family:inherit;}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
 .form-group textarea{resize:vertical;min-height:80px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .warning-box{background:#fef3c7;border-radius:8px;padding:12px 14px;margin-bottom:20px;font-size:13px;color:#92400e;}
-
-/* FORWARDING MODAL */
 .fwd-number-box{background:#0f172a;border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;}
 .fwd-number{font-family:monospace;font-size:22px;color:white;letter-spacing:2px;}
 .fwd-copy-btn{padding:7px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;}
-.fwd-copy-btn:hover{background:rgba(255,255,255,0.2);}
 .carrier-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
 .carrier-tab{padding:7px 14px;border-radius:20px;border:1.5px solid #e2e8f0;background:white;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;color:#475569;}
 .carrier-tab:hover{border-color:#2563eb;color:#2563eb;}
 .carrier-tab.active{background:#2563eb;border-color:#2563eb;color:white;}
 .carrier-content{display:none;}
 .carrier-content.active{display:block;}
-.step-list{list-style:none;margin-bottom:16px;}
-.step-item{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
-.step-num{width:24px;height:24px;border-radius:50%;background:#2563eb;color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
-.step-text{font-size:13px;color:#374151;line-height:1.6;flex:1;}
+.step-list-modal{list-style:none;margin-bottom:16px;}
+.step-item-modal{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+.step-num-modal{width:24px;height:24px;border-radius:50%;background:#2563eb;color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-text-modal{font-size:13px;color:#374151;line-height:1.6;flex:1;}
 .code-box{background:#0f172a;border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;margin:8px 0;}
 .code-text{font-family:monospace;font-size:17px;color:white;letter-spacing:1px;}
 .copy-code-btn{padding:6px 12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;}
@@ -91,13 +86,10 @@ tr:hover td{background:#fafafa;}
 .share-section{background:#eff6ff;border-radius:10px;padding:16px;margin-top:16px;}
 .share-section p{font-size:13px;color:#1e40af;font-weight:600;margin-bottom:10px;}
 .share-btn{padding:8px 16px;background:#2563eb;color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;width:100%;}
-.share-btn:hover{background:#1d4ed8;}
-
-/* DANGER */
+.twilio-num{font-family:monospace;font-size:12px;background:#f1f5f9;padding:2px 8px;border-radius:4px;}
 .danger-zone{background:white;border:1.5px solid #fecaca;border-radius:12px;padding:24px;margin-top:28px;}
 .danger-zone h3{font-size:15px;font-weight:700;color:#dc2626;margin-bottom:8px;}
 .danger-zone p{font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.6;}
-.twilio-num{font-family:monospace;font-size:12px;background:#f1f5f9;padding:2px 8px;border-radius:4px;}
 .empty-state{text-align:center;padding:60px 20px;color:#6b7280;}
 .empty-state .icon{font-size:48px;margin-bottom:16px;}
 .empty-state h3{font-size:16px;font-weight:600;color:#374151;margin-bottom:8px;}
@@ -106,6 +98,37 @@ tr:hover td{background:#fafafa;}
 .toast.success{background:#059669;}
 .toast.error{background:#dc2626;}
 .loading{text-align:center;padding:60px;color:#6b7280;font-size:14px;}
+
+/* ONBOARDING WIDGET */
+.onboarding-widget{position:fixed;bottom:28px;right:28px;width:320px;background:white;border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,0.18);z-index:9000;overflow:hidden;transition:all .35s cubic-bezier(.34,1.1,.64,1);border:1px solid #e2e8f0;}
+.onboarding-widget.collapsed{width:210px;border-radius:14px;}
+.widget-header{background:linear-gradient(135deg,#1e3a6e,#2563eb);padding:16px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;}
+.widget-title{font-size:13px;font-weight:700;color:white;margin-bottom:2px;}
+.widget-subtitle{font-size:11px;color:rgba(255,255,255,0.6);}
+.widget-toggle{background:rgba(255,255,255,0.15);border:none;color:white;width:26px;height:26px;border-radius:8px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.widget-progress-wrap{padding:12px 18px 0;background:white;}
+.widget-progress-bar{height:6px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:6px;}
+.widget-progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#2563eb,#10b981);transition:width .5s ease;}
+.widget-progress-label{font-size:11px;color:#94a3b8;display:flex;justify-content:space-between;margin-bottom:12px;}
+.widget-progress-label span:last-child{font-weight:600;color:#2563eb;}
+.widget-steps{padding:0 18px 14px;}
+.widget-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;transition:all .2s;}
+.widget-step:last-child{border-bottom:none;}
+.step-check{width:22px;height:22px;border-radius:50%;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;transition:all .3s;margin-top:1px;}
+.step-check.done{background:#10b981;border-color:#10b981;color:white;}
+.step-check.active{border-color:#2563eb;}
+.step-info{flex:1;}
+.step-label{font-size:13px;font-weight:600;color:#1e293b;margin-bottom:2px;}
+.step-label.done{color:#94a3b8;text-decoration:line-through;}
+.step-desc{font-size:11px;color:#94a3b8;line-height:1.4;}
+.step-action{font-size:11px;font-weight:700;color:#2563eb;margin-top:4px;}
+.widget-dismiss{text-align:center;padding:0 18px 14px;}
+.widget-dismiss button{background:none;border:none;font-size:11px;color:#94a3b8;cursor:pointer;font-family:inherit;text-decoration:underline;}
+.widget-complete{padding:20px 18px;text-align:center;}
+.widget-complete .icon{font-size:36px;margin-bottom:10px;}
+.widget-complete h3{font-size:14px;font-weight:700;color:#0f172a;margin-bottom:4px;}
+.widget-complete p{font-size:12px;color:#94a3b8;line-height:1.5;}
+@media(max-width:600px){.onboarding-widget{width:calc(100vw - 32px);right:16px;bottom:16px;}.onboarding-widget.collapsed{width:200px;}}
 </style>
 </head>
 <body>
@@ -121,6 +144,30 @@ tr:hover td{background:#fafafa;}
   </div>
 </div>
 
+<!-- ONBOARDING WIDGET -->
+<div class="onboarding-widget" id="onboardingWidget" style="display:none;">
+  <div class="widget-header" id="widgetHeader">
+    <div>
+      <div class="widget-title">🚀 Agency Setup</div>
+      <div class="widget-subtitle" id="widgetSubtitle">Get your first client live</div>
+    </div>
+    <button class="widget-toggle" id="widgetToggle">▾</button>
+  </div>
+  <div id="widgetBody">
+    <div class="widget-progress-wrap">
+      <div class="widget-progress-bar"><div class="widget-progress-fill" id="widgetProgressFill" style="width:0%"></div></div>
+      <div class="widget-progress-label"><span>Setup progress</span><span id="widgetProgressLabel">0 of 4 complete</span></div>
+    </div>
+    <div class="widget-steps" id="widgetSteps"></div>
+    <div class="widget-dismiss"><button id="dismissWidget">Dismiss checklist</button></div>
+  </div>
+  <div class="widget-complete" id="widgetComplete" style="display:none;">
+    <div class="icon">🎉</div>
+    <h3>Agency is live!</h3>
+    <p>Your first client is set up and capturing missed call leads.</p>
+  </div>
+</div>
+
 <div class="page">
   <div class="page-header">
     <div>
@@ -129,24 +176,21 @@ tr:hover td{background:#fafafa;}
     </div>
     <button class="btn btn-primary" id="addClientBtn">+ Add Client</button>
   </div>
-
   <div class="stats">
     <div class="stat-card blue"><div class="label">Total Clients</div><div class="value" id="statClients">—</div></div>
     <div class="stat-card green"><div class="label">Active Numbers</div><div class="value" id="statActive">—</div></div>
     <div class="stat-card purple"><div class="label">SMS Sent Total</div><div class="value" id="statSMS">—</div></div>
   </div>
-
   <div class="section-card">
     <div class="section-header">
-      <div><h2>Your Clients</h2><p>Each client has a dedicated number. Use the Setup Guide to help them enable call forwarding.</p></div>
+      <div><h2>Your Clients</h2><p>Use the Setup Guide button to send each client their call forwarding instructions.</p></div>
       <button class="btn btn-primary btn-sm" id="addClientBtn2">+ Add Client</button>
     </div>
     <div id="clientsWrap"><div class="loading">Loading clients...</div></div>
   </div>
-
   <div class="danger-zone">
     <h3>⚠️ Cancel Subscription</h3>
-    <p>Cancelling your agency subscription will deactivate your account at the end of your current billing period. All client automations will stop and dedicated numbers will be released.</p>
+    <p>Cancelling your agency subscription will deactivate your account at the end of your billing period. All client automations will stop.</p>
     <button class="btn btn-danger-soft" id="cancelBtn">Cancel My Subscription</button>
   </div>
 </div>
@@ -156,7 +200,7 @@ tr:hover td{background:#fafafa;}
   <div class="modal">
     <button class="modal-close" id="closeClientModal">✕</button>
     <h2>Add New Client</h2>
-    <p>Provision a Twilio number and set up missed call automation for your client.</p>
+    <p>Provision a dedicated LeadReply number for your client.</p>
     <div class="form-group"><label>Business Name</label><input type="text" id="clientName" placeholder="e.g. Houston Roofing Co."></div>
     <div class="form-row">
       <div class="form-group"><label>Business Phone</label><input type="tel" id="clientPhone" placeholder="+17135550000"></div>
@@ -171,22 +215,17 @@ tr:hover td{background:#fafafa;}
   </div>
 </div>
 
-<!-- FORWARDING GUIDE MODAL -->
+<!-- FORWARDING MODAL -->
 <div class="modal-overlay" id="forwardingModal">
   <div class="modal">
     <button class="modal-close" id="closeForwardingModal">✕</button>
     <h2>📡 Call Forwarding Setup</h2>
     <p id="fwdClientName" style="font-weight:600;color:#1e293b;margin-bottom:8px;font-size:15px;"></p>
-    <p style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.6;">Share these instructions with your client. They dial the code on their existing business phone to forward missed calls to their LeadReply number.</p>
-
+    <p style="font-size:13px;color:#6b7280;margin-bottom:16px;">Share these instructions with your client. They dial the code on their existing business phone.</p>
     <div class="fwd-number-box">
-      <div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">LeadReply Number</div>
-        <div class="fwd-number" id="fwdNumber">—</div>
-      </div>
+      <div><div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">LeadReply Number</div><div class="fwd-number" id="fwdNumber">—</div></div>
       <button class="fwd-copy-btn" id="copyFwdNumber">📋 Copy</button>
     </div>
-
     <div class="carrier-tabs" id="fwdCarrierTabs">
       <button class="carrier-tab active" data-carrier="att">AT&T</button>
       <button class="carrier-tab" data-carrier="verizon">Verizon</button>
@@ -195,11 +234,9 @@ tr:hover td{background:#fafafa;}
       <button class="carrier-tab" data-carrier="landline">Landline</button>
       <button class="carrier-tab" data-carrier="other">Other</button>
     </div>
-
     <div id="fwdCarrierContents"></div>
-
     <div class="share-section">
-      <p>📤 Share these instructions with your client</p>
+      <p>📤 Share with your client</p>
       <button class="share-btn" id="copyInstructionsBtn">Copy Instructions to Send to Client</button>
     </div>
   </div>
@@ -209,7 +246,7 @@ tr:hover td{background:#fafafa;}
 <div class="modal-overlay" id="cancelModal">
   <div class="modal">
     <h2>Cancel Agency Subscription?</h2>
-    <p>Your service will remain active until the end of your current billing period. After that all client automations will stop and dedicated numbers will be released.</p>
+    <p>Your service stays active until end of billing period. Then all client automations stop.</p>
     <div style="display:flex;gap:10px;">
       <button class="btn btn-secondary" style="flex:1;" id="cancelModalClose">Keep Subscription</button>
       <button class="btn btn-danger-soft" style="flex:1;" id="confirmCancelBtn">Yes, Cancel</button>
@@ -226,38 +263,108 @@ var SUPABASE_URL='https://rxnftfnknqhcuvzqmbpu.supabase.co';
 var SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
 var sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 var BACKEND='https://leadreply-backend.onrender.com';
-var currentAgencyId=null,currentUserId=null,currentEmail=null;
-var currentFwdClient=null;
+var currentAgencyId=null,currentUserId=null,currentEmail=null,currentFwdClient=null,widgetCollapsed=false;
+var onboardingState={account:true,firstclient:false,forwarding:false,confirmed:false,dismissed:false};
+var clientsList=[];
 
-// ── CARRIER DATA ──────────────────────────────────────────
 function getCarrierData(num){
-  var numClean=num.replace(/\D/g,'');
+  var nc=num.replace(/\D/g,'');
   return {
-    att:    { label:'AT&T',     forward:'*92'+num,                          disable:'*93',   steps:['Open your phone dialer','Dial the code below and press call','You will hear a confirmation tone','Forwarding is now active — only activates when you do not answer'] },
-    verizon:{ label:'Verizon',  forward:'*71'+num,                          disable:'*73',   steps:['Open your phone dialer','Dial the code below and press call','Wait for the confirmation message','Forwarding is now active'] },
-    tmobile:{ label:'T-Mobile', forward:'**61*+1'+numClean+'*11*20#',       disable:'##61#', steps:['Open your phone dialer','Dial the code below exactly as shown','You will see a confirmation screen','Forwarding is now active for unanswered calls'] },
-    sprint:  { label:'Sprint',  forward:'*28'+num,                          disable:'*38',   steps:['Open your phone dialer','Dial the code below and press call','Listen for confirmation tone','Forwarding is now active'] },
-    landline:{ label:'Landline',forward:'*92'+num,                          disable:'*93',   steps:['Pick up your landline handset','Dial the code below','Listen for the confirmation tone','Hang up — forwarding is now active'] },
-    other:   { label:'Other',   forward:'*92'+num,                          disable:'*93',   steps:['Open your phone dialer','Try dialing the code below','If it does not work contact your carrier and ask to enable conditional call forwarding to: '+num,'Forwarding is now active'] },
+    att:    {forward:'*92'+num,   disable:'*93',   steps:['Open your phone dialer','Dial the code below and press call','You will hear a confirmation tone','Forwarding is now active — only when you do not answer']},
+    verizon:{forward:'*71'+num,   disable:'*73',   steps:['Open your phone dialer','Dial the code below and press call','Wait for the confirmation message','Forwarding is now active']},
+    tmobile:{forward:'**61*+1'+nc+'*11*20#',disable:'##61#',steps:['Open your phone dialer','Dial the code below exactly as shown','You will see a confirmation screen','Forwarding is now active for unanswered calls']},
+    sprint: {forward:'*28'+num,   disable:'*38',   steps:['Open your phone dialer','Dial the code below and press call','Listen for confirmation tone','Forwarding is now active']},
+    landline:{forward:'*92'+num,  disable:'*93',   steps:['Pick up your landline handset','Dial the code below','Listen for the confirmation tone','Hang up — forwarding is now active']},
+    other:  {forward:'*92'+num,   disable:'*93',   steps:['Open your phone dialer','Try dialing the code below','If it does not work contact your carrier and ask for conditional call forwarding to: '+num,'Forwarding is now active']},
   };
 }
 
-function buildCarrierContent(carrierKey, info){
-  var stepsHTML=info.steps.map(function(s,i){
-    return '<li class="step-item"><div class="step-num">'+(i+1)+'</div><div class="step-text">'+s+'</div></li>';
-  }).join('');
-  return '<div class="carrier-content" data-carrier="'+carrierKey+'">'+
-    '<ol class="step-list">'+stepsHTML+'</ol>'+
-    '<div class="code-box">'+
-      '<span class="code-text">'+info.forward+'</span>'+
-      '<button class="copy-code-btn" data-code="'+info.forward+'">📋 Copy</button>'+
-    '</div>'+
-    '<div class="forward-note">📌 This is conditional forwarding — your phone rings normally and only forwards to LeadReply if you do not answer within 4 rings.</div>'+
-    '<div class="to-disable"><p>To disable forwarding:</p><code>'+info.disable+'</code></div>'+
-  '</div>';
+function buildFwdContent(key,info){
+  var stepsHTML=info.steps.map(function(s,i){ return '<li class="step-item-modal"><div class="step-num-modal">'+(i+1)+'</div><div class="step-text-modal">'+s+'</div></li>'; }).join('');
+  return '<div class="carrier-content" data-carrier="'+key+'"><ol class="step-list-modal">'+stepsHTML+'</ol>'+
+    '<div class="code-box"><span class="code-text">'+info.forward+'</span><button class="copy-code-btn" data-code="'+info.forward+'">📋 Copy</button></div>'+
+    '<div class="forward-note">📌 Conditional forwarding — your phone rings normally, only forwards to LeadReply when unanswered.</div>'+
+    '<div class="to-disable"><p>To disable:</p><code>'+info.disable+'</code></div></div>';
 }
 
-// ── AUTH ──────────────────────────────────────────────────
+// ── ONBOARDING ────────────────────────────────────────────
+function loadOnboardingState(){
+  var key='lr_agency_onboarding_'+currentAgencyId;
+  var saved=localStorage.getItem(key);
+  if(saved){ try{ Object.assign(onboardingState,JSON.parse(saved)); }catch(e){} }
+}
+function saveOnboardingState(){
+  localStorage.setItem('lr_agency_onboarding_'+currentAgencyId,JSON.stringify(onboardingState));
+}
+function markStep(step){ onboardingState[step]=true; saveOnboardingState(); renderWidget(); showToast('✅ Step complete!','success'); }
+
+function renderWidget(){
+  if(onboardingState.dismissed){ document.getElementById('onboardingWidget').style.display='none'; return; }
+  var steps=[
+    {key:'account',   label:'Agency Account Created',     desc:'Your LeadReply agency account is ready.',        action:null,           scroll:null},
+    {key:'firstclient',label:'Add Your First Client',     desc:'Provision a client with a dedicated number.',    action:'Add Client',   scroll:null},
+    {key:'forwarding', label:'Send Client Setup Guide',   desc:'Share the call forwarding instructions.',        action:'Open Guide',   scroll:null},
+    {key:'confirmed',  label:'Confirm Client Is Live',    desc:'Client forwarding is set up and working.',       action:'Mark Complete',scroll:null},
+  ];
+  var completed=steps.filter(function(s){return onboardingState[s.key];}).length;
+  var total=steps.length;
+  var allDone=completed===total;
+  var pct=Math.round((completed/total)*100);
+
+  document.getElementById('onboardingWidget').style.display='block';
+  document.getElementById('widgetProgressFill').style.width=pct+'%';
+  document.getElementById('widgetProgressLabel').textContent=completed+' of '+total+' complete';
+  document.getElementById('widgetSubtitle').textContent=allDone?'First client is live! 🎉':(total-completed)+' step'+(total-completed!==1?'s':'')+' remaining';
+
+  if(allDone){
+    document.getElementById('widgetSteps').style.display='none';
+    document.getElementById('widgetComplete').style.display='block';
+    document.getElementById('dismissWidget').parentElement.style.display='none';
+  } else {
+    document.getElementById('widgetComplete').style.display='none';
+    document.getElementById('widgetSteps').style.display='block';
+    document.getElementById('dismissWidget').parentElement.style.display='block';
+  }
+
+  document.getElementById('widgetSteps').innerHTML=steps.map(function(s){
+    var done=onboardingState[s.key];
+    var isNext=!done&&steps.slice(0,steps.indexOf(s)).every(function(p){return onboardingState[p.key];});
+    return '<div class="widget-step" data-step="'+s.key+'" data-action="'+(s.action||'')+'">'+
+      '<div class="step-check '+(done?'done':isNext?'active':'')+'">'+( done?'✓':isNext?'→':'')+'</div>'+
+      '<div class="step-info"><div class="step-label '+(done?'done':'')+'">'+s.label+'</div>'+
+      '<div class="step-desc">'+s.desc+'</div>'+
+      (!done&&s.action?'<div class="step-action">'+s.action+' →</div>':'')+
+      '</div></div>';
+  }).join('');
+}
+
+document.getElementById('widgetSteps').addEventListener('click',function(e){
+  var step=e.target.closest('.widget-step');
+  if(!step) return;
+  var key=step.dataset.step;
+  var action=step.dataset.action;
+  if(onboardingState[key]) return;
+  if(action==='Add Client') openModal('clientModal');
+  if(action==='Open Guide'){
+    var firstWithNum=clientsList.find(function(c){return c.twilio_number;});
+    if(firstWithNum) openForwardingModal(firstWithNum.id,firstWithNum.business_name,firstWithNum.twilio_number);
+    else showToast('Add a client first to access the setup guide.','error');
+  }
+  if(action==='Mark Complete') markStep(key);
+});
+
+document.getElementById('widgetHeader').addEventListener('click',function(){
+  widgetCollapsed=!widgetCollapsed;
+  document.getElementById('widgetBody').style.display=widgetCollapsed?'none':'block';
+  document.getElementById('widgetToggle').textContent=widgetCollapsed?'▴':'▾';
+  document.getElementById('onboardingWidget').classList.toggle('collapsed',widgetCollapsed);
+});
+
+document.getElementById('dismissWidget').addEventListener('click',function(){
+  if(confirm('Dismiss the setup checklist?')){ onboardingState.dismissed=true; saveOnboardingState(); document.getElementById('onboardingWidget').style.display='none'; showToast('Checklist dismissed.','success'); }
+});
+
+// ── AUTH & DATA ───────────────────────────────────────────
 async function checkAuth(){
   var {data}=await sb.auth.getSession();
   if(!data.session){window.location.href='login.html';return null;}
@@ -274,132 +381,109 @@ async function loadData(){
   var {data:agency}=await sb.from('agencies').select('*').eq('id',currentAgencyId).single();
   if(agency) document.getElementById('agencyTitle').textContent=agency.agency_name+' — Dashboard';
   var {data:clients}=await sb.from('businesses').select('*').eq('agency_id',currentAgencyId).order('created_at',{ascending:false});
-  var list=clients||[];
-  document.getElementById('statClients').textContent=list.length;
-  document.getElementById('statActive').textContent=list.filter(function(c){return c.twilio_number;}).length;
-  document.getElementById('statSMS').textContent=list.reduce(function(s,c){return s+(c.sms_count||0);},0).toLocaleString();
-  renderClients(list);
+  clientsList=clients||[];
+  document.getElementById('statClients').textContent=clientsList.length;
+  document.getElementById('statActive').textContent=clientsList.filter(function(c){return c.twilio_number;}).length;
+  document.getElementById('statSMS').textContent=clientsList.reduce(function(s,c){return s+(c.sms_count||0);},0).toLocaleString();
+  if(clientsList.length>0){ onboardingState.firstclient=true; saveOnboardingState(); }
+  renderClients(clientsList);
+  renderWidget();
 }
 
 function renderClients(clients){
   var wrap=document.getElementById('clientsWrap');
-  if(!clients.length){
-    wrap.innerHTML='<div class="empty-state"><div class="icon">📋</div><h3>No clients yet</h3><p>Click "+ Add Client" to provision your first business.</p></div>';
-    return;
-  }
+  if(!clients.length){ wrap.innerHTML='<div class="empty-state"><div class="icon">📋</div><h3>No clients yet</h3><p>Click "+ Add Client" to get started.</p></div>'; return; }
   wrap.innerHTML='<table><thead><tr><th>Business</th><th>Phone</th><th>LeadReply Number</th><th>SMS Sent</th><th>Status</th><th>Actions</th></tr></thead><tbody>'+
     clients.map(function(c){
-      return '<tr>'+
-        '<td><strong>'+c.business_name+'</strong><br><span style="font-size:12px;color:#6b7280">'+( c.industry||'')+'</span></td>'+
+      return '<tr><td><strong>'+c.business_name+'</strong><br><span style="font-size:12px;color:#6b7280;">'+(c.industry||'')+'</span></td>'+
         '<td>'+c.business_phone+'</td>'+
-        '<td>'+(c.twilio_number?'<span class="twilio-num">'+c.twilio_number+'</span>':'<span style="color:#6b7280;font-size:13px">Pending</span>')+'</td>'+
+        '<td>'+(c.twilio_number?'<span class="twilio-num">'+c.twilio_number+'</span>':'<span style="color:#6b7280;font-size:13px;">Pending</span>')+'</td>'+
         '<td>'+(c.sms_count||0).toLocaleString()+'</td>'+
         '<td><span class="badge '+(c.active?'badge-active':'badge-inactive')+'">'+(c.active?'Active':'Inactive')+'</span></td>'+
         '<td><div class="action-group">'+
           (c.twilio_number?'<button class="btn btn-teal btn-sm" data-action="forwarding" data-id="'+c.id+'" data-name="'+c.business_name+'" data-number="'+c.twilio_number+'">📡 Setup Guide</button>':'')+
           '<button class="btn btn-secondary btn-sm" data-action="editreply" data-id="'+c.id+'" data-msg="'+(c.auto_reply_message||'').replace(/"/g,'&quot;')+'">Edit Reply</button>'+
           '<button class="btn btn-danger-soft btn-sm" data-action="delete" data-id="'+c.id+'" data-name="'+c.business_name+'">Remove</button>'+
-        '</div></td>'+
-      '</tr>';
+        '</div></td></tr>';
     }).join('')+
   '</tbody></table>';
 }
 
 // ── EVENT DELEGATION ──────────────────────────────────────
-document.addEventListener('click', async function(e){
+document.addEventListener('click',async function(e){
   var btn=e.target.closest('[data-action]');
   if(!btn) return;
   var action=btn.dataset.action;
-
-  if(action==='forwarding'){
-    openForwardingModal(btn.dataset.id, btn.dataset.name, btn.dataset.number);
-  }
+  if(action==='forwarding'){ openForwardingModal(btn.dataset.id,btn.dataset.name,btn.dataset.number); }
   if(action==='editreply'){
     var newMsg=prompt('Edit auto-reply message:',btn.dataset.msg);
-    if(newMsg!==null&&newMsg.trim()){
-      await sb.from('businesses').update({auto_reply_message:newMsg.trim()}).eq('id',btn.dataset.id);
-      showToast('Auto-reply updated!','success');
-      loadData();
-    }
+    if(newMsg!==null&&newMsg.trim()){ await sb.from('businesses').update({auto_reply_message:newMsg.trim()}).eq('id',btn.dataset.id); showToast('Updated!','success'); loadData(); }
   }
   if(action==='delete'){
     if(!confirm('Remove "'+btn.dataset.name+'"?')) return;
     await sb.from('businesses').delete().eq('id',btn.dataset.id);
-    showToast('Client removed.','success');
-    loadData();
+    showToast('Client removed.','success'); loadData();
   }
 });
 
 // ── FORWARDING MODAL ──────────────────────────────────────
-function openForwardingModal(id, name, number){
+function openForwardingModal(id,name,number){
   currentFwdClient={id,name,number};
   document.getElementById('fwdClientName').textContent=name;
   document.getElementById('fwdNumber').textContent=number;
-
   var carriers=getCarrierData(number);
-  var html=Object.keys(carriers).map(function(k){
-    return buildCarrierContent(k,carriers[k]);
-  }).join('');
-  document.getElementById('fwdCarrierContents').innerHTML=html;
-
-  // Activate first tab
+  document.getElementById('fwdCarrierContents').innerHTML=Object.keys(carriers).map(function(k){ return buildFwdContent(k,carriers[k]); }).join('');
   document.querySelector('#fwdCarrierContents .carrier-content').classList.add('active');
-
-  document.getElementById('forwardingModal').classList.add('open');
+  openModal('forwardingModal');
+  if(!onboardingState.forwarding){ markStep('forwarding'); }
 }
 
-document.getElementById('fwdCarrierTabs').addEventListener('click', function(e){
+document.getElementById('fwdCarrierTabs').addEventListener('click',function(e){
   var tab=e.target.closest('.carrier-tab');
   if(!tab) return;
-  var carrier=tab.dataset.carrier;
   document.querySelectorAll('#fwdCarrierTabs .carrier-tab').forEach(function(t){t.classList.remove('active');});
   document.querySelectorAll('#fwdCarrierContents .carrier-content').forEach(function(c){c.classList.remove('active');});
   tab.classList.add('active');
-  var content=document.querySelector('#fwdCarrierContents [data-carrier="'+carrier+'"]');
+  var content=document.querySelector('#fwdCarrierContents [data-carrier="'+tab.dataset.carrier+'"]');
   if(content) content.classList.add('active');
 });
 
-document.getElementById('fwdCarrierContents').addEventListener('click', function(e){
+document.getElementById('fwdCarrierContents').addEventListener('click',function(e){
   var btn=e.target.closest('.copy-code-btn');
-  if(!btn) return;
-  navigator.clipboard.writeText(btn.dataset.code).then(function(){ showToast('✅ Code copied — dial it on the client\'s phone!','success'); });
+  if(btn) navigator.clipboard.writeText(btn.dataset.code).then(function(){ showToast('Code copied!','success'); });
 });
 
-document.getElementById('copyFwdNumber').addEventListener('click', function(){
-  if(!currentFwdClient) return;
-  navigator.clipboard.writeText(currentFwdClient.number).then(function(){ showToast('📋 Number copied!','success'); });
+document.getElementById('copyFwdNumber').addEventListener('click',function(){
+  if(currentFwdClient) navigator.clipboard.writeText(currentFwdClient.number).then(function(){ showToast('📋 Number copied!','success'); });
 });
 
-document.getElementById('copyInstructionsBtn').addEventListener('click', function(){
+document.getElementById('copyInstructionsBtn').addEventListener('click',function(){
   if(!currentFwdClient) return;
-  var activeContent=document.querySelector('#fwdCarrierContents .carrier-content.active');
-  var activeCarrier=document.querySelector('#fwdCarrierTabs .carrier-tab.active');
-  var carrierName=activeCarrier?activeCarrier.textContent:'your carrier';
+  var activeTab=document.querySelector('#fwdCarrierTabs .carrier-tab.active');
+  var key=activeTab?activeTab.dataset.carrier:'att';
   var carriers=getCarrierData(currentFwdClient.number);
-  var carrierKey=activeCarrier?activeCarrier.dataset.carrier:'att';
-  var info=carriers[carrierKey];
-
-  var text='Hi! Here is how to set up call forwarding for your LeadReply number.\n\n'+
+  var info=carriers[key];
+  var carrierName=activeTab?activeTab.textContent:'your carrier';
+  var text='Hi! Here is how to set up call forwarding for your LeadReply service.\n\n'+
     'Your LeadReply Number: '+currentFwdClient.number+'\n\n'+
     'SETUP INSTRUCTIONS ('+carrierName+'):\n'+
     info.steps.map(function(s,i){return (i+1)+'. '+s;}).join('\n')+'\n\n'+
     'Dial this code on your phone:\n'+info.forward+'\n\n'+
-    'This sets up conditional forwarding — your phone rings normally and only forwards to LeadReply when you do not answer.\n\n'+
-    'To disable forwarding later, dial: '+info.disable+'\n\n'+
+    'This only activates when you do not answer — your normal calls are not affected.\n\n'+
+    'To disable later, dial: '+info.disable+'\n\n'+
     'Questions? Contact support@leadreplygroup.com';
-
-  navigator.clipboard.writeText(text).then(function(){ showToast('✅ Instructions copied — paste into a text or email to your client!','success'); });
+  navigator.clipboard.writeText(text).then(function(){ showToast('✅ Instructions copied — paste into SMS or email!','success'); });
 });
 
-document.getElementById('closeForwardingModal').addEventListener('click', function(){ closeModal('forwardingModal'); });
+document.getElementById('closeForwardingModal').addEventListener('click',function(){ closeModal('forwardingModal'); });
 
 // ── ADD CLIENT ────────────────────────────────────────────
-document.getElementById('provisionBtn').addEventListener('click', async function(){
+document.getElementById('provisionBtn').addEventListener('click',async function(){
   var name=document.getElementById('clientName').value.trim();
   var phone=document.getElementById('clientPhone').value.trim();
   var industry=document.getElementById('clientIndustry').value;
   var message=document.getElementById('clientMessage').value.trim()||'Hi! Sorry we missed your call. How can we help you today?';
-  if(!name||!phone){showToast('Please fill in business name and phone.','error');return;}
+  if(!name||!phone){showToast('Please fill in name and phone.','error');return;}
   var btn=document.getElementById('provisionBtn');
   btn.textContent='Provisioning...';btn.disabled=true;
   try{
@@ -408,45 +492,44 @@ document.getElementById('provisionBtn').addEventListener('click', async function
     if(data.success){
       await sb.from('businesses').insert({agency_id:currentAgencyId,business_name:name,business_phone:phone,industry,auto_reply_message:message,twilio_number:data.twilio_number,twilio_number_sid:data.twilio_sid||null,active:true,sms_count:0});
       closeModal('clientModal');
-      showToast('✅ "'+name+'" provisioned! Use the Setup Guide to configure call forwarding.','success');
+      showToast('✅ "'+name+'" provisioned! Now send them the Setup Guide.','success');
       loadData();
-    }else{showToast('❌ Provisioning failed: '+(data.error||'Unknown error'),'error');}
-  }catch(e){showToast('❌ Error: '+e.message,'error');}
+    }else{showToast('❌ '+(data.error||'Unknown error'),'error');}
+  }catch(e){showToast('❌ '+e.message,'error');}
   btn.textContent='Provision & Activate';btn.disabled=false;
 });
 
-// ── CANCELLATION ──────────────────────────────────────────
-document.getElementById('cancelBtn').addEventListener('click', function(){ openModal('cancelModal'); });
-document.getElementById('cancelModalClose').addEventListener('click', function(){ closeModal('cancelModal'); });
-document.getElementById('confirmCancelBtn').addEventListener('click', async function(){
+// ── CANCEL ────────────────────────────────────────────────
+document.getElementById('cancelBtn').addEventListener('click',function(){openModal('cancelModal');});
+document.getElementById('cancelModalClose').addEventListener('click',function(){closeModal('cancelModal');});
+document.getElementById('confirmCancelBtn').addEventListener('click',async function(){
   var btn=document.getElementById('confirmCancelBtn');
   btn.textContent='Cancelling...';btn.disabled=true;
   try{
     var res=await fetch(BACKEND+'/cancel-subscription',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user_id:currentUserId,role:'agency',email:currentEmail})});
     var data=await res.json();
-    if(data.success){
-      closeModal('cancelModal');
-      showToast('Subscription cancelled.','success');
-      setTimeout(function(){sb.auth.signOut().then(function(){window.location.href='index.html';});},3000);
-    }else{showToast('❌ '+(data.error||'Please contact support.'),'error');}
+    if(data.success){ closeModal('cancelModal'); showToast('Subscription cancelled.','success'); setTimeout(function(){sb.auth.signOut().then(function(){window.location.href='index.html';});},3000); }
+    else{showToast('❌ '+(data.error||'Contact support.'),'error');}
   }catch(e){showToast('❌ Network error.','error');}
   btn.textContent='Yes, Cancel';btn.disabled=false;
 });
 
-// ── MODAL HELPERS ─────────────────────────────────────────
-function openModal(id){ document.getElementById(id).classList.add('open'); }
-function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+function showToast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'success')+' show';setTimeout(function(){t.className='toast';},4000);}
 
-document.getElementById('logoutBtn').addEventListener('click', function(){ sb.auth.signOut().then(function(){ window.location.href='login.html'; }); });
-document.getElementById('addClientBtn').addEventListener('click', function(){ openModal('clientModal'); });
-document.getElementById('addClientBtn2').addEventListener('click', function(){ openModal('clientModal'); });
-document.getElementById('closeClientModal').addEventListener('click', function(){ closeModal('clientModal'); });
-document.getElementById('closeClientModal2').addEventListener('click', function(){ closeModal('clientModal'); });
-document.querySelectorAll('.modal-overlay').forEach(function(o){ o.addEventListener('click', function(e){ if(e.target===o) o.classList.remove('open'); }); });
+document.getElementById('logoutBtn').addEventListener('click',function(){sb.auth.signOut().then(function(){window.location.href='login.html';});});
+document.getElementById('addClientBtn').addEventListener('click',function(){openModal('clientModal');});
+document.getElementById('addClientBtn2').addEventListener('click',function(){openModal('clientModal');});
+document.getElementById('closeClientModal').addEventListener('click',function(){closeModal('clientModal');});
+document.getElementById('closeClientModal2').addEventListener('click',function(){closeModal('clientModal');});
+document.querySelectorAll('.modal-overlay').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o)o.classList.remove('open');});});
 
-function showToast(msg,type){ var t=document.getElementById('toast'); t.textContent=msg; t.className='toast '+(type||'success')+' show'; setTimeout(function(){t.className='toast';},4000); }
-
-checkAuth().then(function(session){ if(session) loadData(); });
+checkAuth().then(function(session){
+  if(!session) return;
+  loadOnboardingState();
+  loadData();
+});
 })();
 </script>
 </body>
