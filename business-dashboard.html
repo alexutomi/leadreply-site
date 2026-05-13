@@ -691,7 +691,13 @@ function renderDashboard(){
           <div class="form-group"><label>Service Area</label><input type="text" id="serviceArea" placeholder="e.g. Houston and surrounding areas" value="${prof?.service_area||''}"></div>
         </div>
         <div class="form-group"><label>Common Questions</label><textarea id="commonQ" placeholder="e.g. How much does a repair cost? Do you offer free estimates?">${prof?.common_questions||''}</textarea></div>
-        <div class="form-group"><label>Call To Action</label><input type="text" id="cta" placeholder="e.g. Ask for their address to schedule a free estimate" value="${prof?.call_to_action||''}"></div>
+        <div class="form-group">
+  <label>What Should The AI Collect From Customers?</label>
+  <input type="text" id="cta" 
+    placeholder="e.g. Collect customer name, address, issue they are experiencing, and preferred appointment time" 
+    value="${prof?.call_to_action||''}">
+  <div class="form-hint">This tells the AI exactly what information to gather before closing the conversation. Be specific for your industry. Examples: HVAC: collect name, address, issue, and preferred time. Med Spa: collect name, treatment interested in, and preferred date. Restaurant: collect party size, date, time, and dietary restrictions.</div>
+</div>
         <div class="ai-preview-box"><div class="ai-preview-label">Preview</div><div class="ai-preview-bubble" id="aiPreview">Fill out your profile above to see a preview.</div></div>
         <div style="display:flex;justify-content:flex-end;margin-top:20px;gap:10px;">
           <button class="btn btn-outline" id="previewBtn">👁 Preview Reply</button>
