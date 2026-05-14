@@ -3,814 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LeadReply | Never Miss Another Lead</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Sign In | LeadReply</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --blue:#2563eb;--blue-dark:#1d4ed8;--blue-light:#eff6ff;
-  --indigo:#6366f1;--indigo-light:#eef2ff;
-  --green:#10b981;--green-light:#ecfdf5;
-  --gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;
-  --gray-400:#94a3b8;--gray-500:#64748b;--gray-600:#475569;
-  --gray-700:#334155;--gray-800:#1e293b;--gray-900:#0f172a;
-}
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;color:var(--gray-800);line-height:1.6;background:white;}
-
-/* ── NAVBAR ── */
-.navbar{
-  position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100);
-  z-index:9999;display:flex;justify-content:center;
-}
-.navbar-inner{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:1100px;padding:0 24px;height:68px;}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.nav-logo-icon{width:32px;height:32px;}
-.nav-logo-text{font-size:20px;font-weight:800;color:var(--blue);}
-.nav-links{display:flex;align-items:center;gap:6px;}
-.nav-links a{padding:8px 14px;text-decoration:none;color:var(--gray-600);font-weight:500;font-size:14px;border-radius:8px;transition:all .2s;}
-.nav-links a:hover{color:var(--blue);background:var(--blue-light);}
-.nav-cta{background:var(--blue)!important;color:white!important;font-weight:600!important;}
-.nav-cta:hover{background:var(--blue-dark)!important;transform:translateY(-1px);}
-
-/* ── HERO ── */
-.hero{
-  background:var(--gray-900);
-  padding:140px 24px 100px;
-  text-align:center;
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
-  width:800px;height:800px;
-  background:radial-gradient(circle,rgba(37,99,235,0.15) 0%,transparent 70%);
-  border-radius:50%;pointer-events:none;
-}
-.hero::after{
-  content:'';position:absolute;bottom:-100px;right:-100px;
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(99,102,241,0.1) 0%,transparent 70%);
-  border-radius:50%;pointer-events:none;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);
-  color:#60a5fa;font-size:13px;font-weight:600;
-  padding:6px 16px;border-radius:30px;margin-bottom:28px;
-}
-.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#60a5fa;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-.hero h1{
-  font-size:58px;font-weight:800;color:white;
-  line-height:1.1;margin-bottom:20px;
-  max-width:700px;margin-left:auto;margin-right:auto;
-}
-.hero h1 span{
-  background:linear-gradient(135deg,#60a5fa,#818cf8);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.hero-sub{
-  font-size:18px;color:rgba(255,255,255,0.6);
-  max-width:520px;margin:0 auto 36px;line-height:1.7;
-}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
-.btn-primary{
-  background:var(--blue);color:white;padding:15px 32px;
-  border-radius:12px;font-size:16px;font-weight:700;
-  text-decoration:none;transition:all .2s;display:inline-block;
-  box-shadow:0 4px 20px rgba(37,99,235,0.4);
-}
-.btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,99,235,0.5);}
-.btn-secondary-hero{
-  background:rgba(255,255,255,0.08);color:white;
-  padding:15px 32px;border-radius:12px;font-size:16px;font-weight:600;
-  text-decoration:none;transition:all .2s;display:inline-block;
-  border:1px solid rgba(255,255,255,0.15);
-}
-.btn-secondary-hero:hover{background:rgba(255,255,255,0.15);}
-.hero-industries{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:60px;}
-
-/* PHONE MOCKUP */
-.phone-wrap{display:flex;justify-content:center;position:relative;z-index:1;}
-.phone{
-  width:260px;background:#1a1a2e;border-radius:36px;
-  border:2px solid rgba(255,255,255,0.1);padding:20px;
-  box-shadow:0 30px 80px rgba(0,0,0,0.5);
-}
-.phone-notch{width:80px;height:6px;background:rgba(255,255,255,0.1);border-radius:10px;margin:0 auto 20px;}
-.phone-screen{background:#0f0f1a;border-radius:24px;padding:20px;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;}
-.phone-time{text-align:center;color:rgba(255,255,255,0.3);font-size:11px;margin-bottom:8px;}
-.msg{padding:10px 14px;border-radius:18px;max-width:80%;font-size:13px;line-height:1.5;}
-.msg-in{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);}
-.msg-out{background:var(--blue);color:white;align-self:flex-end;}
-.msg-label{font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:4px;}
-.msg-label-right{text-align:right;}
-
-/* ── SOCIAL PROOF ── */
-.social-proof{background:var(--gray-50);padding:32px 24px;text-align:center;border-bottom:1px solid var(--gray-100);}
-.social-proof p{font-size:13px;color:var(--gray-400);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;}
-.stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
-.stat-item .num{font-size:28px;font-weight:800;color:var(--gray-900);}
-.stat-item .label{font-size:13px;color:var(--gray-400);}
-
-/* ── SECTIONS ── */
-.section{padding:100px 24px;}
-.section-inner{max-width:1100px;margin:auto;}
-.section-tag{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
-.section-title{font-size:38px;font-weight:800;color:var(--gray-900);margin-bottom:16px;line-height:1.2;}
-.section-sub{font-size:17px;color:var(--gray-500);max-width:540px;line-height:1.7;}
-.centered{text-align:center;}
-.centered .section-sub{margin:0 auto 60px;}
-
-/* ── PROBLEM SECTION ── */
-.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
-.problem-card{
-  background:white;border:1px solid var(--gray-100);
-  border-radius:16px;padding:28px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.04);
-  transition:transform .2s,box-shadow .2s;
-}
-.problem-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08);}
-.problem-icon{font-size:28px;margin-bottom:16px;}
-.problem-card h3{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:8px;}
-.problem-card p{font-size:14px;color:var(--gray-500);line-height:1.7;}
-.problem-stat{font-size:32px;font-weight:800;color:var(--blue);margin-bottom:6px;}
-
-/* ── HOW IT WORKS ── */
-.how-bg{background:var(--gray-900);}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px;position:relative;}
-.steps-grid::before{
-  content:'';position:absolute;top:36px;left:10%;right:10%;
-  height:2px;background:linear-gradient(90deg,rgba(37,99,235,0),rgba(37,99,235,0.5),rgba(37,99,235,0));
-}
-.step-card{text-align:center;position:relative;z-index:1;}
-.step-num{
-  width:72px;height:72px;border-radius:50%;
-  background:rgba(37,99,235,0.15);border:2px solid rgba(37,99,235,0.3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;font-weight:800;color:#60a5fa;
-  margin:0 auto 20px;
-}
-.step-card h3{font-size:16px;font-weight:700;color:white;margin-bottom:8px;}
-.step-card p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
-
-/* ── FEATURES ── */
-.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:60px;}
-.feature-list{display:flex;flex-direction:column;gap:20px;}
-.feature-item{display:flex;gap:16px;align-items:flex-start;}
-.feature-icon{
-  width:44px;height:44px;border-radius:12px;
-  background:var(--blue-light);display:flex;
-  align-items:center;justify-content:center;
-  font-size:20px;flex-shrink:0;
-}
-.feature-item h3{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
-.feature-item p{font-size:14px;color:var(--gray-500);line-height:1.6;}
-.feature-visual{
-  background:var(--gray-900);border-radius:20px;padding:32px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.15);
-}
-.fv-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
-.fv-row:last-child{border-bottom:none;}
-.fv-label{font-size:13px;color:rgba(255,255,255,0.5);}
-.fv-value{font-size:13px;font-weight:600;color:white;}
-.fv-badge{background:rgba(16,185,129,0.15);color:#34d399;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
-
-/* ── PRICING ── */
-.pricing-bg{background:var(--gray-50);}
-.pricing-toggle{display:flex;gap:0;justify-content:center;margin-bottom:48px;background:var(--gray-200);border-radius:12px;padding:4px;width:fit-content;margin-left:auto;margin-right:auto;}
-.toggle-btn{
-  padding:10px 28px;border:none;background:none;
-  font-size:14px;font-weight:600;color:var(--gray-500);
-  cursor:pointer;border-radius:10px;transition:all .2s;font-family:inherit;
-}
-.toggle-btn.active{background:white;color:var(--gray-900);box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.pricing-card{
-  background:white;border:1px solid var(--gray-200);
-  border-radius:20px;padding:32px;transition:transform .2s,box-shadow .2s;
-}
-.pricing-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08);}
-.pricing-card.featured{border:2px solid var(--blue);position:relative;}
-.featured-badge{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:var(--blue);color:white;font-size:12px;font-weight:700;
-  padding:4px 16px;border-radius:20px;white-space:nowrap;
-}
-.plan-name{font-size:14px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
-.plan-price{font-size:42px;font-weight:800;color:var(--gray-900);margin-bottom:4px;}
-.plan-price span{font-size:16px;font-weight:400;color:var(--gray-400);}
-.plan-desc{font-size:13px;color:var(--gray-400);margin-bottom:24px;line-height:1.6;}
-.plan-features{list-style:none;margin-bottom:28px;}
-.plan-features li{
-  display:flex;align-items:center;gap:10px;
-  font-size:14px;color:var(--gray-600);padding:8px 0;
-  border-bottom:1px solid var(--gray-100);
-}
-.plan-features li:last-child{border-bottom:none;}
-.check{color:var(--green);font-weight:700;font-size:16px;}
-.plan-btn{
-  display:block;width:100%;padding:13px;text-align:center;
-  border-radius:10px;font-size:15px;font-weight:700;
-  text-decoration:none;transition:all .2s;
-}
-.plan-btn-outline{background:white;color:var(--blue);border:2px solid var(--blue);}
-.plan-btn-outline:hover{background:var(--blue-light);}
-.plan-btn-solid{background:var(--blue);color:white;border:2px solid var(--blue);}
-.plan-btn-solid:hover{background:var(--blue-dark);}
-.pricing-panels{display:none;}
-.pricing-panels.active{display:block;}
-
-/* ── TESTIMONIALS ── */
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
-.testimonial-card{
-  background:white;border:1px solid var(--gray-100);
-  border-radius:16px;padding:28px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.04);
-}
-.stars{color:#f59e0b;font-size:14px;margin-bottom:14px;}
-.testimonial-text{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:20px;font-style:italic;}
-.testimonial-author{display:flex;align-items:center;gap:12px;}
-.author-avatar{
-  width:40px;height:40px;border-radius:50%;
-  background:var(--blue-light);display:flex;align-items:center;
-  justify-content:center;font-size:15px;font-weight:700;color:var(--blue);
-}
-.author-name{font-size:14px;font-weight:700;color:var(--gray-900);}
-.author-biz{font-size:12px;color:var(--gray-400);}
-
-/* ── FAQ ── */
-.faq-list{max-width:720px;margin:56px auto 0;}
-.faq-item{border-bottom:1px solid var(--gray-200);}
-.faq-question{
-  width:100%;text-align:left;padding:20px 0;
-  background:none;border:none;cursor:pointer;
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:16px;font-weight:600;color:var(--gray-900);font-family:inherit;
-}
-.faq-icon{font-size:20px;color:var(--gray-400);transition:transform .3s;flex-shrink:0;}
-.faq-answer{font-size:14px;color:var(--gray-500);line-height:1.8;padding-bottom:20px;display:none;}
-.faq-item.open .faq-answer{display:block;}
-.faq-item.open .faq-icon{transform:rotate(45deg);}
-
-/* ── CTA SECTION ── */
-.cta-section{
-  background:linear-gradient(135deg,var(--blue),var(--indigo));
-  padding:100px 24px;text-align:center;
-}
-.cta-section h2{font-size:42px;font-weight:800;color:white;margin-bottom:16px;}
-.cta-section p{font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:36px;}
-.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-white{background:white;color:var(--blue);padding:15px 32px;border-radius:12px;font-size:16px;font-weight:700;text-decoration:none;transition:all .2s;}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.2);}
-.btn-ghost-white{background:rgba(255,255,255,0.1);color:white;padding:15px 32px;border-radius:12px;font-size:16px;font-weight:600;text-decoration:none;transition:all .2s;border:1px solid rgba(255,255,255,0.2);}
-.btn-ghost-white:hover{background:rgba(255,255,255,0.2);}
-
-/* ── FOOTER ── */
-footer{background:var(--gray-900);padding:48px 24px 32px;color:rgba(255,255,255,0.5);}
-.footer-inner{max-width:1100px;margin:auto;}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:40px;}
-.footer-brand .logo-text{font-size:20px;font-weight:800;color:white;margin-bottom:8px;}
-.footer-brand p{font-size:13px;max-width:240px;line-height:1.6;}
-.footer-links h4{font-size:13px;font-weight:700;color:white;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;}
-.footer-links a{display:block;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;transition:color .2s;}
-.footer-links a:hover{color:white;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;}
-
-/* ── CALCULATOR ── */
-.calc-wrap{background:white;border:1px solid var(--gray-200);border-radius:20px;padding:36px;max-width:560px;margin:48px auto 0;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
-.calc-inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
-.calc-label{font-size:12px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
-.calc-input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--gray-200);font-size:16px;font-family:inherit;transition:border .2s;}
-.calc-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.08);}
-.calc-result{background:var(--gray-900);border-radius:14px;padding:24px;text-align:center;}
-.calc-result-label{font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
-.calc-result-amount{font-size:40px;font-weight:800;color:white;}
-.calc-result-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;}
-
-/* ── MOBILE ── */
-@media(max-width:768px){
-  .hero h1{font-size:36px;}
-  .problem-grid,.steps-grid,.pricing-grid,.testimonials-grid,.features-grid{grid-template-columns:1fr;}
-  .calc-inputs{grid-template-columns:1fr;}
-  .nav-links a:not(.nav-cta){display:none;}
-  .steps-grid::before{display:none;}
-  .footer-top{flex-direction:column;}
-}
+body{font-family:'Inter',sans-serif;background:#f8fafc;min-height:100vh;display:flex;flex-direction:column;}
+.navbar{background:white;border-bottom:1px solid #e2e8f0;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-weight:700;font-size:20px;color:#2563eb;text-decoration:none;}
+.nav-link{font-size:13px;color:#64748b;text-decoration:none;}
+.nav-link:hover{color:#2563eb;}
+.page{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+.card{background:white;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:44px 40px;width:100%;max-width:420px;}
+.card-icon{width:52px;height:52px;background:#eff6ff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;}
+.card-title{font-size:22px;font-weight:700;color:#0f172a;margin-bottom:6px;}
+.card-sub{font-size:14px;color:#64748b;margin-bottom:32px;line-height:1.5;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+.form-group input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #e2e8f0;font-size:14px;font-family:inherit;color:#1e293b;transition:border .2s,box-shadow .2s;background:white;}
+.form-group input:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.08);}
+.form-group input.error{border-color:#ef4444;}
+.forgot-link{display:block;text-align:right;font-size:12px;color:#2563eb;text-decoration:none;margin-top:6px;font-weight:500;}
+.forgot-link:hover{text-decoration:underline;}
+.btn-submit{width:100%;padding:13px;background:#2563eb;color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-submit:hover{background:#1d4ed8;transform:translateY(-1px);}
+.btn-submit:disabled{background:#93c5fd;cursor:not-allowed;transform:none;}
+.divider{display:flex;align-items:center;gap:12px;margin:24px 0;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:#e2e8f0;}
+.divider span{font-size:12px;color:#94a3b8;}
+.signup-link{text-align:center;font-size:13px;color:#64748b;}
+.signup-link a{color:#2563eb;font-weight:600;text-decoration:none;}
+.signup-link a:hover{text-decoration:underline;}
+.error-msg{background:#fee2e2;border:1px solid #fecaca;color:#991b1b;padding:12px 14px;border-radius:8px;font-size:13px;margin-bottom:18px;display:none;}
+.success-msg{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;padding:12px 14px;border-radius:8px;font-size:13px;margin-bottom:18px;display:none;}
+footer{text-align:center;padding:24px;font-size:12px;color:#94a3b8;}
+footer a{color:#94a3b8;text-decoration:none;margin:0 8px;}
+footer a:hover{color:#2563eb;}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="navbar-inner">
-    <a href="/" class="nav-logo">
-      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none">
-        <rect width="32" height="32" rx="8" fill="#2563eb"/>
-        <path d="M8 10h10a6 6 0 010 12H8" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="22" cy="22" r="3" fill="#60a5fa"/>
-        <path d="M8 16h8" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".5"/>
-      </svg>
-      <span class="nav-logo-text">LeadReply</span>
-    </a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="login.html">Login</a>
-      <a href="start.html" class="nav-cta">Get Started</a>
+<div class="navbar">
+  <a href="index.html" class="logo">LeadReply</a>
+  <a href="index.html" class="nav-link">← Back to home</a>
+</div>
+
+<div class="page">
+  <div class="card">
+    <div class="card-icon">🔐</div>
+    <div class="card-title">Welcome back</div>
+    <div class="card-sub">Sign in to your LeadReply dashboard.</div>
+
+    <div class="error-msg" id="errorMsg"></div>
+    <div class="success-msg" id="successMsg"></div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
     </div>
-  </div>
-</nav>
 
-<!-- HERO -->
-<section class="hero" style="padding-top:120px;">
-  <div class="hero-badge">
-    <span class="hero-badge-dot"></span>
-    Missed call automation for local businesses
-  </div>
-  <h1>Never Lose Another <span>Customer</span> to a Missed Call</h1>
-  <p class="hero-sub">LeadReply automatically texts missed callers in seconds — so you capture more leads and win more jobs, even when you can't answer.</p>
-  <div class="hero-btns">
-    <a href="start.html" class="btn-primary">Get Started →</a>
-    <a href="demo.html" class="btn-secondary-hero">Book a Demo</a>
-  </div>
-  <p class="hero-industries">Built for Roofing · HVAC · Plumbing · Med Spas · Dental · Hospitality</p>
-
-  <div class="phone-wrap">
-    <div class="phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <div class="phone-time">Today 2:47 PM</div>
-        <p class="msg-label">Missed call from: John S.</p>
-        <div class="msg msg-in">📞 Missed call</div>
-        <p class="msg-label msg-label-right">LeadReply · 2:47 PM</p>
-        <div class="msg msg-out">Hi John! This is Sarah from Houston Roofing Co. Sorry we missed your call — we're likely on a job. How can we help you today?</div>
-        <div class="msg msg-in" style="margin-top:4px;">Hey! I need a quote for my roof repair 🙏</div>
-      </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Your password" autocomplete="current-password">
+      <a href="reset-password.html" class="forgot-link">Forgot your password?</a>
     </div>
-  </div>
-</section>
 
-<!-- SOCIAL PROOF -->
-<div class="social-proof">
-  <p>Trusted by local businesses across the US</p>
-  <div class="stats-row">
-    <div class="stat-item"><div class="num">87%</div><div class="label">of callers don't leave voicemail</div></div>
-    <div class="stat-item"><div class="num">&lt;5s</div><div class="label">average auto-reply time</div></div>
-    <div class="stat-item"><div class="num">3x</div><div class="label">more leads captured</div></div>
-    <div class="stat-item"><div class="num">$0</div><div class="label">setup fee</div></div>
+    <button class="btn-submit" id="loginBtn">Sign In</button>
+
+    <div class="divider"><span>Don't have an account?</span></div>
+    <div class="signup-link">
+      <a href="start.html">Create an account →</a>
+    </div>
   </div>
 </div>
 
-<!-- PROBLEM SECTION -->
-<section class="section" id="features">
-  <div class="section-inner">
-    <div class="centered">
-      <div class="section-tag">The Problem</div>
-      <h2 class="section-title">Missed Calls Are Costing You Jobs</h2>
-      <p class="section-sub">Every unanswered call is a potential customer calling your competitor instead.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-stat">87%</div>
-        <h3>Don't Leave Voicemail</h3>
-        <p>Most callers hang up immediately if no one answers. They move on to the next business in the list.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-stat">1st</div>
-        <h3>Speed Wins the Job</h3>
-        <p>The first business to respond wins the customer 78% of the time. Speed is your biggest competitive advantage.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-stat">$1,000s</div>
-        <h3>Lost Every Month</h3>
-        <p>At $500 average job value, just 5 missed calls per week adds up to over $10,000 in lost revenue every month.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section how-bg" id="how-it-works">
-  <div class="section-inner">
-    <div class="centered">
-      <div class="section-tag" style="color:#60a5fa;">How It Works</div>
-      <h2 class="section-title" style="color:white;">Up and Running in Minutes</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.5);">No complicated setup. No IT team required. Just sign up and start capturing leads.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>Sign Up</h3>
-        <p>Create your account and choose your plan. Takes less than 3 minutes.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>Get Your Number</h3>
-        <p>We instantly provision a dedicated local phone number for your business.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Customize Your AI</h3>
-        <p>Tell us about your business so replies sound like they come from your team.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">4</div>
-        <h3>Capture Every Lead</h3>
-        <p>Every missed call gets an instant personalized text reply. You never miss a lead again.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES DETAIL -->
-<section class="section">
-  <div class="section-inner">
-    <div class="features-grid">
-      <div>
-        <div class="section-tag">What You Get</div>
-        <h2 class="section-title">Everything You Need to Capture More Leads</h2>
-        <div class="feature-list" style="margin-top:32px;">
-          <div class="feature-item">
-            <div class="feature-icon">🤖</div>
-            <div>
-              <h3>AI-Powered Replies</h3>
-              <p>Replies are generated by AI trained on your specific business — not generic templates that sound robotic.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">⚡</div>
-            <div>
-              <h3>Instant Response</h3>
-              <p>Texts go out in under 5 seconds of a missed call. Fast enough to catch customers before they call someone else.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">📱</div>
-            <div>
-              <h3>Dedicated Local Number</h3>
-              <p>Your business gets its own local phone number — customers see a familiar area code, not a random toll-free number.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">📊</div>
-            <div>
-              <h3>Simple Dashboard</h3>
-              <p>See every missed call, every SMS sent, and track your recovered revenue — all in one place.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="feature-visual">
-        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;">Live Activity</div>
-        <div class="fv-row">
-          <span class="fv-label">📞 Missed call — John S.</span>
-          <span class="fv-badge">Just now</span>
-        </div>
-        <div class="fv-row">
-          <span class="fv-label">📨 Auto-reply sent</span>
-          <span class="fv-badge">2s later</span>
-        </div>
-        <div class="fv-row">
-          <span class="fv-label">💬 Customer replied</span>
-          <span class="fv-value" style="color:#34d399;">Lead captured ✓</span>
-        </div>
-        <div class="fv-row">
-          <span class="fv-label">SMS this month</span>
-          <span class="fv-value">247</span>
-        </div>
-        <div class="fv-row">
-          <span class="fv-label">Leads captured</span>
-          <span class="fv-value">247</span>
-        </div>
-        <div class="fv-row">
-          <span class="fv-label">Est. revenue recovered</span>
-          <span class="fv-value" style="color:#34d399;">$24,700</span>
-        </div>
-        <div class="fv-row">
-          <span class="fv-label">Avg. response time</span>
-          <span class="fv-value">4.2 seconds</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CALCULATOR -->
-<section class="section" style="background:var(--gray-50);padding-top:80px;padding-bottom:80px;">
-  <div class="section-inner">
-    <div class="centered">
-      <div class="section-tag">Revenue Calculator</div>
-      <h2 class="section-title">How Much Are Missed Calls Costing You?</h2>
-    </div>
-    <div class="calc-wrap">
-      <div class="calc-inputs">
-        <div>
-          <div class="calc-label">Missed calls per week</div>
-          <input class="calc-input" id="calcMissed" type="number" placeholder="e.g. 10">
-        </div>
-        <div>
-          <div class="calc-label">Average job value ($)</div>
-          <input class="calc-input" id="calcValue" type="number" placeholder="e.g. 500">
-        </div>
-      </div>
-      <div class="calc-result">
-        <div class="calc-result-label">Lost revenue per month</div>
-        <div class="calc-result-amount" id="calcResult">$0</div>
-        <div class="calc-result-sub" id="calcSub">Enter your numbers above</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="section pricing-bg" id="pricing">
-  <div class="section-inner">
-    <div class="centered">
-      <div class="section-tag">Pricing</div>
-      <h2 class="section-title">Simple, Transparent Pricing</h2>
-      <p class="section-sub">No contracts. No setup fees. Cancel anytime.</p>
-    </div>
-
-    <div class="pricing-toggle">
-      <button class="toggle-btn active" id="bizToggle">For Businesses</button>
-      <button class="toggle-btn" id="agencyToggle">For Agencies</button>
-    </div>
-
-    <!-- BUSINESS PRICING -->
-    <div class="pricing-panels active" id="bizPricing">
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="plan-name">Starter</div>
-          <div class="plan-price">$79<span>/mo</span></div>
-          <div class="plan-desc">Perfect for small businesses just getting started with missed call automation.</div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> 500 AI-powered SMS/mo</li>
-            <li><span class="check">✓</span> Dedicated local number</li>
-            <li><span class="check">✓</span> Business dashboard</li>
-            <li><span class="check">✓</span> AI reply personalization</li>
-            <li><span class="check">✓</span> Email support</li>
-          </ul>
-          <a href="signup-business.html" class="plan-btn plan-btn-outline">Get Started</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="featured-badge">Most Popular</div>
-          <div class="plan-name">Growth</div>
-          <div class="plan-price">$149<span>/mo</span></div>
-          <div class="plan-desc">For growing businesses with higher call volume and more customization needs.</div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> 2,000 AI-powered SMS/mo</li>
-            <li><span class="check">✓</span> Dedicated local number</li>
-            <li><span class="check">✓</span> Business dashboard</li>
-            <li><span class="check">✓</span> AI reply personalization</li>
-            <li><span class="check">✓</span> Custom templates</li>
-            <li><span class="check">✓</span> Priority support</li>
-          </ul>
-          <a href="signup-business.html" class="plan-btn plan-btn-solid">Get Started</a>
-        </div>
-        <div class="pricing-card">
-          <div class="plan-name">Pro</div>
-          <div class="plan-price">$249<span>/mo</span></div>
-          <div class="plan-desc">For high-volume businesses that can't afford to miss a single lead.</div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> Unlimited SMS/mo</li>
-            <li><span class="check">✓</span> Dedicated local number</li>
-            <li><span class="check">✓</span> Business dashboard</li>
-            <li><span class="check">✓</span> AI reply personalization</li>
-            <li><span class="check">✓</span> Advanced automation</li>
-            <li><span class="check">✓</span> Priority support</li>
-          </ul>
-          <a href="signup-business.html" class="plan-btn plan-btn-outline">Get Started</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- AGENCY PRICING -->
-    <div class="pricing-panels" id="agencyPricing">
-      <div style="background:var(--indigo-light);border:1px solid rgba(99,102,241,0.2);border-radius:14px;padding:16px 24px;margin-bottom:32px;font-size:14px;color:var(--gray-600);">
-        💡 <strong>Agencies resell each client slot for $150–300/mo.</strong> At Agency Growth with 10 clients billed at $200 each, your agency earns $1,703/mo profit from LeadReply alone.
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="plan-name">Agency Starter</div>
-          <div class="plan-price">$249<span>/mo</span></div>
-          <div class="plan-desc">Manage up to 3 local business clients from one agency dashboard.</div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> Up to 3 clients</li>
-            <li><span class="check">✓</span> Agency dashboard</li>
-            <li><span class="check">✓</span> Per-client AI profiles</li>
-            <li><span class="check">✓</span> Auto-provisioning</li>
-            <li><span class="check">✓</span> Email support</li>
-          </ul>
-          <a href="signup-agency.html" class="plan-btn plan-btn-outline">Get Started</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="featured-badge">Best Value</div>
-          <div class="plan-name">Agency Growth</div>
-          <div class="plan-price">$449<span>/mo</span></div>
-          <div class="plan-desc">Scale your agency with automation for up to 10 local business clients.</div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> Up to 10 clients</li>
-            <li><span class="check">✓</span> Agency dashboard</li>
-            <li><span class="check">✓</span> Per-client AI profiles</li>
-            <li><span class="check">✓</span> Auto-provisioning</li>
-            <li><span class="check">✓</span> Priority support</li>
-          </ul>
-          <a href="signup-agency.html" class="plan-btn plan-btn-solid">Get Started</a>
-        </div>
-        <div class="pricing-card">
-          <div class="plan-name">Agency Pro</div>
-          <div class="plan-price">$749<span>/mo</span></div>
-          <div class="plan-desc">Up to 50 clients for agencies ready to scale missed call automation across their roster.</div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> Up to 50 clients</li>
-            <li><span class="check">✓</span> Agency dashboard</li>
-            <li><span class="check">✓</span> Per-client AI profiles</li>
-            <li><span class="check">✓</span> Auto-provisioning</li>
-            <li><span class="check">✓</span> Dedicated support</li>
-          </ul>
-          <a href="signup-agency.html" class="plan-btn plan-btn-outline">Get Started</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="centered">
-      <div class="section-tag">Testimonials</div>
-      <h2 class="section-title">What Our Clients Say</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"We were losing 8-10 calls a week without knowing it. LeadReply caught all of them. We booked 3 new roofing jobs in the first week alone."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">MR</div>
-          <div>
-            <div class="author-name">Marcus R.</div>
-            <div class="author-biz">Houston Roofing Co.</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"My HVAC business runs on referrals and speed. LeadReply texts back customers before I even finish the current job. Game changer."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">DL</div>
-          <div>
-            <div class="author-name">David L.</div>
-            <div class="author-biz">Premier HVAC Services</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I manage 8 clients and LeadReply runs missed call automation for all of them from one dashboard. My clients love it and I added $2,400/mo in recurring revenue."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">JK</div>
-          <div>
-            <div class="author-name">Jessica K.</div>
-            <div class="author-biz">Apex Marketing Agency</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section" style="background:var(--gray-50);" id="faq">
-  <div class="section-inner">
-    <div class="centered">
-      <div class="section-tag">FAQ</div>
-      <h2 class="section-title">Common Questions</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">How does LeadReply know when I miss a call? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">LeadReply gives you a dedicated phone number. When a customer calls that number and nobody answers, our system automatically detects the missed call and sends an AI-generated text back within seconds.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Do I need to forward my current number? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">You have two options. You can use your new LeadReply number as your main business number, or you can set up call forwarding from your existing number to your LeadReply number. Either works perfectly.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Will the AI replies sound like a real person? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">Yes — and this is our biggest differentiator. You fill out your AI business profile with your name, services, hours, and tone preferences. The AI uses all of that to craft replies that sound like they came from a real team member at your business, not a bot.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">How long does setup take? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">Most businesses are fully set up in under 5 minutes. Sign up, pay, and your dedicated number is provisioned automatically. Fill out your AI profile and you're ready to capture leads.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Can I cancel anytime? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">Absolutely. There are no contracts or long-term commitments. You can cancel your subscription at any time from your dashboard and you won't be charged again.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">I'm a marketing agency. Can I resell LeadReply to my clients? <span class="faq-icon">+</span></button>
-        <div class="faq-answer">Yes — our agency plans are built exactly for this. Sign up for an agency plan and you get a dashboard to manage all your clients, each with their own dedicated number and AI profile. Agencies typically resell each client slot for $150-300/mo, making LeadReply a high-margin service to add to your offering.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <h2>Ready to Stop Losing Leads?</h2>
-  <p>Join businesses already capturing more customers with LeadReply.</p>
-  <div class="cta-btns">
-    <a href="start.html" class="btn-white">Start Capturing Leads →</a>
-    <a href="demo.html" class="btn-ghost-white">Book a Demo</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo-text">LeadReply</div>
-        <p>Missed call automation for local businesses and marketing agencies.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Product</h4>
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="demo.html">Book a Demo</a>
-      </div>
-      <div class="footer-links">
-        <h4>For Agencies</h4>
-        <a href="signup-agency.html">Agency Signup</a>
-        <a href="#pricing">Agency Pricing</a>
-        <a href="agency-dashboard.html">Agency Dashboard</a>
-      </div>
-      <div class="footer-links">
-        <h4>Company</h4>
-        <a href="mailto:support@leadreplygroup.com">Contact Us</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms-and-conditions.html">Terms & Conditions</a>
-        <a href="sms-consent.html">SMS Consent Policy</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 LeadReply Group. All rights reserved.</span>
-      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-        <a href="privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a>
-        <a href="terms-and-conditions.html" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;">Terms & Conditions</a>
-        <a href="sms-consent.html" style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;">SMS Consent</a>
-        <span>support@leadreplygroup.com</span>
-      </div>
-    </div>
-  </div>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms-and-conditions.html">Terms & Conditions</a>
+  <span>© 2026 LeadReply Group</span>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// CALCULATOR
-document.getElementById('calcMissed').addEventListener('input', calc);
-document.getElementById('calcValue').addEventListener('input', calc);
-function calc(){
-  var missed = parseFloat(document.getElementById('calcMissed').value)||0;
-  var value  = parseFloat(document.getElementById('calcValue').value)||0;
-  var monthly = missed * value * 4;
-  var annual  = monthly * 12;
-  document.getElementById('calcResult').textContent = '$' + monthly.toLocaleString();
-  document.getElementById('calcSub').textContent = monthly > 0
-    ? "That's $" + annual.toLocaleString() + " lost per year"
-    : 'Enter your numbers above';
-}
+(function(){
 
-// PRICING TOGGLE
-document.getElementById('bizToggle').addEventListener('click', function(){
-  this.classList.add('active');
-  document.getElementById('agencyToggle').classList.remove('active');
-  document.getElementById('bizPricing').classList.add('active');
-  document.getElementById('agencyPricing').classList.remove('active');
-});
-document.getElementById('agencyToggle').addEventListener('click', function(){
-  this.classList.add('active');
-  document.getElementById('bizToggle').classList.remove('active');
-  document.getElementById('agencyPricing').classList.add('active');
-  document.getElementById('bizPricing').classList.remove('active');
+var SUPABASE_URL = 'https://rxnftfnknqhcuvzqmbpu.supabase.co';
+var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4bmZ0Zm5rbnFoY3V2enFtYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NTExNzIsImV4cCI6MjA5MTMyNzE3Mn0.D9Gf5Djqu9-dXbY_X-RskjdAIQQuDQ8Za5ynDI8uZGg';
+var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function showError(msg){ var el=document.getElementById('errorMsg'); el.textContent=msg; el.style.display='block'; document.getElementById('successMsg').style.display='none'; }
+function showSuccess(msg){ var el=document.getElementById('successMsg'); el.textContent=msg; el.style.display='block'; document.getElementById('errorMsg').style.display='none'; }
+function clearMessages(){ document.getElementById('errorMsg').style.display='none'; document.getElementById('successMsg').style.display='none'; }
+
+document.getElementById('loginBtn').addEventListener('click', async function(){
+  clearMessages();
+  var email    = document.getElementById('email').value.trim();
+  var password = document.getElementById('password').value;
+  if(!email || !password){ showError('Please enter your email and password.'); return; }
+
+  var btn = document.getElementById('loginBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> Signing in...';
+
+  try {
+    var result = await sb.auth.signInWithPassword({ email, password });
+    if(result.error) throw result.error;
+
+    var userId = result.data.user.id;
+    var roleResult = await sb.from('user_roles').select('role').eq('user_id', userId).single();
+
+    if(roleResult.error || !roleResult.data){
+      showError('Account not found. Please contact support@leadreplygroup.com');
+      btn.disabled=false; btn.innerHTML='Sign In'; return;
+    }
+
+    var role = roleResult.data.role;
+    if(role === 'admin')         window.location.href = 'admin-dashboard.html';
+    else if(role === 'agency')   window.location.href = 'agency-dashboard.html';
+    else if(role === 'business') window.location.href = 'business-dashboard.html';
+    else { showError('Unknown account type. Contact support@leadreplygroup.com'); btn.disabled=false; btn.innerHTML='Sign In'; }
+
+  } catch(e){
+    var msg = e.message || 'Sign in failed. Please try again.';
+    if(msg.toLowerCase().includes('invalid login')) msg = 'Incorrect email or password. Please try again.';
+    showError(msg);
+    btn.disabled=false; btn.innerHTML='Sign In';
+  }
 });
 
-// FAQ
-document.querySelectorAll('.faq-question').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var item = this.closest('.faq-item');
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
-    if(!isOpen) item.classList.add('open');
-  });
+document.getElementById('password').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') document.getElementById('loginBtn').click();
 });
+
+document.getElementById('email').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') document.getElementById('password').focus();
+});
+
+})();
 </script>
 </body>
 </html>
